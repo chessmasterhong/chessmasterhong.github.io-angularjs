@@ -1,1 +1,43 @@
 <p>Here is where I showcase projects I have worked on, both past and present. This includes some of my side projects as well.</p>
+
+<div class="projects">
+    {% for project in site.categories.projects %}
+    {% capture row %}{% cycle '0', '1' %}{% endcapture %}
+    {% if row == '0' %}
+    <div class="views-row views-row-even">
+    {% else %}
+    <div class="views-row views-row-odd">
+    {% endif %}
+        <a href="{{ project.url }}">
+            <div class="img_container" style="{{ project.thumbnail_style }}"></div>
+        </a>
+        <div class="proj_text">
+            <div class="proj_title">
+                <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
+            </div>
+            <div class="proj_desc">
+                {{ project.excerpt }}
+                <p>
+                    {% if project.url_details != '' %}
+                    <a href="{{ project.url }}">
+                        <i class="fa fa-info-circle"></i> Read more
+                    </a>
+                    {% endif %}
+                    {% if project.url_demo != '' %}
+                    {% if project.url_details != '' %}|{% endif %}
+                    <a href="{{ project.url_demo }}" target="_blank">
+                        <i class="fa fa-cogs"></i> Live Demo
+                    </a>
+                    {% endif %}
+                    {% if project.url_source != '' %}
+                    {% if project.url_details != '' or project.url_demo != '' %}|{% endif %}
+                    <a href="{{ project.url_source }}" target="_blank">
+                        <i class="fa fa-code"></i> View Source
+                    </a>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

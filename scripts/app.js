@@ -1,9 +1,9 @@
-'use strict';
-
 var mySite = angular.module('mySite', [
     'ui.router'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
+    'use strict';
+
     $stateProvider
         .state('home', {
             url: '',
@@ -18,7 +18,8 @@ var mySite = angular.module('mySite', [
             templateUrl: 'partials/projects.partial.html',
             //controller: 'projectsController',
             data: {
-                pageTitle: 'Projects'
+                pageTitle: 'Projects',
+                stylesheets: ['styles/projects.css']
             }
         })
         .state('resources', {
