@@ -12,5 +12,13 @@ var mySite = angular.module('mySite', [
             data: {
                 pageTitle: 'Home'
             }
+        })
+        .state('projects', {
+            url: '/projects',
+            templateUrl: 'partials/projects.partial.html',
+            //controller: 'projectsController',
+            data: {
+                pageTitle: 'Projects'
+            }
         });
 });
