@@ -10,7 +10,7 @@ var mySite = angular.module('mySite', [
             templateUrl: 'partials/home.partial.html',
             //controller: 'homeController',
             data: {
-                pageTitle: 'Home'
+                pageTitle: 'Hello World!'
             }
         })
         .state('projects', {
