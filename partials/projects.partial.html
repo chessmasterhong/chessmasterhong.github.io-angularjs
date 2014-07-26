@@ -1,13 +1,7 @@
 <p>Here is where I showcase projects I have worked on, both past and present. This includes some of my side projects as well.</p>
 
 <div class="projects">
-    {% for project in site.categories.projects %}
-    {% capture row %}{% cycle '0', '1' %}{% endcapture %}
-    {% if row == '0' %}
-    <div class="views-row views-row-even">
-    {% else %}
-    <div class="views-row views-row-odd">
-    {% endif %}
+    <div data-ng-repeat="project in [1,2,3]" data-ng-class-even="'views-row views-row-even'" data-ng-class-odd="'views-row views-row-odd'">
         <a href="{{ project.url }}">
             <div class="img_container" style="{{ project.thumbnail_style }}"></div>
         </a>
