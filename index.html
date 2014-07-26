@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-us" data-ng-app="mySite" data-ng-controller="siteController">
     <head>
         <meta charset="utf-8">
 
-        <title></title>
+        <title data-ng-bind="pageTitle + ' | Kevin Chan'">Kevin Chan</title>
+
+        <script src="vendor/angular/angular.js"></script>
+        <script src="vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/siteController.js"></script>
     </head>
 
     <body>
-        <p>Hello World!</p>
+        <div data-ui-view></div>
     </body>
 </html>
