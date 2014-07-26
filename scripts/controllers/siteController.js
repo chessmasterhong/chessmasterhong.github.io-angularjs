@@ -1,6 +1,8 @@
-mySite.controller('siteController', function($scope, $location) {
-    'use strict';
+/* global mySite */
 
+'use strict';
+
+mySite.controller('siteController', function($scope, $location) {
     $scope.siteTitle = 'Kevin Chan';
 
     $scope.$on('$stateChangeSuccess', function(event, toState) {

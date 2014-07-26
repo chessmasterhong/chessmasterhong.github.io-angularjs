@@ -1,5 +1,7 @@
 bower_components
 vendor
 
+server.*
+
 .DS_Store
 thumbs.db

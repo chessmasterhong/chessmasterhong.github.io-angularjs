@@ -1,9 +1,12 @@
+/* global angular */
+/* exported mySite */
+
+'use strict';
+
 var mySite = angular.module('mySite', [
     'ui.router'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
-    'use strict';
-
     $stateProvider
         .state('home', {
             url: '',
