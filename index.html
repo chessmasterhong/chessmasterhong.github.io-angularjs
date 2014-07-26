@@ -25,11 +25,11 @@
                 <h1><a href="/">Kevin Chan</a></h1>
                 <nav>
                     <ul>
-                        <li><a class="active" href="/">Home</a></li>
-                        <li><a href="/#/projects">Projects</a></li>
-                        <li><a href="/#/resources">Resources</a></li>
-                        <li><a href="/#/about">About</a></li>
-                        <li><a href="/#/contact">Contact</a></li>
+                        <li><a data-ng-class="{ active: isActive('') }" href="/">Home</a></li>
+                        <li><a data-ng-class="{ active: isActive('/projects') }" href="#/projects">Projects</a></li>
+                        <li><a data-ng-class="{ active: isActive('/resources') }" href="#/resources">Resources</a></li>
+                        <li><a data-ng-class="{ active: isActive('/about') }" href="#/about">About</a></li>
+                        <li><a data-ng-class="{ active: isActive('/contact') }" href="#/contact">Contact</a></li>
                     </ul>
                 </nav>
             </header>
@@ -47,7 +47,7 @@
                 </p>
                 <small>
                     Copyright &copy; 2014 Kevin Chan.<br>
-                    <a href="/credits">Credits</a>
+                    <a href="#/credits">Credits</a>
                 </small>
             </footer>
         </div>
