@@ -2,6 +2,7 @@
   "name": "chessmasterhong.github.io",
   "dependencies": {
     "angular": "~1.2.21",
-    "angular-ui-router": "~0.2.10"
+    "angular-ui-router": "~0.2.10",
+    "font-awesome": "~4.1.0"
   }
 }
