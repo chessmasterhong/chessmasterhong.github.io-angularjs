@@ -19,7 +19,7 @@ var mySite = angular.module('mySite', [
         .state('projects', {
             url: '/projects',
             templateUrl: 'partials/projects.partial.html',
-            //controller: 'projectsController',
+            controller: 'projectsController',
             data: {
                 pageTitle: 'Projects',
                 stylesheets: ['styles/projects.css']
