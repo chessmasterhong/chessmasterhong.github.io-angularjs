@@ -20,5 +20,29 @@ var mySite = angular.module('mySite', [
             data: {
                 pageTitle: 'Projects'
             }
+        })
+        .state('resources', {
+            url: '/resources',
+            templateUrl: 'partials/resources.partial.html',
+            //controller: 'resourcesController',
+            data: {
+                pageTitle: 'Resources'
+            }
+        })
+        .state('about', {
+            url: '/about',
+            templateUrl: 'partials/about.partial.html',
+            //controller: 'aboutController',
+            data: {
+                pageTitle: 'About'
+            }
+        })
+        .state('contact', {
+            url: '/contact',
+            templateUrl: 'partials/contact.partial.html',
+            //controller: 'contactController',
+            data: {
+                pageTitle: 'Contact'
+            }
         });
 });
