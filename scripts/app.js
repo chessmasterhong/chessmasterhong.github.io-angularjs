@@ -48,5 +48,13 @@ var mySite = angular.module('mySite', [
             data: {
                 pageTitle: 'Contact'
             }
+        })
+        .state('creidts', {
+            url: '/credits',
+            templateUrl: 'partials/credits.partial.html',
+            //controller: 'creditsController',
+            data: {
+                pageTitle: 'Credits'
+            }
         });
 });
