@@ -1,6 +1,8 @@
 bower_components
 vendor
 
+media
+
 server.*
 
 .DS_Store
