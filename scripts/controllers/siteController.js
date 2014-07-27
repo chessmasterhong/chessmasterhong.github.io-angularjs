@@ -2,7 +2,7 @@
 
 'use strict';
 
-mySite.controller('siteController', function($scope, $location) {
+mySite.controller('siteController', function($scope, $state) {
     $scope.siteTitle = 'Kevin Chan';
 
     $scope.$on('$stateChangeSuccess', function(event, toState) {
@@ -13,7 +13,7 @@ mySite.controller('siteController', function($scope, $location) {
         }
     });
 
-    $scope.isActive = function(viewLocation) {
-        return viewLocation === $location.path();
+    $scope.isActive = function(viewState) {
+        return viewState === $state.current.name.split('.')[0];
     };
 });

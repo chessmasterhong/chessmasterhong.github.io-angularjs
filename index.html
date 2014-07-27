@@ -29,17 +29,16 @@
                 <h1><a href="/">Kevin Chan</a></h1>
                 <nav>
                     <ul>
-                        <li><a data-ng-class="{ active: isActive('') }" href="/">Home</a></li>
-                        <li><a data-ng-class="{ active: isActive('/projects') }" href="#/projects">Projects</a></li>
-                        <li><a data-ng-class="{ active: isActive('/resources') }" href="#/resources">Resources</a></li>
-                        <li><a data-ng-class="{ active: isActive('/about') }" href="#/about">About</a></li>
-                        <li><a data-ng-class="{ active: isActive('/contact') }" href="#/contact">Contact</a></li>
+                        <li><a data-ng-class="{ active: isActive('home') }" href="/">Home</a></li>
+                        <li><a data-ng-class="{ active: isActive('projects') }" href="#/projects">Projects</a></li>
+                        <li><a data-ng-class="{ active: isActive('resources') }" href="#/resources">Resources</a></li>
+                        <li><a data-ng-class="{ active: isActive('about') }" href="#/about">About</a></li>
+                        <li><a data-ng-class="{ active: isActive('contact') }" href="#/contact">Contact</a></li>
                     </ul>
                 </nav>
             </header>
 
             <section>
-                <h1 data-ng-bind="pageTitle"></h1>
                 <div data-ui-view></div>
             </section>
 
