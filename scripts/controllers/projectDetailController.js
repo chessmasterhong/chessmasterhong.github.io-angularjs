@@ -1,11 +1,11 @@
 'use strict';
 
-mySite.controller('projectDetailController', function($scope, $location) {
+mySite.controller('projectDetailController', function($scope, $state) {
     $scope.projectDetails = '';
     $scope.viewTitle = '';
     $scope.slides = [];
 
-    var projectIndex = parseInt($location.path().split('/')[2]);
+    var projectIndex = parseInt($state.params.projectIndex);
     if(projectIndex === 0) {
         $scope.viewTitle = 'DocShare';
         $scope.projectDetails = 'docshare.md';
@@ -51,6 +51,6 @@ mySite.controller('projectDetailController', function($scope, $location) {
             { url: 'media/images/fe2.png', caption: 'Player unit preparing to attack an enemy unit.' }
         ];
     } else {
-        console.log('Project does not exist.');
+        $state.go('404');
     }
 });
