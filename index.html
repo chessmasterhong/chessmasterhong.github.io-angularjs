@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
 
-        <title data-ng-bind="pageTitle + ' | Kevin Chan'">Kevin Chan</title>
+        <title data-ng-bind="pageTitle + ' - Kevin Chan'">Kevin Chan</title>
 
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,700,700italic">
         <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
@@ -35,7 +35,7 @@
             </header>
 
             <section>
-                <h1>{{ pageTitle }}</h1>
+                <h1 data-ng-bind="pageTitle"></h1>
                 <div data-ui-view></div>
             </section>
 
