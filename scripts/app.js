@@ -10,35 +10,43 @@ var mySite = angular.module('mySite', [
     $stateProvider
         // ---------- Home ---------- //
         .state('home', {
-            url: '',
+            abstract: true,
             templateUrl: 'partials/home.partial.html',
             data: {
-                pageTitle: 'Hello World!'
+                pageTitle: 'Home'
             }
+        })
+        .state('home.altLinkA', {
+            url: ''
+        })
+        .state('home.altLinkB', {
+            url: '/'
+        })
+        .state('home.altLinkC', {
+            url: '/home'
         })
 
         // ---------- Projects ---------- //
         .state('projects', {
             abstract: true,
             url: '/projects',
-            template: '<div data-ui-view></div>'
+            template: '<div data-ui-view></div>',
+            data: {
+                pageTitle: 'Projects',
+            }
         })
         .state('projects.list', {
             url: '',
             templateUrl: 'partials/projectList.partial.html',
             controller: 'projectListController',
             data: {
-                pageTitle: 'Projects',
                 stylesheets: ['styles/projects.css']
             }
         })
         .state('projects.details', {
             url: '/{projectIndex:[0-9]{1,2}}',
             templateUrl: 'partials/projectDetail.partial.html',
-            controller: 'projectDetailController',
-            data: {
-                pageTitle: 'Projects',
-            }
+            controller: 'projectDetailController'
         })
 
         // ---------- Resources ---------- //
