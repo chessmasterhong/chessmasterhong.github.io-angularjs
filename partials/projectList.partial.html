@@ -1,7 +1,7 @@
 <p>Here is where I showcase projects I have worked on, both past and present. This includes some of my side projects as well.</p>
 
 <div class="projects">
-    <div data-ng-repeat="project in projects | reverseFilter" data-ng-class-even="'views-row views-row-even'" data-ng-class-odd="'views-row views-row-odd'">
+    <div data-ng-repeat="project in projects | reverse" data-ng-class-even="'views-row views-row-even'" data-ng-class-odd="'views-row views-row-odd'">
         <a href="{{ project.url_details }}">
             <div class="img_container" style="{{ project.thumbnail_style }}"></div>
         </a>
