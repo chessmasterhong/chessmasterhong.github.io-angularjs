@@ -1,4 +1,3 @@
-/* global angular */
 /* exported mySite */
 
 'use strict';

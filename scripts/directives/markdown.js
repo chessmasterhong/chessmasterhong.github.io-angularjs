@@ -1,4 +1,4 @@
-/* global mySite, Showdown */
+/* global Showdown */
 
 'use strict';
 

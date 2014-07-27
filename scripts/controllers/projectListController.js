@@ -1,5 +1,3 @@
-/* global mySite */
-
 'use strict';
 
 mySite.controller('projectListController', function($scope) {

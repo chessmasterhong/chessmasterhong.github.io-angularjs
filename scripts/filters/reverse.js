@@ -1,5 +1,3 @@
-/* global mySite */
-
 'use strict';
 
 mySite.filter('reverse', function() {

@@ -5,6 +5,6 @@ var gulp = require('gulp'),
 
 gulp.task('lint', function() {
     return gulp.src('./scripts/**/*.js')
-        .pipe(jshint())
+        .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('default'));
 });

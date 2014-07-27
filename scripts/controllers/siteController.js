@@ -1,5 +1,3 @@
-/* global mySite */
-
 'use strict';
 
 mySite.controller('siteController', function($scope, $state) {
