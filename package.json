@@ -1,0 +1,8 @@
+{
+  "name": "chessmasterhong.github.io",
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.8.6",
+    "gulp-jshint": "^1.8.0"
+  }
+}
