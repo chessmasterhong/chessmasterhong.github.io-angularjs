@@ -39,7 +39,7 @@ var mySite = angular.module('mySite', [
             templateUrl: 'partials/projectList.partial.html',
             controller: 'projectListController',
             data: {
-                stylesheets: ['styles/projects.css']
+                stylesheets: ['styles/project_list.css']
             }
         })
         .state('projects.details', {
