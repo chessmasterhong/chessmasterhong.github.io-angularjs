@@ -8,14 +8,16 @@ var mySite = angular.module('mySite', [
 ])
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
+        // ---------- Home ---------- //
         .state('home', {
             url: '',
             templateUrl: 'partials/home.partial.html',
-            //controller: 'homeController',
             data: {
                 pageTitle: 'Hello World!'
             }
         })
+
+        // ---------- Projects ---------- //
         .state('projects', {
             abstract: true,
             url: '/projects',
@@ -31,44 +33,58 @@ var mySite = angular.module('mySite', [
             }
         })
         .state('projects.details', {
-            url: '/{projectId:[0-9]{1,2}}',
+            url: '/{projectIndex:[0-9]{1,2}}',
             templateUrl: 'partials/projectDetail.partial.html',
             controller: 'projectDetailController',
             data: {
                 pageTitle: 'Projects',
-                stylesheets: []
             }
         })
+
+        // ---------- Resources ---------- //
         .state('resources', {
             url: '/resources',
             templateUrl: 'partials/resources.partial.html',
-            //controller: 'resourcesController',
             data: {
                 pageTitle: 'Resources'
             }
         })
+
+        // ---------- About ---------- //
         .state('about', {
             url: '/about',
             templateUrl: 'partials/about.partial.html',
-            //controller: 'aboutController',
             data: {
                 pageTitle: 'About'
             }
         })
+
+        // ---------- Contact ---------- //
         .state('contact', {
             url: '/contact',
             templateUrl: 'partials/contact.partial.html',
-            //controller: 'contactController',
             data: {
                 pageTitle: 'Contact'
             }
         })
-        .state('creidts', {
+
+        // ---------- Credits ---------- //
+        .state('credits', {
             url: '/credits',
             templateUrl: 'partials/credits.partial.html',
-            //controller: 'creditsController',
             data: {
                 pageTitle: 'Credits'
             }
+        })
+
+        // ---------- Error Handling ---------- //
+        .state('404', {
+            url: '/404',
+            templateUrl: 'partials/404.partial.html',
+            data: {
+                pageTitle: 'Page Not Found'
+            }
         });
+
+    $urlRouterProvider.otherwise('/404');
 });
