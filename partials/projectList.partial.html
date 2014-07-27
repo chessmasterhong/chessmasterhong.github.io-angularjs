@@ -9,7 +9,7 @@
         </a>
         <div class="proj_text">
             <div class="proj_title">
-                <h2><a href="#/projects/{{ $index }}" data-ng-bind="project.title"></a></h2>
+                <h2><a href="#/projects/{{ projects.length - $index - 1 }}" data-ng-bind="project.title"></a></h2>
             </div>
             <div class="proj_desc">
                 <p data-ng-bind="project.excerpt"></p>
