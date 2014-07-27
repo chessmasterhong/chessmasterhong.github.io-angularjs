@@ -4,7 +4,7 @@
 
 <div class="projects">
     <div data-ng-repeat="project in projects | reverse" data-ng-class-even="'views-row views-row-even'" data-ng-class-odd="'views-row views-row-odd'">
-        <a href="{{ project.url_details }}">
+        <a href="#/projects/{{ projects.length - $index - 1 }}">
             <div class="img_container" style="{{ project.thumbnail_style }}"></div>
         </a>
         <div class="proj_text">
@@ -14,14 +14,14 @@
             <div class="proj_desc">
                 <p data-ng-bind="project.excerpt"></p>
                 <p>
-                    <a href="{{ project.url_details }}" data-ng-show="project.url_details">
+                    <a href="#/projects/{{ projects.length - $index - 1 }}">
                         <i class="fa fa-info-circle"></i> Read more
                     </a>
-                    <span data-ng-show="project.url_details && project.url_demo">|</span>
+                    <span data-ng-show="project.url_demo">|</span>
                     <a href="{{ project.url_demo }}" target="_blank" data-ng-show="project.url_demo">
                         <i class="fa fa-cogs"></i> Live Demo
                     </a>
-                    <span data-ng-show="(project.url_demo && project.url_source) || (project.url_details && project.url_source)">|</span>
+                    <span data-ng-show="(project.url_demo && project.url_source) || project.url_source">|</span>
                     <a href="{{ project.url_source }}" target="_blank" data-ng-show="project.url_source">
                         <i class="fa fa-code"></i> View Source
                     </a>
