@@ -17,12 +17,26 @@ var mySite = angular.module('mySite', [
             }
         })
         .state('projects', {
+            abstract: true,
             url: '/projects',
-            templateUrl: 'partials/projects.partial.html',
-            controller: 'projectsController',
+            template: '<div data-ui-view></div>'
+        })
+        .state('projects.list', {
+            url: '',
+            templateUrl: 'partials/projectList.partial.html',
+            controller: 'projectListController',
             data: {
                 pageTitle: 'Projects',
                 stylesheets: ['styles/projects.css']
+            }
+        })
+        .state('projects.details', {
+            url: '/{projectId:[0-9]{1,2}}',
+            templateUrl: 'partials/projectDetail.partial.html',
+            controller: 'projectDetailController',
+            data: {
+                pageTitle: 'Projects',
+                stylesheets: []
             }
         })
         .state('resources', {
