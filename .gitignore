@@ -1,8 +1,8 @@
 bower_components
+fonts
+media
 node_modules
 vendor
-
-media
 
 server.*
 
