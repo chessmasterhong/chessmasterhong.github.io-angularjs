@@ -7,14 +7,9 @@
 }
 
 .projects .views-row .img_container {
-    background-repeat: no-repeat;
     box-shadow: 2px 2px 4px 2px #999999;
     -moz-box-shadow: 2px 2px 4px 2px #999999;
     -webkit-box-shadow: 2px 2px 4px 2px #999999;
-    height: 240px;
-    overflow: hidden;
-    position: relative;
-    width: 240px;
 }
 
 .projects .views-row-even .img_container {
@@ -43,10 +38,6 @@
 
 .projects .views-row .proj_text .proj_title h2 {
     margin: 5px 0 10px;
-}
-
-.projects .views-row .proj_text .proj_desc p {
-    margin: 10px 0;
 }
 
 
