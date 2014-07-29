@@ -4,6 +4,7 @@ requirejs.config({
     baseUrl: 'scripts',
     paths: {
         angular: '../vendor/angular/angular',
+        domReady: '../vendor/domReady/ready',
         uiRouter: '../vendor/angular-ui-router/release/angular-ui-router.min'
     },
     shim: {
