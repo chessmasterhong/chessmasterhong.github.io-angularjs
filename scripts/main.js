@@ -1,5 +1,3 @@
-'use strict';
-
 requirejs.config({
     baseUrl: 'scripts',
     paths: {
@@ -17,9 +15,10 @@ define([
     'angular',
     'uiRouter',
     'app'
-], function(require, angular, router, app) {
-    var $html = angular.element(document.getElementsByTagName('html')[0]);
-    angular.element().ready(function() {
-        angular.resumeBootstrap([app['name']]);
+], function(require, angular, app) {
+    'use strict';
+
+    require(['domReady'], function(document) {
+        angular.bootstrap(document, ['mySite'])
     });
 });
