@@ -46,4 +46,6 @@ mySite.controller('projectListController', function($scope) {
             excerpt: 'Fire Emblem: Chronicles of the Abyss is a web-based remake of Fire Emblem: Blazing Sword, a turn-based strategy role playing game for the Game Boy Advance, but with a different main character and plot twist. The game was built solely for educational purposes under the City College of New York chapter of the Association for Computing Machinery Game Development Student Interest Group. The game was developed in JavaScript utilizing the HTML5 canvas using the ImpactJS game engine. The main goals of this project are to recreate a game that we enjoyed playing, to create a fully completed, quality game, and to give back to the ImpactJS community by open-sourcing the code so as to assist other developers on how to create similar features in their own game. Furthermore, we wanted to see what ImpactJS was truly capable of and to push the limits of the game engine beyond what we had initially thought was possible.'
         }
     ];
+
+    $scope.projects.reverse();
 });
