@@ -2,23 +2,24 @@ requirejs.config({
     baseUrl: 'scripts',
     paths: {
         angular: '../vendor/angular/angular',
-        domReady: '../vendor/domReady/ready',
+        domReady: '../vendor/requirejs-domready/domReady',
         uiRouter: '../vendor/angular-ui-router/release/angular-ui-router.min'
     },
     shim: {
-        angular: { 'exports' : 'angular' }
+        angular: { 'exports': 'angular' },
+        uiRouter: { deps: ['angular'] }
     }
 });
 
 define([
     'require',
     'angular',
-    'uiRouter',
-    'app'
-], function(require, angular, app) {
+    'app',
+    'routes'
+], function(require, angular) {
     'use strict';
 
-    require(['domReady'], function(document) {
-        angular.bootstrap(document, ['mySite'])
+    require(['domReady!'], function(document) {
+        angular.bootstrap(document, ['app']);
     });
 });
