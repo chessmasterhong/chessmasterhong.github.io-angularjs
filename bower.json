@@ -5,6 +5,7 @@
     "angular-ui-router": "~0.2.10",
     "font-awesome": "~4.1.0",
     "requirejs": "~2.1.14",
-    "requirejs-domready": "~2.0.1"
+    "requirejs-domready": "~2.0.1",
+    "almond": "~0.2.9"
   }
 }
