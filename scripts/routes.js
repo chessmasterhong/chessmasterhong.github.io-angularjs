@@ -3,7 +3,7 @@ define([
 ], function(app) {
     'use strict';
 
-    return mySite.config(function($stateProvider) {
+    return app.config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
             // ---------- Home ---------- //
             .state('home', {
