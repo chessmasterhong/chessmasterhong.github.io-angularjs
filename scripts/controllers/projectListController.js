@@ -3,7 +3,7 @@ define([
 ], function(controllers) {
     'use strict';
 
-    controllers.controller('projectListController', function($scope) {
+    controllers.controller('projectListController', function($scope, ngDialog) {
         $scope.projects = [];
         $scope.projects = [
             {
@@ -51,5 +51,12 @@ define([
         ];
 
         $scope.projects.reverse();
+
+        $scope.openDialog = function() {
+            ngDialog.open({
+                template: '<p>Hello World!</p>',
+                plain: true
+            });
+        }
     });
 });
