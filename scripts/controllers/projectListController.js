@@ -54,8 +54,7 @@ define([
 
         $scope.openDialog = function() {
             ngDialog.open({
-                template: '<p>Hello World!</p>',
-                plain: true
+                template: 'partials/templates/dialogBox.html'
             });
         }
     });
