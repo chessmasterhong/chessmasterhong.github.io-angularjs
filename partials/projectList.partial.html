@@ -16,15 +16,15 @@
                 <p data-ng-bind="project.excerpt"></p>
                 <p>
                     <a href="#/projects/{{ projects.length - $index - 1 }}">
-                        <i class="fa fa-info-circle"></i> Read more
+                        <i class="icon-info-circled"></i> Read more
                     </a>
                     <span class="spacer" data-ng-show="project.url_demo"></span>
                     <a href="{{ project.url_demo }}" target="_blank" data-ng-show="project.url_demo">
-                        <i class="fa fa-cogs"></i> Live Demo
+                        <i class="icon-cog-alt"></i> Live Demo
                     </a>
                     <span class="spacer" data-ng-show="(project.url_demo && project.url_source) || project.url_source"></span>
                     <a href="{{ project.url_source }}" target="_blank" data-ng-show="project.url_source">
-                        <i class="fa fa-code"></i> View Source
+                        <i class="icon-code"></i> View Source
                     </a>
                 </p>
             </div>
