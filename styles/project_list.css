@@ -40,6 +40,9 @@
     margin: 5px 0 10px;
 }
 
+.spacer { margin: 0 2px; }
+.spacer:before { content: '|'; }
+
 
 /* Responsive Adjustments */
 
