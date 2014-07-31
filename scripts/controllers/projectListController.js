@@ -52,9 +52,12 @@ define([
 
         $scope.projects.reverse();
 
-        $scope.openDialog = function() {
+        $scope.openDialog = function(projectIndex) {
+            $scope.projectIndex = parseInt(projectIndex);
+
             ngDialog.open({
-                template: 'partials/templates/dialogBox.html'
+                template: 'partials/templates/dialogBox.html',
+                scope: $scope
             });
         }
     });
