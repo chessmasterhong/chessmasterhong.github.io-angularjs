@@ -6,6 +6,7 @@
     "requirejs": "~2.1.14",
     "requirejs-domready": "~2.0.1",
     "almond": "~0.2.9",
-    "ngDialog": "~0.2.4"
+    "ngDialog": "~0.2.4",
+    "angular-animate": "~1.2.21"
   }
 }
