@@ -8,7 +8,7 @@ define([
             // ---------- Home ---------- //
             .state('home', {
                 abstract: true,
-                templateUrl: 'partials/home.partial.html',
+                templateUrl: 'partials/views/home.html',
                 data: {
                     pageTitle: 'Home'
                 }
@@ -34,7 +34,7 @@ define([
             })
             .state('projects.list', {
                 url: '',
-                templateUrl: 'partials/projectList.partial.html',
+                templateUrl: 'partials/views/projectList.html',
                 controller: 'projectListController',
                 data: {
                     stylesheets: ['styles/project_list.css']
@@ -42,14 +42,14 @@ define([
             })
             .state('projects.details', {
                 url: '/{projectIndex:[0-9]{1,2}}',
-                templateUrl: 'partials/projectDetail.partial.html',
+                templateUrl: 'partials/views/projectDetail.html',
                 controller: 'projectDetailController'
             })
 
             // ---------- Resources ---------- //
             .state('resources', {
                 url: '/resources',
-                templateUrl: 'partials/resources.partial.html',
+                templateUrl: 'partials/views/resources.html',
                 data: {
                     pageTitle: 'Resources'
                 }
@@ -58,7 +58,7 @@ define([
             // ---------- About ---------- //
             .state('about', {
                 url: '/about',
-                templateUrl: 'partials/about.partial.html',
+                templateUrl: 'partials/views/about.html',
                 data: {
                     pageTitle: 'About'
                 }
@@ -67,7 +67,7 @@ define([
             // ---------- Contact ---------- //
             .state('contact', {
                 url: '/contact',
-                templateUrl: 'partials/contact.partial.html',
+                templateUrl: 'partials/views/contact.html',
                 data: {
                     pageTitle: 'Contact'
                 }
@@ -76,7 +76,7 @@ define([
             // ---------- Credits ---------- //
             .state('credits', {
                 url: '/credits',
-                templateUrl: 'partials/credits.partial.html',
+                templateUrl: 'partials/views/credits.html',
                 data: {
                     pageTitle: 'Credits'
                 }
@@ -85,7 +85,7 @@ define([
             // ---------- Error Handling ---------- //
             .state('404', {
                 url: '/404',
-                templateUrl: 'partials/404.partial.html',
+                templateUrl: 'partials/views/404.html',
                 data: {
                     pageTitle: 'Page Not Found'
                 }
