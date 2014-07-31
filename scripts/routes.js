@@ -43,7 +43,10 @@ define([
             .state('projects.details', {
                 url: '/{projectIndex:[0-9]{1,2}}',
                 templateUrl: 'partials/views/projectDetail.html',
-                controller: 'projectDetailController'
+                controller: 'projectDetailController',
+                data: {
+                    stylesheets: ['styles/project_detail.css']
+                }
             })
 
             // ---------- Resources ---------- //
