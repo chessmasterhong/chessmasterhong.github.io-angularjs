@@ -1,13 +1,26 @@
 .slider {
-    max-height: 440px;
-    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
     position: relative;
 }
 
 .slide {
     left: 0;
     position: absolute;
+    text-align: center;
     top: 0;
+    width: 100%;
+}
+
+.slide img {
+    max-height: 440px;
+    max-width: 100%;
+}
+
+.slide .caption {
+    background: #cccccc;
+    font-size: small;
+    padding: 5px 15px;
 }
 
 .arrow img {
@@ -15,14 +28,14 @@
 }
 
 .arrow_left {
-    left: 20px;
+    left: 10px;
     position: absolute;
     top: 204px;
 }
 
 .arrow_right {
     position: absolute;
-    right: 20px;
+    right: 10px;
     top: 204px;
 }
 
