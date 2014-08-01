@@ -1,0 +1,13 @@
+<div class="slider">
+    <div class="slide" data-ng-repeat="slide in slides" data-ng-show="slide.visible">
+        <img data-ng-src="{{ slide.image }}">
+    </div>
+    <div class="arrows">
+        <a href="#" data-ng-click="prev()">
+            <img src="media/images/left-arrow.png">
+        </a>
+        <a href="#" data-ng-click="next()">
+            <img src="media/images/right-arrow.png">
+        </a>
+    </div>
+</div>
