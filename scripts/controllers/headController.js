@@ -3,7 +3,7 @@ define([
 ], function(controllers) {
     'use strict';
 
-    controllers.controller('siteController', function($scope, $state) {
+    controllers.controller('headController', function($scope) {
         $scope.siteTitle = 'Kevin Chan';
 
         $scope.$on('$stateChangeSuccess', function(event, toState) {
@@ -13,9 +13,5 @@ define([
                 $scope.stylesheets = toState.data.stylesheets;
             }
         });
-
-        $scope.isActive = function(viewState) {
-            return viewState === $state.current.name.split('.')[0];
-        };
     });
 });
