@@ -3,6 +3,18 @@
     position: relative;
 }
 
+.slider > .arrow {
+    opacity: 0;
+    transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -o-transition: opacity .25s ease-in-out;
+}
+
+.slider:hover > .arrow {
+    opacity: 1;
+}
+
 .slide {
     left: 0;
     position: absolute;
@@ -17,14 +29,14 @@
 }
 
 .slide .caption {
-    background: #cccccc;
+    background: #e5e5e5;
     font-size: small;
     padding: 5px 15px;
 }
 
 .arrow img { height: 32px; }
 
-.arrow_left, .arrow_right {
+.arrow {
     position: absolute;
     top: 204px;
 }
