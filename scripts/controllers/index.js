@@ -2,4 +2,4 @@ define([
     './siteController',
     './projectListController',
     './projectDetailController'
-], function () {});
+], function() {});
