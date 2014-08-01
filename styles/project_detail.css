@@ -1,12 +1,43 @@
-.slide-container {
+.slider {
     max-height: 440px;
     max-width: 100%;
+    position: relative;
 }
 
-.slide-image {
-    text-align: center;
+.slide {
+    left: 0;
+    position: absolute;
+    top: 0;
 }
 
-.slide-caption {
-    text-align: center;
+.arrow img {
+    height: 32px;
+}
+
+.arrow_left {
+    left: 20px;
+    position: absolute;
+    top: 204px;
+}
+
+.arrow_right {
+    position: absolute;
+    right: 20px;
+    top: 204px;
+}
+
+.slide.ng-hide-add, .slide.ng-hide-remove {
+    display: block !important;
+    -webkit-transition: 0.5s linear all;
+    -moz-transition: 0.5s linear all;
+    -o-transition: 0.5s linear all;
+    transition: 0.5s linear all;
+}
+
+.slide.ng-hide-add.ng-hide-add-active, .slide.ng-hide-remove {
+    opacity: 0;
+}
+
+.slide.ng-hide-add, .slide.ng-hide-remove.ng-hide-remove-active {
+    opacity: 1;
 }
