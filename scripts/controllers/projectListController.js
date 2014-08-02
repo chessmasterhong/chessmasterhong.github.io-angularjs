@@ -4,9 +4,6 @@ define([
     'use strict';
 
     controllers.controller('projectListController', ['$scope', 'projectsFactory', function($scope, projectsFactory) {
-        $scope.projects = [];
-        $scope.projects = projectsFactory.getProjects();
-
-        $scope.projects.reverse();
+        $scope.projects = projectsFactory.getProjects() || [];
     }]);
 });

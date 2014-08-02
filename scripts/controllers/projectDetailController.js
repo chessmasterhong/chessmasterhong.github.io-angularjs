@@ -4,16 +4,11 @@ define([
     'use strict';
 
     controllers.controller('projectDetailController', ['$scope', '$state', 'projectsFactory', 'ngDialog', function($scope, $state, projectsFactory, ngDialog) {
-        $scope.projectDetails = '';
-        $scope.viewTitle = '';
-        $scope.slides = [];
-
-        var projectIndex = parseInt($state.params.projectIndex);
-        if(projectIndex !== null) {
-            var project = projectsFactory.getProjects(projectIndex);
-            $scope.urlDetails = project.urlDetails;
-            $scope.viewTitle = project.title;
-            $scope.slides = project.slides;
+        var project = projectsFactory.getProjects(projectsFactory.getProjectCount() - parseInt($state.params.projectIndex) - 1);
+        if(project !== null) {
+            $scope.urlDetails = project.urlDetails || '';
+            $scope.viewTitle = project.title || '';
+            $scope.slides = project.slides || [];
         } else {
             $state.go('404');
         }
