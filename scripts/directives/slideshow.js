@@ -12,14 +12,27 @@ define([
                 slides: '='
             },
             link: function(scope) {
+                var timer;
+
+                var sliderTimer = function() {
+                    timer = $timeout(function() {
+                        scope.next();
+                    }, 5000);
+                };
+                sliderTimer();
+
                 scope.currentSlideIndex = 0;
 
                 scope.next = function() {
-                    scope.currentSlideIndex = scope.currentSlideIndex < scope.slides.length - 1 ? scope.currentSlideIndex + 1 : 0;
+                    scope.currentSlideIndex = (scope.currentSlideIndex + 1) % scope.slides.length;
+                    $timeout.cancel(timer);
+                    timer = $timeout(sliderTimer, 5000);
                 };
 
                 scope.prev = function() {
-                    scope.currentSlideIndex = scope.currentSlideIndex > 0 ? scope.currentSlideIndex - 1 : scope.slides.length - 1;
+                    scope.currentSlideIndex = scope.currentSlideIndex > 0 ? (scope.currentSlideIndex - 1) % scope.slides.length : scope.slides.length - 1;
+                    $timeout.cancel(timer);
+                    timer = $timeout(sliderTimer, 5000);
                 };
 
                 scope.$watch('currentSlideIndex', function() {
@@ -28,15 +41,6 @@ define([
                     });
                     scope.slides[scope.currentSlideIndex].visible = true;
                 });
-
-                var timer;
-                var sliderTimer = function() {
-                    timer = $timeout(function() {
-                        scope.next();
-                        timer = $timeout(sliderTimer, 6000);
-                    }, 6000);
-                };
-                sliderTimer();
 
                 scope.$on('$destroy', function() {
                     $timeout.cancel(timer);
