@@ -19,12 +19,12 @@
                     <a href="#/projects/{{ projects.length - $index - 1 }}">
                         <i class="icon-info-circled"></i> Read more
                     </a>
-                    <span class="spacer" data-ng-show="project.url_demo"></span>
-                    <a href="{{ project.url_demo }}" target="_blank" data-ng-show="project.url_demo">
+                    <span class="spacer" data-ng-show="project.urlDemo"></span>
+                    <a href="{{ project.urlDemo }}" target="_blank" data-ng-show="project.urlDemo">
                         <i class="icon-cog-alt"></i> Live Demo
                     </a>
-                    <span class="spacer" data-ng-show="(project.url_demo && project.url_source) || project.url_source"></span>
-                    <a href="{{ project.url_source }}" target="_blank" data-ng-show="project.url_source">
+                    <span class="spacer" data-ng-show="(project.urlDemo && project.urlSource) || project.urlSource"></span>
+                    <a href="{{ project.urlSource }}" target="_blank" data-ng-show="project.urlSource">
                         <i class="icon-code"></i> View Source
                     </a>
                 </p>
