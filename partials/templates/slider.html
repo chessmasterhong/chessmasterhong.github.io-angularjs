@@ -1,6 +1,6 @@
 <div class="slider">
     <div class="slide" data-ng-repeat="slide in slides" data-ng-show="slide.visible">
-        <img data-ng-src="{{ slide.image }}">
+        <img data-ng-src="{{ slide.image }}" alt="{{ slide.caption }}">
         <p class="caption" data-ng-bind="slide.caption"></p>
     </div>
     <div class="arrow arrow_left">
