@@ -5,7 +5,7 @@ requirejs.config({
     paths: {
         almond: '../vendor/almond/almond',
         angular: '../vendor/angular/angular',
-        domReady: '../vendor/requirejs-domready/domReady',
+        domReady: '../vendor/requirejs-domready/domReady.min',
         ngAnimate: '../vendor/angular-animate/angular-animate.min',
         ngDialog: '../vendor/ngDialog/js/ngDialog.min',
         uiRouter: '../vendor/angular-ui-router/release/angular-ui-router.min'
