@@ -11,8 +11,8 @@ define([
         var projectIndex = parseInt($state.params.projectIndex);
         if(projectIndex !== null) {
             var project = projectsFactory.getProjects(projectIndex);
-            $scope.projectDetails = project.projectDetails;
-            $scope.viewTitle = project.viewTitle;
+            $scope.urlDetails = project.urlDetails;
+            $scope.viewTitle = project.title;
             $scope.slides = project.slides;
         } else {
             $state.go('404');
