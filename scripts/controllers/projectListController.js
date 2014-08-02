@@ -56,7 +56,7 @@ define([
             $scope.projectIndex = parseInt(projectIndex);
 
             ngDialog.open({
-                template: 'partials/templates/dialogBox.html',
+                template: CONFIG.PATH.TMPL + 'dialogBox.html',
                 scope: $scope
             });
         }

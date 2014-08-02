@@ -7,7 +7,7 @@ define([
         return {
             restrict: 'A',
             replace: true,
-            templateUrl: 'partials/templates/slider.html',
+            templateUrl: CONFIG.PATH.TMPL + 'slider.html',
             scope: {
                 slides: '='
             },
