@@ -3,7 +3,7 @@ define([
 ], function(controllers) {
     'use strict';
 
-    controllers.controller('projectListController', ['$scope', 'ngDialog', function($scope, ngDialog) {
+    controllers.controller('projectListController', ['$scope', function($scope) {
         $scope.projects = [];
         $scope.projects = [
             {
@@ -51,14 +51,5 @@ define([
         ];
 
         $scope.projects.reverse();
-
-        $scope.openDialog = function(projectIndex) {
-            $scope.projectIndex = parseInt(projectIndex);
-
-            ngDialog.open({
-                template: CONFIG.PATH.TMPL + 'dialogBox.html',
-                scope: $scope
-            });
-        };
     }]);
 });

@@ -6,8 +6,7 @@
 
 <div class="projects">
     <div data-ng-repeat="project in projects | filter: { title: filter.projectTitle }" data-ng-class-even="'views-row views-row-even'" data-ng-class-odd="'views-row views-row-odd'">
-        <!--<a href="#/projects/{{ projects.length - $index - 1 }}">-->
-        <a data-ng-click="openDialog($index)" href="javascript:void(0)">
+        <a href="#/projects/{{ projects.length - $index - 1 }}">
             <img class="img_container" data-ng-src="{{ project.thumbnail }}" alt="Thumbnail for {{ project.title }}.">
         </a>
         <div class="proj_text">

@@ -45,7 +45,11 @@ define([
                 templateUrl: 'partials/views/projectDetail.html',
                 controller: 'projectDetailController',
                 data: {
-                    stylesheets: ['styles/project_detail.css']
+                    stylesheets: [
+                        'styles/project_detail.css',
+                        'vendor/ngDialog/css/ngDialog.min.css',
+                        'vendor/ngDialog/css/ngDialog-theme-default.min.css'
+                    ]
                 }
             })
 

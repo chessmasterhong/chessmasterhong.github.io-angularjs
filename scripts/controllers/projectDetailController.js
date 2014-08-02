@@ -3,7 +3,7 @@ define([
 ], function(controllers) {
     'use strict';
 
-    controllers.controller('projectDetailController', ['$scope', '$state', function($scope, $state) {
+    controllers.controller('projectDetailController', ['$scope', '$state', 'ngDialog', function($scope, $state, ngDialog) {
         $scope.projectDetails = '';
         $scope.viewTitle = '';
         $scope.slides = [];
@@ -56,5 +56,12 @@ define([
         } else {
             $state.go('404');
         }
+
+        $scope.openDialog = function() {
+            ngDialog.open({
+                template: CONFIG.PATH.TMPL + 'dialogBox.html',
+                scope: $scope
+            });
+        };
     }]);
 });
