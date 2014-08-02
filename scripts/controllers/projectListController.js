@@ -59,6 +59,6 @@ define([
                 template: CONFIG.PATH.TMPL + 'dialogBox.html',
                 scope: $scope
             });
-        }
+        };
     }]);
 });

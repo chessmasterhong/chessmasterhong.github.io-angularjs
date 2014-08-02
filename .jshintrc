@@ -26,6 +26,7 @@
 
     // Custom globals
     "globals": {
+        "CONFIG": true,
         "define": true
     }
 }
