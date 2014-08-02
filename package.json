@@ -8,6 +8,7 @@
     "gulp-jshint": "^1.8.0",
     "gulp-webserver": "^0.4.0",
     "jshint-stylish": "^0.4.0",
+    "karma": "^0.12.19",
     "mocha": "^1.21.3",
     "mocha-phantomjs": "^3.5.0",
     "phantomjs": "^1.9.7-15",

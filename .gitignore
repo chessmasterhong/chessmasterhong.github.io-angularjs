@@ -4,6 +4,7 @@ media
 media_original
 node_modules
 vendor
+test
 
 server.*
 
