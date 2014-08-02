@@ -98,7 +98,7 @@ define([
 
         factory.getProjectCount = function() {
             return projects.length;
-        }
+        };
 
         return factory;
     });

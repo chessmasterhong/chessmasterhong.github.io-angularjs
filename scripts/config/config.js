@@ -1,3 +1,5 @@
+/* exported CONFIG */
+
 var CONFIG = {
     PATH: {
         IMG: 'media/images/',
