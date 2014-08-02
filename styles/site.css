@@ -350,14 +350,6 @@ a.post-banner:hover {
     margin-bottom: 2em;
 }
 
-/**
- *  Nested lists and blank lines bug fix
- *  http://six.pairlist.net/pipermail/markdown-discuss/2007-October/000869.html
- */
-ul ul, ol ol, ol ul, ul ol {
-    margin-bottom: 0;
-}
-
 
 /* Footer / Sidebar */
 
