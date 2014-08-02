@@ -1,3 +1,5 @@
 var CONFIG = {
-    IMG_DIR_THUMB: 'media/images/thumbnails/'
+    PATH: {
+        IMG_THUMB: 'media/images/thumbnails/'
+    }
 };
