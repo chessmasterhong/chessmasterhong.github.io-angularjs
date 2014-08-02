@@ -36,7 +36,7 @@ define([
                 urlSource: '',
                 excerpt: 'MathFlash is a web-based system designed to address existing problems regarding how mathematical content is displayed on the Internet. It attempts to remedy some of these problems by use of various methods to improve how content is presented and how to get the necessary information across to the user and retaining their learned material more effectively. This project was both an extension of my long-awaited personal desire to create such a system as well as my one-year undergraduate Computer Science capstone project at the City College of New York. The research topics incorporated into this project include adaptive response time-based sequencing and perceptual learning. MathFlash was built using PHP, Python (and a Python library), MySQL, and JavaScript (along with two JavaScript libraries), as well as utilizing HTML5 and CSS3 technologies.',
                 slides: [
-                    { image: CONFIG.PATH.IMG + 'mf0.jpg', caption: '' }
+                    { image: CONFIG.PATH.IMG + 'mf0.jpg', caption: 'Table of contents of topics.' }
                 ]
             },
             {
@@ -60,9 +60,9 @@ define([
                 urlSource: '',
                 excerpt: 'ParallelText is a web application built using Python on top of the Django web framework. This application enables users to read a text in two different languages in parallel. This allows users to compare a translation with an original version of a text. The idea of parallel editions of a text has a long history in publishing. Our goal was to create a web-based tool to easily create parallel texts. In essence, our project was an extension and generalization of this project previously attempted by one of our project members.',
                 slides: [
-                    { image: CONFIG.PATH.IMG + 'pt0.jpg', caption: '' },
-                    { image: CONFIG.PATH.IMG + 'pt1.jpg', caption: '' },
-                    { image: CONFIG.PATH.IMG + 'pt2.jpg', caption: '' }
+                    { image: CONFIG.PATH.IMG + 'pt0.jpg', caption: 'Home page.' },
+                    { image: CONFIG.PATH.IMG + 'pt1.jpg', caption: 'Select a text, a chapter of the specified text, and the languages to display on the left-hand-side and right-hand-side.' },
+                    { image: CONFIG.PATH.IMG + 'pt2.jpg', caption: 'The resulting text displayed in parallel in two different languages' }
                 ]
             },
             {
@@ -73,33 +73,31 @@ define([
                 urlSource: '',
                 excerpt: 'DocShare is a web application designed to allow users to create, modify, search, and share text documents. Think of text editing with a revision control system built in. Users can decide whom to share their documents with, assign read or write permissions to their documents, and view previous versions of their documents. Users with escalated privileges can be assigned to moderate the system. Built using PHP, MySQL, and HTML.',
                 slides: [
-                    { image: CONFIG.PATH.IMG + 'ds0.jpg', caption: '' },
-                    { image: CONFIG.PATH.IMG + 'ds1.jpg', caption: '' },
-                    { image: CONFIG.PATH.IMG + 'ds2.jpg', caption: '' },
-                    { image: CONFIG.PATH.IMG + 'ds3.jpg', caption: '' }
+                    { image: CONFIG.PATH.IMG + 'ds0.jpg', caption: 'Users will be notified of important events related to themselves or their documents via the notification system.' },
+                    { image: CONFIG.PATH.IMG + 'ds1.jpg', caption: 'Users are able to edit documents, grant access, or delete documents based on their current privilege on the document.' },
+                    { image: CONFIG.PATH.IMG + 'ds2.jpg', caption: 'Users are able to iew their invitations to specific documents and decide whether to accept or decline.' },
+                    { image: CONFIG.PATH.IMG + 'ds3.jpg', caption: 'Users are able to view their own or another user\'s profile.' }
                 ]
             }
         ];
 
-        var factory = {};
-
-        factory.getProjects = function(projectIndex) {
-            if(typeof projectIndex !== 'undefined') {
-                projectIndex = parseInt(projectIndex);
-                if(projectIndex >= 0 && projectIndex < projects.length) {
-                    return projects[projectIndex];
+        return {
+            getProjects: function(projectIndex) {
+                if(typeof projectIndex !== 'undefined') {
+                    projectIndex = parseInt(projectIndex);
+                    if(projectIndex >= 0 && projectIndex < projects.length) {
+                        return projects[projectIndex];
+                    } else {
+                        return null;
+                    }
                 } else {
-                    return null;
+                    return projects;
                 }
-            } else {
-                return projects;
+            },
+
+            getProjectCount: function() {
+                return projects.length;
             }
         };
-
-        factory.getProjectCount = function() {
-            return projects.length;
-        };
-
-        return factory;
     });
 });
