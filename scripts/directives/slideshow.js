@@ -1,9 +1,9 @@
 define([
-    './module'
+    'directives/module'
 ], function(directives) {
     'use strict';
 
-    directives.directive('slider', function($timeout) {
+    directives.directive('slider', ['$timeout', function($timeout) {
         return {
             restrict: 'A',
             replace: true,
@@ -42,6 +42,6 @@ define([
                     $timeout.cancel(timer);
                 });
             }
-        }
-    });
+        };
+    }]);
 });

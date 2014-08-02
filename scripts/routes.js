@@ -1,9 +1,9 @@
 define([
-    './app'
+    'app'
 ], function(app) {
     'use strict';
 
-    return app.config(function($stateProvider, $urlRouterProvider) {
+    return app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
         $stateProvider
             // ---------- Home ---------- //
             .state('home', {
@@ -95,5 +95,5 @@ define([
             });
 
         $urlRouterProvider.otherwise('/404');
-    });
+    }]);
 });

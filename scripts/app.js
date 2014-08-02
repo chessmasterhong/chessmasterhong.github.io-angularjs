@@ -3,8 +3,8 @@ define([
     'uiRouter',
     'ngAnimate',
     'ngDialog',
-    './controllers/index',
-    './directives/index'
+    'controllers/index',
+    'directives/index'
 ], function(angular) {
     'use strict';
 

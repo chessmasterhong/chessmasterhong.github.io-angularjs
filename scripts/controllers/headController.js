@@ -1,9 +1,9 @@
 define([
-    './module'
+    'controllers/module'
 ], function(controllers) {
     'use strict';
 
-    controllers.controller('headController', function($scope) {
+    controllers.controller('headController', ['$scope', function($scope) {
         $scope.siteTitle = 'Kevin Chan';
 
         $scope.$on('$stateChangeSuccess', function(event, toState) {
@@ -13,5 +13,5 @@ define([
                 $scope.stylesheets = toState.data.stylesheets;
             }
         });
-    });
+    }]);
 });

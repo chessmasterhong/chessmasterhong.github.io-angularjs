@@ -1,12 +1,12 @@
 {
   "name": "chessmasterhong.github.io",
   "dependencies": {
-    "angular": "~1.2.21",
-    "angular-ui-router": "~0.2.10",
-    "requirejs": "~2.1.14",
-    "requirejs-domready": "~2.0.1",
     "almond": "~0.2.9",
+    "angular": "~1.2.21",
+    "angular-animate": "~1.2.21",
+    "angular-ui-router": "~0.2.10",
     "ngDialog": "~0.2.4",
-    "angular-animate": "~1.2.21"
+    "requirejs": "~2.1.14",
+    "requirejs-domready": "~2.0.1"
   }
 }

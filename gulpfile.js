@@ -17,7 +17,10 @@ gulp.task('requirejs', ['lint'], function() {
         baseUrl: './scripts/',
         out: './site.js',
         mainConfigFile: './scripts/main.js',
+        name: 'almond',
         include: ['main'],
+        insertRequire: ['main'],
+        wrap: true,
         optimize: 'uglify2',
         preserveLicenseComments: false
     }, function() {

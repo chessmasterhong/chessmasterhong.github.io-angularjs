@@ -1,9 +1,9 @@
 define([
-    './module'
+    'controllers/module'
 ], function(controllers) {
     'use strict';
 
-    controllers.controller('projectListController', function($scope, ngDialog) {
+    controllers.controller('projectListController', ['$scope', 'ngDialog', function($scope, ngDialog) {
         $scope.projects = [];
         $scope.projects = [
             {
@@ -60,5 +60,5 @@ define([
                 scope: $scope
             });
         }
-    });
+    }]);
 });

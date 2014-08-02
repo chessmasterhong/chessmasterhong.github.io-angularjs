@@ -12,21 +12,20 @@ requirejs.config({
     },
     shim: {
         angular: { 'exports': 'angular' },
-        ngAnimate: { deps: ['angular'] },
-        ngDialog: { deps: ['angular'] },
-        uiRouter: { deps: ['angular'] }
+        ngAnimate: { deps: ['angular'], exports: 'angular' },
+        ngDialog: { deps: ['angular'], exports: 'angular' },
+        uiRouter: { deps: ['angular'], exports: 'angular' }
     }
 });
 
 define([
     'require',
     'angular',
+    'domReady!',
     'app',
     'routes'
-], function(require, angular) {
+], function(require, angular, document) {
     'use strict';
 
-    require(['domReady!'], function(document) {
-        angular.bootstrap(document, ['app']);
-    });
+    angular.bootstrap(document, ['app']);
 });

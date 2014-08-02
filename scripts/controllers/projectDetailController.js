@@ -1,9 +1,9 @@
 define([
-    './module'
+    'controllers/module'
 ], function(controllers) {
     'use strict';
 
-    controllers.controller('projectDetailController', function($scope, $state) {
+    controllers.controller('projectDetailController', ['$scope', '$state', function($scope, $state) {
         $scope.projectDetails = '';
         $scope.viewTitle = '';
         $scope.slides = [];
@@ -56,5 +56,5 @@ define([
         } else {
             $state.go('404');
         }
-    });
+    }]);
 });

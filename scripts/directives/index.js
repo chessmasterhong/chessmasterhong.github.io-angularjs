@@ -1,3 +1,3 @@
 define([
-    './slideshow'
+    'directives/slideshow'
 ], function() {});
