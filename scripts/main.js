@@ -23,7 +23,8 @@ define([
     'angular',
     'domReady!',
     'app',
-    'routes'
+    'routes',
+    'config'
 ], function(require, angular, document) {
     'use strict';
 
