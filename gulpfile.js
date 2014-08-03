@@ -92,14 +92,30 @@ gulp.task('copy', function() {
         .pipe(gulp.dest(PATH.BUILD + 'fonts/'));
 });
 
+gulp.task('concat', function() {
+    gulp.src([
+            PATH.SOURCE + 'tasks/licence.js',
+            PATH.BUILD + 'scripts/site.min.js'
+        ])
+        .pipe(concat('site.min.js'))
+        .pipe(gulp.dest(PATH.BUILD + 'scripts/'));
+
+    gulp.src([
+            PATH.SOURCE + 'tasks/licence.css',
+            PATH.BUILD + 'styles/site.css'
+        ])
+        .pipe(concat('site.css'))
+        .pipe(gulp.dest(PATH.BUILD + 'styles/'));
+});
+
 gulp.task('clean', function() {
     rimraf.sync(PATH.BUILD + 'index.html', function() {});
-    //rimraf.sync(PATH.BUILD + 'fonts/', function() {});
-    //rimraf.sync(PATH.BUILD + 'media/', function() {});
+    rimraf.sync(PATH.BUILD + 'fonts/', function() {});
+    rimraf.sync(PATH.BUILD + 'media/', function() {});
     rimraf.sync(PATH.BUILD + 'partials/', function() {});
     rimraf.sync(PATH.BUILD + 'scripts/', function() {});
     rimraf.sync(PATH.BUILD + 'styles/', function() {});
-    //rimraf.sync(PATH.BUILD + 'vendor/', function() {});
+    rimraf.sync(PATH.BUILD + 'vendor/', function() {});
 });
 
 gulp.task('size', function() {
@@ -112,7 +128,7 @@ gulp.task('size', function() {
             PATH.BUILD + 'styles/**/*',
             PATH.BUILD + 'vendor/**/*',
         ])
-        .pipe(size());
+        .pipe(size({ title: 'build -->' }));
 });
 
 gulp.task('webserver-dev', function() {
@@ -137,6 +153,7 @@ gulp.task('build', function() {
     runSequence(
         'clean',
         ['copy', 'html', 'images', 'requirejs', 'styles'],
+        'concat',
         'size',
         'webserver'
     );
