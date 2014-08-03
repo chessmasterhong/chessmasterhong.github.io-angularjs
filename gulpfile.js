@@ -3,7 +3,7 @@
 var PATH = {
     BUILD: './',
     SOURCE: './src/'
-}
+};
 
 var gulp = require('gulp'),
     del = require('del'),
@@ -42,8 +42,8 @@ gulp.task('requirejs', ['lint'], function() {
 gulp.task('styles', function() {
     return gulp.src(PATH.SOURCE + 'styles/**/*.css')
         .pipe(minifyCSS())
-        .pipe(gulp.dest(PATH.BUILD + 'styles/'))
-})
+        .pipe(gulp.dest(PATH.BUILD + 'styles/'));
+});
 
 gulp.task('images', function() {
     return gulp.src(PATH.SOURCE + 'media/images/**/*')
@@ -62,21 +62,33 @@ gulp.task('html', function() {
 });
 
 gulp.task('copy', function() {
-    gulp.src(PATH.SOURCE + 'fonts/**/*', { read: false })
+    gulp.src(PATH.SOURCE + 'fonts/**/*')
         .pipe(gulp.dest(PATH.BUILD + 'fonts/'));
 
-    gulp.src(PATH.SOURCE + 'vendor/requirejs/require.min.js', { read: false })
+    gulp.src(PATH.SOURCE + 'vendor/requirejs/require.min.js')
         .pipe(gulp.dest(PATH.BUILD + 'vendor/requirejs/'));
-})
 
-gulp.task('clean', function() {
-    del([
-        PATH.BUILD + 'media/**/*',
-        PATH.BUILD + 'scripts/**/*'
-    ], function(err) {
-        //console.log(err);
-    });
+    gulp.src([
+        PATH.SOURCE + 'vendor/ngDialog/css/ngDialog.min.css',
+        PATH.SOURCE + 'vendor/ngDialog/css/ngDialog-theme-default.min.css'
+    ]).pipe(gulp.dest(PATH.BUILD + 'vendor/ngDialog/css/'));
 });
+
+//gulp.task('clean', function() {
+//    del([
+//        PATH.BUILD + 'index.html',
+//        PATH.BUILD + 'fonts/**/*',
+//        PATH.BUILD + 'media/**/*',
+//        PATH.BUILD + 'partials/**/*',
+//        PATH.BUILD + 'scripts/**/*',
+//        PATH.BUILD + 'styles/**/*',
+//        PATH.BUILD + 'vendor/**/*'
+//    ], function(err) {
+//        if(typeof err !== 'undefined') {
+//            console.log(err);
+//        }
+//    });
+//});
 
 gulp.task('webserver-dev', function() {
     gulp.src(PATH.SOURCE)
@@ -96,11 +108,9 @@ gulp.task('webserver', function() {
         }));
 });
 
-gulp.task('build', function(cb) {
+gulp.task('build', function() {
     runSequence(
-        'clean',
-        ['copy', 'requirejs', 'html', 'styles', 'images'],
-        'webserver',
-        cb
+        ['copy', 'html', 'images', 'requirejs', 'styles'],
+        'webserver'
     );
 });
