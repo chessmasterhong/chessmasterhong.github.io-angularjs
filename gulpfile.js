@@ -1,5 +1,10 @@
 'use strict';
 
+var PATH = {
+    BUILD: './',
+    SOURCE: './src/'
+}
+
 var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     jshint = require('gulp-jshint'),
@@ -7,16 +12,16 @@ var gulp = require('gulp'),
     webserver = require('gulp-webserver');
 
 gulp.task('lint', function() {
-    return gulp.src('./src/scripts/**/*.js')
+    return gulp.src(PATH.SOURCE + 'scripts/**/*.js')
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter(require('jshint-stylish')));
 });
 
 gulp.task('requirejs', ['lint'], function() {
     requirejs.optimize({
-        baseUrl: './src/scripts/',
-        out: './scripts/site.min.js',
-        mainConfigFile: './src/scripts/main.js',
+        baseUrl: PATH.SOURCE + 'scripts/',
+        out: PATH.BUILD + 'scripts/site.min.js',
+        mainConfigFile: PATH.SOURCE + 'scripts/main.js',
         include: 'main',
         insertRequire: ['main'],
         wrap: true,
@@ -29,17 +34,19 @@ gulp.task('requirejs', ['lint'], function() {
     });
 });
 
-gulp.task('image', function() {
-    return gulp.src('./src/media_original/images/**/*')
+gulp.task('images', function() {
+    return gulp.src(PATH.SOURCE + 'media/images/**/*')
         .pipe(imagemin())
-        .pipe(gulp.dest('./src/media/images/'));
+        .pipe(gulp.dest(PATH.BUILD + 'media/images/'));
 });
 
 gulp.task('webserver-dev', function() {
-    gulp.src('./src/')
+    gulp.src(PATH.SOURCE)
         .pipe(webserver({
             host: '127.0.0.1',
             port: 8080,
             livereload: true
         }));
 });
+
+gulp.task('build', ['requirejs', 'images']);
