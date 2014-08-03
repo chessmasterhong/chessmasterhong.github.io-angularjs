@@ -50,20 +50,17 @@ gulp.task('html', function() {
 });
 
 gulp.task('copy', function() {
-    gulp.src(PATH.SOURCE + 'fonts/**/*')
+    gulp.src(PATH.SOURCE + 'fonts/**/*', { read: false })
         .pipe(gulp.dest(PATH.BUILD + 'fonts/'));
 
-    gulp.src(PATH.SOURCE + 'fonts/**/*')
-        .pipe(gulp.dest(PATH.BUILD + 'fonts/'));
-
-    gulp.src(PATH.SOURCE + 'partials/**/*')
+    gulp.src(PATH.SOURCE + 'partials/**/*', { read: false })
         .pipe(gulp.dest(PATH.BUILD + 'partials/'));
 
-    gulp.src(PATH.SOURCE + 'styles/**/*')
+    gulp.src(PATH.SOURCE + 'styles/**/*', { read: false })
         .pipe(gulp.dest(PATH.BUILD + 'styles/'));
 
-    gulp.src(PATH.SOURCE + 'vendor/**/*')
-        .pipe(gulp.dest(PATH.BUILD + 'vendor/'));
+    gulp.src(PATH.SOURCE + 'vendor/requirejs/require.min.js', { read: false })
+        .pipe(gulp.dest(PATH.BUILD + 'vendor/requirejs/'));
 })
 
 gulp.task('clean', function() {
