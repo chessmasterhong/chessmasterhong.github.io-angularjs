@@ -40,13 +40,30 @@ gulp.task('requirejs', ['lint'], function() {
 });
 
 gulp.task('styles', function() {
-    return gulp.src(PATH.SOURCE + 'styles/**/*.css')
+    gulp.src(PATH.SOURCE + 'styles/**/*.css')
         .pipe(minifyCSS())
         .pipe(gulp.dest(PATH.BUILD + 'styles/'));
+
+    gulp.src(PATH.SOURCE + 'fonts/**/*.css')
+        .pipe(minifyCSS())
+        .pipe(gulp.dest(PATH.BUILD + 'fonts/'));
+
+    gulp.src([
+            PATH.SOURCE + 'fonts/**/*.eot',
+            PATH.SOURCE + 'fonts/**/*.svg',
+            PATH.SOURCE + 'fonts/**/*.ttf',
+            PATH.SOURCE + 'fonts/**/*.woff'
+        ])
+        .pipe(gulp.dest(PATH.BUILD + 'fonts/'));
+
+    gulp.src([
+            PATH.SOURCE + 'vendor/ngDialog/css/ngDialog.min.css',
+            PATH.SOURCE + 'vendor/ngDialog/css/ngDialog-theme-default.min.css'
+        ]).pipe(gulp.dest(PATH.BUILD + 'vendor/ngDialog/css/'));
 });
 
 gulp.task('images', function() {
-    return gulp.src(PATH.SOURCE + 'media/images/**/*')
+    gulp.src(PATH.SOURCE + 'media/images/**/*')
         .pipe(imagemin())
         .pipe(gulp.dest(PATH.BUILD + 'media/images/'));
 });
@@ -54,6 +71,7 @@ gulp.task('images', function() {
 gulp.task('html', function() {
     gulp.src(PATH.SOURCE + 'index.html')
         .pipe(prochtml('index.html'))
+        .pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD));
 
     gulp.src(PATH.SOURCE + 'partials/**/*.html')
@@ -62,16 +80,8 @@ gulp.task('html', function() {
 });
 
 gulp.task('copy', function() {
-    gulp.src(PATH.SOURCE + 'fonts/**/*')
-        .pipe(gulp.dest(PATH.BUILD + 'fonts/'));
-
     gulp.src(PATH.SOURCE + 'vendor/requirejs/require.min.js')
         .pipe(gulp.dest(PATH.BUILD + 'vendor/requirejs/'));
-
-    gulp.src([
-        PATH.SOURCE + 'vendor/ngDialog/css/ngDialog.min.css',
-        PATH.SOURCE + 'vendor/ngDialog/css/ngDialog-theme-default.min.css'
-    ]).pipe(gulp.dest(PATH.BUILD + 'vendor/ngDialog/css/'));
 });
 
 //gulp.task('clean', function() {

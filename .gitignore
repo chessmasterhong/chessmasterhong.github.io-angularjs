@@ -7,7 +7,7 @@ test
 
 site.min.js
 
-server.*
+server*
 
 .DS_Store
 thumbs.db
