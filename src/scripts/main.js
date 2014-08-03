@@ -3,7 +3,7 @@
 requirejs.config({
     baseUrl: './scripts/',
     paths: {
-        angular: '../vendor/angular/angular',
+        angular: '../vendor/angular/angular.min',
         domReady: '../vendor/requirejs-domready/domReady.min',
         ngAnimate: '../vendor/angular-animate/angular-animate.min',
         ngDialog: '../vendor/ngDialog/js/ngDialog.min',

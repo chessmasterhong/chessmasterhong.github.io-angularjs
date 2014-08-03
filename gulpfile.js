@@ -9,6 +9,7 @@ var gulp = require('gulp'),
     del = require('del'),
     imagemin = require('gulp-imagemin'),
     jshint = require('gulp-jshint'),
+    minifyCSS = require('gulp-minify-css'),
     prochtml = require('gulp-processhtml'),
     requirejs = require('requirejs'),
     runSequence = require('run-sequence'),
@@ -37,6 +38,12 @@ gulp.task('requirejs', ['lint'], function() {
     });
 });
 
+gulp.task('styles', function() {
+    return gulp.src(PATH.SOURCE + 'styles/**/*.css')
+        .pipe(minifyCSS())
+        .pipe(gulp.dest(PATH.BUILD + 'styles/'))
+})
+
 gulp.task('images', function() {
     return gulp.src(PATH.SOURCE + 'media/images/**/*')
         .pipe(imagemin())
@@ -55,9 +62,6 @@ gulp.task('copy', function() {
 
     gulp.src(PATH.SOURCE + 'partials/**/*', { read: false })
         .pipe(gulp.dest(PATH.BUILD + 'partials/'));
-
-    gulp.src(PATH.SOURCE + 'styles/**/*', { read: false })
-        .pipe(gulp.dest(PATH.BUILD + 'styles/'));
 
     gulp.src(PATH.SOURCE + 'vendor/requirejs/require.min.js', { read: false })
         .pipe(gulp.dest(PATH.BUILD + 'vendor/requirejs/'));
