@@ -18,12 +18,14 @@ var gulp = require('gulp'),
     requirejs = require('requirejs'),
     rimraf = require('rimraf'),
     runSequence = require('run-sequence'),
+    size = require('gulp-size'),
+    stylish = require('jshint-stylish'),
     webserver = require('gulp-webserver');
 
 gulp.task('lint', function() {
     return gulp.src(PATH.SOURCE + 'scripts/**/*.js')
         .pipe(jshint('.jshintrc'))
-        .pipe(jshint.reporter(require('jshint-stylish')));
+        .pipe(jshint.reporter(stylish));
 });
 
 gulp.task('requirejs', ['lint'], function() {
@@ -63,7 +65,8 @@ gulp.task('styles', function() {
     gulp.src([
             PATH.SOURCE + 'vendor/ngDialog/css/ngDialog.min.css',
             PATH.SOURCE + 'vendor/ngDialog/css/ngDialog-theme-default.min.css'
-        ]).pipe(gulp.dest(PATH.BUILD + 'vendor/ngDialog/css/'));
+        ])
+        .pipe(gulp.dest(PATH.BUILD + 'vendor/ngDialog/css/'));
 });
 
 gulp.task('images', function() {
@@ -98,6 +101,19 @@ gulp.task('clean', function() {
     rimraf.sync(PATH.BUILD + 'vendor/', function() {});
 });
 
+gulp.task('size', function() {
+    return gulp.src([
+            PATH.BUILD + 'index.html',
+            PATH.BUILD + 'fonts/**/*',
+            PATH.BUILD + 'media/**/*',
+            PATH.BUILD + 'partial/**/*',
+            PATH.BUILD + 'scripts/**/*',
+            PATH.BUILD + 'styles/**/*',
+            PATH.BUILD + 'vendor/**/*',
+        ])
+        .pipe(size());
+});
+
 gulp.task('webserver-dev', function() {
     gulp.src(PATH.SOURCE)
         .pipe(webserver({
@@ -120,6 +136,7 @@ gulp.task('build', function() {
     runSequence(
         'clean',
         ['copy', 'html', 'images', 'requirejs', 'styles'],
+        'size',
         'webserver'
     );
 });
