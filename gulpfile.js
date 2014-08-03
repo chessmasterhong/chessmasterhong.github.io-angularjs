@@ -7,16 +7,16 @@ var gulp = require('gulp'),
     webserver = require('gulp-webserver');
 
 gulp.task('lint', function() {
-    return gulp.src(['./scripts/**/*.js', '!./scripts/site.min.js'])
+    return gulp.src('./src/scripts/**/*.js')
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter(require('jshint-stylish')));
 });
 
 gulp.task('requirejs', ['lint'], function() {
     requirejs.optimize({
-        baseUrl: './scripts/',
+        baseUrl: './src/scripts/',
         out: './scripts/site.min.js',
-        mainConfigFile: './scripts/main.js',
+        mainConfigFile: './src/scripts/main.js',
         include: 'main',
         insertRequire: ['main'],
         wrap: true,
@@ -30,13 +30,13 @@ gulp.task('requirejs', ['lint'], function() {
 });
 
 gulp.task('image', function() {
-    return gulp.src('./media_original/images/**/*')
+    return gulp.src('./src/media_original/images/**/*')
         .pipe(imagemin())
-        .pipe(gulp.dest('./media/images/'));
+        .pipe(gulp.dest('./src/media/images/'));
 });
 
-gulp.task('webserver', function() {
-    gulp.src('.')
+gulp.task('webserver-dev', function() {
+    gulp.src('./src/')
         .pipe(webserver({
             host: '127.0.0.1',
             port: 8080,
