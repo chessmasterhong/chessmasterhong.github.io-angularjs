@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     webserver = require('gulp-webserver');
 
 gulp.task('lint', function() {
-    return gulp.src('./scripts/**/*.js')
+    return gulp.src(['./scripts/**/*.js', '!./scripts/site.min.js'])
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter(require('jshint-stylish')));
 });
@@ -15,13 +15,11 @@ gulp.task('lint', function() {
 gulp.task('requirejs', ['lint'], function() {
     requirejs.optimize({
         baseUrl: './scripts/',
-        out: './site.js',
+        out: './scripts/site.min.js',
         mainConfigFile: './scripts/main.js',
-        name: 'almond',
-        include: ['main'],
+        include: 'main',
         insertRequire: ['main'],
         wrap: true,
-        optimize: 'uglify2',
         preserveLicenseComments: false
     }, function() {
         return 0;
