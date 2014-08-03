@@ -9,6 +9,7 @@ var gulp = require('gulp'),
     del = require('del'),
     imagemin = require('gulp-imagemin'),
     jshint = require('gulp-jshint'),
+    prochtml = require('gulp-processhtml'),
     requirejs = require('requirejs'),
     runSequence = require('run-sequence'),
     webserver = require('gulp-webserver');
@@ -42,10 +43,13 @@ gulp.task('images', function() {
         .pipe(gulp.dest(PATH.BUILD + 'media/images/'));
 });
 
-gulp.task('copy', function() {
-    gulp.src(PATH.SOURCE + 'index.html')
+gulp.task('html', function() {
+    return gulp.src(PATH.SOURCE + 'index.html')
+        .pipe(prochtml('index.html'))
         .pipe(gulp.dest(PATH.BUILD));
+});
 
+gulp.task('copy', function() {
     gulp.src(PATH.SOURCE + 'fonts/**/*')
         .pipe(gulp.dest(PATH.BUILD + 'fonts/'));
 
@@ -92,7 +96,7 @@ gulp.task('webserver', function() {
 gulp.task('build', function(cb) {
     runSequence(
         'clean',
-        ['copy' 'requirejs', 'images'],
+        ['copy', 'requirejs', 'images'],
         'webserver',
         cb
     );
