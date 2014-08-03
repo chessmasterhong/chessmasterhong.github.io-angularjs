@@ -6,9 +6,11 @@ var PATH = {
 }
 
 var gulp = require('gulp'),
+    del = require('del'),
     imagemin = require('gulp-imagemin'),
     jshint = require('gulp-jshint'),
     requirejs = require('requirejs'),
+    runSequence = require('run-sequence'),
     webserver = require('gulp-webserver');
 
 gulp.task('lint', function() {
@@ -40,6 +42,15 @@ gulp.task('images', function() {
         .pipe(gulp.dest(PATH.BUILD + 'media/images/'));
 });
 
+gulp.task('clean', function() {
+    del([
+        PATH.BUILD + 'media/**/*',
+        PATH.BUILD + 'scripts/**/*'
+    ], function(err) {
+        //console.log(err);
+    });
+});
+
 gulp.task('webserver-dev', function() {
     gulp.src(PATH.SOURCE)
         .pipe(webserver({
@@ -49,4 +60,20 @@ gulp.task('webserver-dev', function() {
         }));
 });
 
-gulp.task('build', ['requirejs', 'images']);
+gulp.task('webserver', function() {
+    gulp.src(PATH.BUILD)
+        .pipe(webserver({
+            host: '127.0.0.1',
+            port: 8080,
+            livereload: true
+        }));
+});
+
+gulp.task('build', function(cb) {
+    runSequence(
+        'clean',
+        ['requirejs', 'images'],
+        'webserver',
+        cb
+    );
+});
