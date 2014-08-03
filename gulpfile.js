@@ -10,6 +10,7 @@ var SERVER = {
     };
 
 var gulp = require('gulp'),
+    concat = require('gulp-concat'),
     imagemin = require('gulp-imagemin'),
     jshint = require('gulp-jshint'),
     minifyCSS = require('gulp-minify-css'),
@@ -53,20 +54,6 @@ gulp.task('styles', function() {
     gulp.src(PATH.SOURCE + 'fonts/**/*.css')
         .pipe(minifyCSS())
         .pipe(gulp.dest(PATH.BUILD + 'fonts/'));
-
-    gulp.src([
-            PATH.SOURCE + 'fonts/**/*.eot',
-            PATH.SOURCE + 'fonts/**/*.svg',
-            PATH.SOURCE + 'fonts/**/*.ttf',
-            PATH.SOURCE + 'fonts/**/*.woff'
-        ])
-        .pipe(gulp.dest(PATH.BUILD + 'fonts/'));
-
-    gulp.src([
-            PATH.SOURCE + 'vendor/ngDialog/css/ngDialog.min.css',
-            PATH.SOURCE + 'vendor/ngDialog/css/ngDialog-theme-default.min.css'
-        ])
-        .pipe(gulp.dest(PATH.BUILD + 'vendor/ngDialog/css/'));
 });
 
 gulp.task('images', function() {
@@ -89,16 +76,30 @@ gulp.task('html', function() {
 gulp.task('copy', function() {
     gulp.src(PATH.SOURCE + 'vendor/requirejs/require.min.js')
         .pipe(gulp.dest(PATH.BUILD + 'vendor/requirejs/'));
+
+    gulp.src([
+            PATH.SOURCE + 'vendor/ngDialog/css/ngDialog.min.css',
+            PATH.SOURCE + 'vendor/ngDialog/css/ngDialog-theme-default.min.css'
+        ])
+        .pipe(gulp.dest(PATH.BUILD + 'vendor/ngDialog/css/'));
+
+    gulp.src([
+            PATH.SOURCE + 'fonts/**/*.eot',
+            PATH.SOURCE + 'fonts/**/*.svg',
+            PATH.SOURCE + 'fonts/**/*.ttf',
+            PATH.SOURCE + 'fonts/**/*.woff'
+        ])
+        .pipe(gulp.dest(PATH.BUILD + 'fonts/'));
 });
 
 gulp.task('clean', function() {
     rimraf.sync(PATH.BUILD + 'index.html', function() {});
-    rimraf.sync(PATH.BUILD + 'fonts/', function() {});
-    rimraf.sync(PATH.BUILD + 'media/', function() {});
+    //rimraf.sync(PATH.BUILD + 'fonts/', function() {});
+    //rimraf.sync(PATH.BUILD + 'media/', function() {});
     rimraf.sync(PATH.BUILD + 'partials/', function() {});
     rimraf.sync(PATH.BUILD + 'scripts/', function() {});
     rimraf.sync(PATH.BUILD + 'styles/', function() {});
-    rimraf.sync(PATH.BUILD + 'vendor/', function() {});
+    //rimraf.sync(PATH.BUILD + 'vendor/', function() {});
 });
 
 gulp.task('size', function() {
