@@ -1,18 +1,22 @@
 'use strict';
 
-var PATH = {
-    BUILD: './',
-    SOURCE: './src/'
-};
+var SERVER = {
+        HOST: '127.0.0.1',
+        PORT: 8080
+    },
+    PATH = {
+        BUILD: './',
+        SOURCE: './src/'
+    };
 
 var gulp = require('gulp'),
-    del = require('del'),
     imagemin = require('gulp-imagemin'),
     jshint = require('gulp-jshint'),
     minifyCSS = require('gulp-minify-css'),
     minifyHTML = require('gulp-minify-html'),
     prochtml = require('gulp-processhtml'),
     requirejs = require('requirejs'),
+    rimraf = require('rimraf'),
     runSequence = require('run-sequence'),
     webserver = require('gulp-webserver');
 
@@ -63,7 +67,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('images', function() {
-    gulp.src(PATH.SOURCE + 'media/images/**/*')
+    return gulp.src(PATH.SOURCE + 'media/images/**/*')
         .pipe(imagemin())
         .pipe(gulp.dest(PATH.BUILD + 'media/images/'));
 });
@@ -84,27 +88,21 @@ gulp.task('copy', function() {
         .pipe(gulp.dest(PATH.BUILD + 'vendor/requirejs/'));
 });
 
-//gulp.task('clean', function() {
-//    del([
-//        PATH.BUILD + 'index.html',
-//        PATH.BUILD + 'fonts/**/*',
-//        PATH.BUILD + 'media/**/*',
-//        PATH.BUILD + 'partials/**/*',
-//        PATH.BUILD + 'scripts/**/*',
-//        PATH.BUILD + 'styles/**/*',
-//        PATH.BUILD + 'vendor/**/*'
-//    ], function(err) {
-//        if(typeof err !== 'undefined') {
-//            console.log(err);
-//        }
-//    });
-//});
+gulp.task('clean', function() {
+    rimraf.sync(PATH.BUILD + 'index.html', function() {});
+    rimraf.sync(PATH.BUILD + 'fonts/', function() {});
+    rimraf.sync(PATH.BUILD + 'media/', function() {});
+    rimraf.sync(PATH.BUILD + 'partials/', function() {});
+    rimraf.sync(PATH.BUILD + 'scripts/', function() {});
+    rimraf.sync(PATH.BUILD + 'styles/', function() {});
+    rimraf.sync(PATH.BUILD + 'vendor/', function() {});
+});
 
 gulp.task('webserver-dev', function() {
     gulp.src(PATH.SOURCE)
         .pipe(webserver({
-            host: '127.0.0.1',
-            port: 8080,
+            host: SERVER.HOST,
+            port: SERVER.PORT,
             livereload: true
         }));
 });
@@ -112,14 +110,15 @@ gulp.task('webserver-dev', function() {
 gulp.task('webserver', function() {
     gulp.src(PATH.BUILD)
         .pipe(webserver({
-            host: '127.0.0.1',
-            port: 8080,
+            host: SERVER.HOST,
+            port: SERVER.PORT,
             livereload: true
         }));
 });
 
 gulp.task('build', function() {
     runSequence(
+        'clean',
         ['copy', 'html', 'images', 'requirejs', 'styles'],
         'webserver'
     );

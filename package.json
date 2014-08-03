@@ -3,7 +3,6 @@
   "private": true,
   "devDependencies": {
     "chai": "^1.9.1",
-    "del": "^0.1.1",
     "gulp": "^3.8.6",
     "gulp-imagemin": "^0.6.2",
     "gulp-jshint": "^1.8.0",
@@ -17,6 +16,7 @@
     "mocha-phantomjs": "^3.5.0",
     "phantomjs": "^1.9.7-15",
     "requirejs": "^2.1.14",
+    "rimraf": "^2.2.8",
     "run-sequence": "^0.3.6"
   }
 }
