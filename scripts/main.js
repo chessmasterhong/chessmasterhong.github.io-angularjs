@@ -3,7 +3,6 @@
 requirejs.config({
     baseUrl: './scripts/',
     paths: {
-        almond: '../vendor/almond/almond',
         angular: '../vendor/angular/angular',
         domReady: '../vendor/requirejs-domready/domReady.min',
         ngAnimate: '../vendor/angular-animate/angular-animate.min',

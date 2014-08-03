@@ -1,7 +1,6 @@
 {
   "name": "chessmasterhong.github.io",
   "dependencies": {
-    "almond": "~0.2.9",
     "angular": "~1.2.21",
     "angular-animate": "~1.2.21",
     "angular-ui-router": "~0.2.10",
