@@ -42,6 +42,26 @@ gulp.task('images', function() {
         .pipe(gulp.dest(PATH.BUILD + 'media/images/'));
 });
 
+gulp.task('copy', function() {
+    gulp.src(PATH.SOURCE + 'index.html')
+        .pipe(gulp.dest(PATH.BUILD));
+
+    gulp.src(PATH.SOURCE + 'fonts/**/*')
+        .pipe(gulp.dest(PATH.BUILD + 'fonts/'));
+
+    gulp.src(PATH.SOURCE + 'fonts/**/*')
+        .pipe(gulp.dest(PATH.BUILD + 'fonts/'));
+
+    gulp.src(PATH.SOURCE + 'partials/**/*')
+        .pipe(gulp.dest(PATH.BUILD + 'partials/'));
+
+    gulp.src(PATH.SOURCE + 'styles/**/*')
+        .pipe(gulp.dest(PATH.BUILD + 'styles/'));
+
+    gulp.src(PATH.SOURCE + 'vendor/**/*')
+        .pipe(gulp.dest(PATH.BUILD + 'vendor/'));
+})
+
 gulp.task('clean', function() {
     del([
         PATH.BUILD + 'media/**/*',
@@ -72,7 +92,7 @@ gulp.task('webserver', function() {
 gulp.task('build', function(cb) {
     runSequence(
         'clean',
-        ['requirejs', 'images'],
+        ['copy' 'requirejs', 'images'],
         'webserver',
         cb
     );
