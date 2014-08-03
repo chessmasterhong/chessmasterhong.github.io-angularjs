@@ -1,5 +1,17 @@
 {
   "name": "chessmasterhong.github.io",
+  "version": "0.0.0",
+  "description": "My personal website.",
+  "author": {
+    "name": "Kevin Chan",
+    "homepage": "http://chessmasterhong.github.io"
+  },
+  "homepage": "https://github.com/chessmasterhong/chessmasterhong.github.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chessmasterhong/chessmasterhong.github.io.git"
+  },
+  "bugs": "https://github.com/chessmasterhong/chessmasterhong.github.io/issues",
   "private": true,
   "devDependencies": {
     "chai": "^1.9.1",

@@ -1,5 +1,17 @@
 {
   "name": "chessmasterhong.github.io",
+  "version": "0.0.0",
+  "description": "My personal website.",
+  "authors": {
+    "name": "Kevin Chan",
+    "url": "http://chessmasterhong.github.io"
+  },
+  "homepage": "https://github.com/chessmasterhong/chessmasterhong.github.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chessmasterhong/chessmasterhong.github.io.git"
+  },
+  "private": true,
   "dependencies": {
     "angular": "~1.2.21",
     "angular-animate": "~1.2.21",
