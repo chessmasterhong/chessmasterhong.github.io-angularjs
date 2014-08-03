@@ -10,6 +10,7 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     jshint = require('gulp-jshint'),
     minifyCSS = require('gulp-minify-css'),
+    minifyHTML = require('gulp-minify-html'),
     prochtml = require('gulp-processhtml'),
     requirejs = require('requirejs'),
     runSequence = require('run-sequence'),
@@ -51,17 +52,18 @@ gulp.task('images', function() {
 });
 
 gulp.task('html', function() {
-    return gulp.src(PATH.SOURCE + 'index.html')
+    gulp.src(PATH.SOURCE + 'index.html')
         .pipe(prochtml('index.html'))
         .pipe(gulp.dest(PATH.BUILD));
+
+    gulp.src(PATH.SOURCE + 'partials/**/*.html')
+        .pipe(minifyHTML())
+        .pipe(gulp.dest(PATH.BUILD + 'partials/'));
 });
 
 gulp.task('copy', function() {
     gulp.src(PATH.SOURCE + 'fonts/**/*', { read: false })
         .pipe(gulp.dest(PATH.BUILD + 'fonts/'));
-
-    gulp.src(PATH.SOURCE + 'partials/**/*', { read: false })
-        .pipe(gulp.dest(PATH.BUILD + 'partials/'));
 
     gulp.src(PATH.SOURCE + 'vendor/requirejs/require.min.js', { read: false })
         .pipe(gulp.dest(PATH.BUILD + 'vendor/requirejs/'));
@@ -97,7 +99,7 @@ gulp.task('webserver', function() {
 gulp.task('build', function(cb) {
     runSequence(
         'clean',
-        ['copy', 'requirejs', 'images'],
+        ['copy', 'requirejs', 'html', 'styles', 'images'],
         'webserver',
         cb
     );
