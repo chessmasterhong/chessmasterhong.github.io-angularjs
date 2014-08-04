@@ -1,11 +1,19 @@
+node_modules
 bower_components
+
+src/fonts
+src/media
+src/vendor
+src/test
+
 fonts
 media
-node_modules
+partials
+scripts
+styles
 vendor
-test
 
-site.min.js
+index.html
 
 server*
 
