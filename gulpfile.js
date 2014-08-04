@@ -25,7 +25,7 @@ var gulp = require('gulp'),
 
 gulp.task('lint', function() {
     return gulp.src(PATH.SOURCE + 'scripts/**/*.js')
-        .pipe(jshint('.jshintrc'))
+        .pipe(jshint(PATH.BUILD + '.jshintrc'))
         .pipe(jshint.reporter(stylish));
 });
 
@@ -128,7 +128,10 @@ gulp.task('size', function() {
             PATH.BUILD + 'styles/**/*',
             PATH.BUILD + 'vendor/**/*',
         ])
-        .pipe(size({ title: 'build -->' }));
+        .pipe(size({
+            gzip: true,
+            title: 'build -->'
+        }));
 });
 
 gulp.task('webserver-dev', function() {
@@ -144,8 +147,7 @@ gulp.task('webserver', function() {
     gulp.src(PATH.BUILD)
         .pipe(webserver({
             host: SERVER.HOST,
-            port: SERVER.PORT,
-            livereload: true
+            port: SERVER.PORT
         }));
 });
 
