@@ -22,8 +22,6 @@ define([
             .state('home.altLinkC', {
                 url: '/home'
             })
-
-            // ---------- Projects ---------- //
             .state('projects', {
                 abstract: true,
                 url: '/projects',
@@ -35,25 +33,13 @@ define([
             .state('projects.list', {
                 url: '',
                 templateUrl: 'partials/views/projectList.html',
-                controller: 'projectListController',
-                data: {
-                    stylesheets: ['styles/project_list.css']
-                }
+                controller: 'projectListController'
             })
             .state('projects.details', {
                 url: '/{projectIndex:[0-9]{1,2}}',
                 templateUrl: 'partials/views/projectDetail.html',
-                controller: 'projectDetailController',
-                data: {
-                    stylesheets: [
-                        'styles/project_detail.css',
-                        'vendor/ngDialog/css/ngDialog.min.css',
-                        'vendor/ngDialog/css/ngDialog-theme-default.min.css'
-                    ]
-                }
+                controller: 'projectDetailController'
             })
-
-            // ---------- Resources ---------- //
             .state('resources', {
                 url: '/resources',
                 templateUrl: 'partials/views/resources.html',
@@ -61,8 +47,6 @@ define([
                     pageTitle: 'Resources'
                 }
             })
-
-            // ---------- About ---------- //
             .state('about', {
                 url: '/about',
                 templateUrl: 'partials/views/about.html',
@@ -70,8 +54,6 @@ define([
                     pageTitle: 'About'
                 }
             })
-
-            // ---------- Contact ---------- //
             .state('contact', {
                 url: '/contact',
                 templateUrl: 'partials/views/contact.html',
@@ -79,8 +61,6 @@ define([
                     pageTitle: 'Contact'
                 }
             })
-
-            // ---------- Credits ---------- //
             .state('credits', {
                 url: '/credits',
                 templateUrl: 'partials/views/credits.html',
@@ -88,8 +68,6 @@ define([
                     pageTitle: 'Credits'
                 }
             })
-
-            // ---------- Error Handling ---------- //
             .state('404', {
                 url: '/404',
                 templateUrl: 'partials/views/404.html',
