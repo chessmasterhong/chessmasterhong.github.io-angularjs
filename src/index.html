@@ -18,11 +18,11 @@
         <!-- /build -->
     </head>
 
-    <body data-ng-controller="bodyController">
+    <body>
         <div class="wrapper">
             <header>
                 <h1><a href="/">Kevin Chan</a></h1>
-                <nav>
+                <nav data-ng-controller="navController">
                     <ul>
                         <li><a data-ng-class="{ active: isActive('home') }" href="/">Home</a></li>
                         <li><a data-ng-class="{ active: isActive('projects') }" href="#/projects">Projects</a></li>
