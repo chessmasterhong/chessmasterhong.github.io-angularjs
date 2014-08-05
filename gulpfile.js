@@ -25,7 +25,39 @@ var gulp = require('gulp'),
 
 gulp.task('lint', function() {
     return gulp.src(PATH.SOURCE + 'scripts/**/*.js')
-        .pipe(jshint(PATH.BUILD + '.jshintrc'))
+        .pipe(jshint({
+            // Enforcing options
+            "bitwise": true,
+            "camelcase": true,
+            "curly": true,
+            "eqeqeq": true,
+            "immed": true,
+            "indent": 4,
+            "latedef": true,
+            "newcap": true,
+            "noarg": true,
+            "nonbsp": true,
+            "quotmark": "single",
+            "undef": true,
+            "unused": true,
+            "strict": true,
+            "trailing": true,
+
+            // Relaxing options
+            "esnext": true,
+            "smarttabs": true,
+
+            // Environments
+            "browser": true,
+            "devel": true,
+            "node": true,
+
+            // Custom globals
+            "globals": {
+                "CONFIG": true,
+                "define": true
+            }
+        }))
         .pipe(jshint.reporter(stylish));
 });
 
