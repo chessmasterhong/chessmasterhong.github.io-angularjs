@@ -127,12 +127,6 @@ gulp.task('html', function() {
 
 gulp.task('copy', function() {
     gulp.src([
-            PATH.SOURCE + 'vendor/ngDialog/css/ngDialog.min.css',
-            PATH.SOURCE + 'vendor/ngDialog/css/ngDialog-theme-default.min.css'
-        ])
-        .pipe(gulp.dest(PATH.BUILD + 'vendor/ngDialog/css/'));
-
-    gulp.src([
             PATH.SOURCE + 'fonts/**/*.eot',
             PATH.SOURCE + 'fonts/**/*.svg',
             PATH.SOURCE + 'fonts/**/*.ttf',
@@ -164,7 +158,6 @@ gulp.task('clean', function() {
     rimraf.sync(PATH.BUILD + 'partials/', function() {});
     rimraf.sync(PATH.BUILD + 'scripts/', function() {});
     rimraf.sync(PATH.BUILD + 'styles/', function() {});
-    rimraf.sync(PATH.BUILD + 'vendor/', function() {});
 });
 
 gulp.task('size', function() {
@@ -175,7 +168,6 @@ gulp.task('size', function() {
             PATH.BUILD + 'partial/**/*',
             PATH.BUILD + 'scripts/**/*',
             PATH.BUILD + 'styles/**/*',
-            PATH.BUILD + 'vendor/**/*',
         ])
         .pipe(size({
             gzip: true,
