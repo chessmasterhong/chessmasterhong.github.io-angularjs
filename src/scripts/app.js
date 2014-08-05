@@ -4,7 +4,7 @@ define([
     'ngAnimate',
     'ngDialog',
     'angulartics',
-    'angulartics_ga',
+    'angularticsGA',
     'controllers/index',
     'directives/index',
     'factories/index'
