@@ -69,6 +69,7 @@ gulp.task('requirejs', ['lint'], function() {
         include: ['../vendor/requirejs/require.min.js', 'main'],
         insertRequire: ['main'],
         wrap: true,
+        optimize: 'uglify2',
         preserveLicenseComments: false
     }, function() {
         return 0;
@@ -79,7 +80,12 @@ gulp.task('requirejs', ['lint'], function() {
 });
 
 gulp.task('styles', function() {
-    gulp.src(PATH.SOURCE + 'styles/**/*.css')
+    gulp.src([
+            PATH.SOURCE + 'styles/**/*.css',
+            PATH.SOURCE + 'vendor/ngDialog/css/ngDialog.min.css',
+            PATH.SOURCE + 'vendor/ngDialog/css/ngDialog-theme-default.min.css'
+        ])
+        .pipe(concat('site.css'))
         .pipe(minifyCSS())
         .pipe(gulp.dest(PATH.BUILD + 'styles/'));
 
@@ -100,9 +106,23 @@ gulp.task('html', function() {
         .pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD));
 
-    gulp.src(PATH.SOURCE + 'partials/**/*.html')
+    gulp.src([
+            PATH.SOURCE + 'partials/**/*.html',
+            '!' + PATH.SOURCE + 'partials/views/projectList.html',
+            '!' + PATH.SOURCE + 'partials/views/projectDetail.html',
+        ])
         .pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD + 'partials/'));
+
+    gulp.src(PATH.SOURCE + 'partials/views/projectList.html')
+        .pipe(prochtml('projectList.html'))
+        .pipe(minifyHTML())
+        .pipe(gulp.dest(PATH.BUILD + 'partials/views/'));
+
+    gulp.src(PATH.SOURCE + 'partials/views/projectDetail.html')
+        .pipe(prochtml('projectDetail.html'))
+        .pipe(minifyHTML())
+        .pipe(gulp.dest(PATH.BUILD + 'partials/views/'));
 });
 
 gulp.task('copy', function() {
