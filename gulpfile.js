@@ -66,7 +66,7 @@ gulp.task('requirejs', ['lint'], function() {
         baseUrl: PATH.SOURCE + 'scripts/',
         out: PATH.BUILD + 'scripts/site.min.js',
         mainConfigFile: PATH.SOURCE + 'scripts/main.js',
-        include: 'main',
+        include: ['../vendor/requirejs/require.min.js', 'main'],
         insertRequire: ['main'],
         wrap: true,
         preserveLicenseComments: false
@@ -106,9 +106,6 @@ gulp.task('html', function() {
 });
 
 gulp.task('copy', function() {
-    gulp.src(PATH.SOURCE + 'vendor/requirejs/require.min.js')
-        .pipe(gulp.dest(PATH.BUILD + 'vendor/requirejs/'));
-
     gulp.src([
             PATH.SOURCE + 'vendor/ngDialog/css/ngDialog.min.css',
             PATH.SOURCE + 'vendor/ngDialog/css/ngDialog-theme-default.min.css'
