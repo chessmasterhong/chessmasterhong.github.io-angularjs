@@ -1,21 +1,21 @@
 node_modules
 bower_components
 
-src/fonts
-src/media
-src/vendor
-src/test
+/src/fonts
+/src/media
+/src/vendor
+/src/test
 
-fonts
-media
-partials
-scripts
-styles
-vendor
+/fonts
+/media
+/partials
+/scripts
+/styles
+/vendor
 
-index.html
+/index.html
 
-server*
+/server*
 
 .DS_Store
 thumbs.db
