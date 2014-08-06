@@ -81,13 +81,13 @@ gulp.task('requirejs', ['lint'], function() {
 });
 
 gulp.task('styles', function() {
-    gulp.src([
+    return gulp.src([
             PATH.SOURCE + 'styles/**/*.css',
             PATH.SOURCE + 'vendor/ngDialog/css/ngDialog.min.css',
             PATH.SOURCE + 'vendor/ngDialog/css/ngDialog-theme-default.min.css',
             PATH.SOURCE + 'fonts/**/*.css'
         ])
-        .pipe(concat('site.css'))
+        .pipe(concat('site.min.css'))
         .pipe(minifyCSS())
         .pipe(gulp.dest(PATH.BUILD + 'styles/'));
 });
@@ -141,9 +141,9 @@ gulp.task('concat', function() {
 
     gulp.src([
             PATH.SOURCE + 'tasks/licence.css',
-            PATH.BUILD + 'styles/site.css'
+            PATH.BUILD + 'styles/site.min.css'
         ])
-        .pipe(concat('site.css'))
+        .pipe(concat('site.min.css'))
         .pipe(gulp.dest(PATH.BUILD + 'styles/'));
 });
 
@@ -161,7 +161,7 @@ gulp.task('inject-scripts', ['requirejs'], function() {
 
 gulp.task('inject-styles', ['styles'], function() {
     return gulp.src(PATH.BUILD + 'index.html')
-        .pipe(inject(gulp.src(PATH.BUILD + 'styles/site.css'), {
+        .pipe(inject(gulp.src(PATH.BUILD + 'styles/site.min.css'), {
             starttag: '<!-- inject:head:css -->',
             transform: function(filePath, file) {
                 return '<style>' + file.contents.toString('utf8') + '</style>';
@@ -215,11 +215,10 @@ gulp.task('webserver', function() {
 gulp.task('build', function() {
     runSequence(
         'clean',
-        'html',
+        ['html', 'copy', 'images'],
+        'concat',
         'inject-scripts',
         'inject-styles',
-        ['copy', 'images'],
-        //'concat',
         'size',
         'webserver'
     );
