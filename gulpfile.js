@@ -103,8 +103,6 @@ gulp.task('images', function() {
 
 gulp.task('html', function() {
     gulp.src(PATH.SOURCE + 'index.html')
-        //.pipe(prochtml('index.html'))
-        //.pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD));
 
     gulp.src([
@@ -152,7 +150,7 @@ gulp.task('concat', function() {
         .pipe(gulp.dest(PATH.BUILD + 'styles/'));
 });
 
-gulp.task('inject', function() {
+gulp.task('inject', ['requirejs', 'html'], function() {
     gulp.src(PATH.BUILD + 'index.html')
         .pipe(inject(gulp.src(PATH.BUILD + 'scripts/site.min.js'), {
             starttag: '<!-- inject:head:js -->',
@@ -160,6 +158,7 @@ gulp.task('inject', function() {
                 return '<script>' + file.contents.toString('utf8') + '</script>';
             }
         }))
+        .pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD));
 });
 
@@ -207,7 +206,7 @@ gulp.task('webserver', function() {
 gulp.task('build', function() {
     runSequence(
         'clean',
-        ['copy', 'html', 'images', 'requirejs', 'styles'],
+        ['copy', 'images', 'styles'],
         'concat',
         'inject',
         'size',
