@@ -28,35 +28,35 @@ gulp.task('lint', function() {
     return gulp.src(PATH.SOURCE + 'scripts/**/*.js')
         .pipe(jshint({
             // Enforcing options
-            "bitwise": true,
-            "camelcase": true,
-            "curly": true,
-            "eqeqeq": true,
-            "immed": true,
-            "indent": 4,
-            "latedef": true,
-            "newcap": true,
-            "noarg": true,
-            "nonbsp": true,
-            "quotmark": "single",
-            "undef": true,
-            "unused": true,
-            "strict": true,
-            "trailing": true,
+            'bitwise': true,
+            'camelcase': true,
+            'curly': true,
+            'eqeqeq': true,
+            'immed': true,
+            'indent': 4,
+            'latedef': true,
+            'newcap': true,
+            'noarg': true,
+            'nonbsp': true,
+            'quotmark': 'single',
+            'undef': true,
+            'unused': true,
+            'strict': true,
+            'trailing': true,
 
             // Relaxing options
-            "esnext": true,
-            "smarttabs": true,
+            'esnext': true,
+            'smarttabs': true,
 
             // Environments
-            "browser": true,
-            "devel": true,
-            "node": true,
+            'browser': true,
+            'devel': true,
+            'node': true,
 
             // Custom globals
-            "globals": {
-                "CONFIG": true,
-                "define": true
+            'globals': {
+                'CONFIG': true,
+                'define': true
             }
         }))
         .pipe(jshint.reporter(stylish));
@@ -107,17 +107,17 @@ gulp.task('html', function() {
             '!' + PATH.SOURCE + 'partials/views/projectList.html',
             '!' + PATH.SOURCE + 'partials/views/projectDetail.html',
         ])
-        //.pipe(minifyHTML())
+        .pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD + 'partials/'));
 
     gulp.src(PATH.SOURCE + 'partials/views/projectList.html')
         .pipe(prochtml('projectList.html'))
-        //.pipe(minifyHTML())
+        .pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD + 'partials/views/'));
 
     gulp.src(PATH.SOURCE + 'partials/views/projectDetail.html')
         .pipe(prochtml('projectDetail.html'))
-        //.pipe(minifyHTML())
+        .pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD + 'partials/views/'));
 });
 
@@ -155,7 +155,6 @@ gulp.task('inject-scripts', ['requirejs'], function() {
                 return '<script>' + file.contents.toString('utf8') + '</script>';
             }
         }))
-        //.pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD));
 });
 
@@ -167,7 +166,6 @@ gulp.task('inject-styles', ['styles'], function() {
                 return '<style>' + file.contents.toString('utf8') + '</style>';
             }
         }))
-        //.pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD));
 });
 
