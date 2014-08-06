@@ -12,6 +12,7 @@ var SERVER = {
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     imagemin = require('gulp-imagemin'),
+    inject = require('gulp-inject'),
     jshint = require('gulp-jshint'),
     minifyCSS = require('gulp-minify-css'),
     minifyHTML = require('gulp-minify-html'),
@@ -102,8 +103,8 @@ gulp.task('images', function() {
 
 gulp.task('html', function() {
     gulp.src(PATH.SOURCE + 'index.html')
-        .pipe(prochtml('index.html'))
-        .pipe(minifyHTML())
+        //.pipe(prochtml('index.html'))
+        //.pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD));
 
     gulp.src([
@@ -149,6 +150,17 @@ gulp.task('concat', function() {
         ])
         .pipe(concat('site.css'))
         .pipe(gulp.dest(PATH.BUILD + 'styles/'));
+});
+
+gulp.task('inject', function() {
+    gulp.src(PATH.BUILD + 'index.html')
+        .pipe(inject(gulp.src(PATH.BUILD + 'scripts/site.min.js'), {
+            starttag: '<!-- inject:head:js -->',
+            transform: function(filePath, file) {
+                return '<script>' + file.contents.toString('utf8') + '</script>';
+            }
+        }))
+        .pipe(gulp.dest(PATH.BUILD));
 });
 
 gulp.task('clean', function() {
@@ -197,6 +209,7 @@ gulp.task('build', function() {
         'clean',
         ['copy', 'html', 'images', 'requirejs', 'styles'],
         'concat',
+        'inject',
         'size',
         'webserver'
     );
