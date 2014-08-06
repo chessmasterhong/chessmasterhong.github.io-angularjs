@@ -174,6 +174,15 @@ gulp.task('clean', function() {
     rimraf.sync(PATH.BUILD + 'fonts/', function() {});
     rimraf.sync(PATH.BUILD + 'media/', function() {});
     rimraf.sync(PATH.BUILD + 'partials/', function() {});
+    //rimraf.sync(PATH.BUILD + 'scripts/', function() {});
+    //rimraf.sync(PATH.BUILD + 'styles/', function() {});
+});
+
+gulp.task('post-build', function() {
+    gulp.src(PATH.BUILD + 'index.html')
+        .pipe(minifyHTML())
+        .pipe(gulp.dest(PATH.BUILD));
+
     rimraf.sync(PATH.BUILD + 'scripts/', function() {});
     rimraf.sync(PATH.BUILD + 'styles/', function() {});
 });
@@ -184,8 +193,8 @@ gulp.task('size', function() {
             PATH.BUILD + 'fonts/**/*',
             PATH.BUILD + 'media/**/*',
             PATH.BUILD + 'partial/**/*',
-            PATH.BUILD + 'scripts/**/*',
-            PATH.BUILD + 'styles/**/*',
+            //PATH.BUILD + 'scripts/**/*',
+            //PATH.BUILD + 'styles/**/*',
         ])
         .pipe(size({
             gzip: true,
@@ -217,6 +226,7 @@ gulp.task('build', function() {
         'concat',
         'inject-scripts',
         'inject-styles',
+        'post-build',
         'size',
         'webserver'
     );
