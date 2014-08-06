@@ -123,12 +123,12 @@ gulp.task('html', function() {
 
 gulp.task('copy', function() {
     gulp.src([
-            PATH.SOURCE + 'fonts/**/*.eot',
-            PATH.SOURCE + 'fonts/**/*.svg',
-            PATH.SOURCE + 'fonts/**/*.ttf',
-            PATH.SOURCE + 'fonts/**/*.woff'
+            PATH.SOURCE + 'fonts/fontello/font/*.eot',
+            PATH.SOURCE + 'fonts/fontello/font/*.svg',
+            PATH.SOURCE + 'fonts/fontello/font/*.ttf',
+            PATH.SOURCE + 'fonts/fontello/font/*.woff'
         ])
-        .pipe(gulp.dest(PATH.BUILD + 'fonts/'));
+        .pipe(gulp.dest(PATH.BUILD + 'font/'));
 });
 
 gulp.task('concat', function() {
