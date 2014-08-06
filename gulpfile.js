@@ -84,15 +84,12 @@ gulp.task('styles', function() {
     gulp.src([
             PATH.SOURCE + 'styles/**/*.css',
             PATH.SOURCE + 'vendor/ngDialog/css/ngDialog.min.css',
-            PATH.SOURCE + 'vendor/ngDialog/css/ngDialog-theme-default.min.css'
+            PATH.SOURCE + 'vendor/ngDialog/css/ngDialog-theme-default.min.css',
+            PATH.SOURCE + 'fonts/**/*.css'
         ])
         .pipe(concat('site.css'))
         .pipe(minifyCSS())
         .pipe(gulp.dest(PATH.BUILD + 'styles/'));
-
-    gulp.src(PATH.SOURCE + 'fonts/**/*.css')
-        .pipe(minifyCSS())
-        .pipe(gulp.dest(PATH.BUILD + 'fonts/'));
 });
 
 gulp.task('images', function() {
@@ -110,17 +107,17 @@ gulp.task('html', function() {
             '!' + PATH.SOURCE + 'partials/views/projectList.html',
             '!' + PATH.SOURCE + 'partials/views/projectDetail.html',
         ])
-        .pipe(minifyHTML())
+        //.pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD + 'partials/'));
 
     gulp.src(PATH.SOURCE + 'partials/views/projectList.html')
         .pipe(prochtml('projectList.html'))
-        .pipe(minifyHTML())
+        //.pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD + 'partials/views/'));
 
     gulp.src(PATH.SOURCE + 'partials/views/projectDetail.html')
         .pipe(prochtml('projectDetail.html'))
-        .pipe(minifyHTML())
+        //.pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD + 'partials/views/'));
 });
 
@@ -150,15 +147,27 @@ gulp.task('concat', function() {
         .pipe(gulp.dest(PATH.BUILD + 'styles/'));
 });
 
-gulp.task('inject', ['requirejs', 'html'], function() {
-    gulp.src(PATH.BUILD + 'index.html')
+gulp.task('inject-scripts', ['requirejs'], function() {
+    return gulp.src(PATH.BUILD + 'index.html')
         .pipe(inject(gulp.src(PATH.BUILD + 'scripts/site.min.js'), {
             starttag: '<!-- inject:head:js -->',
             transform: function(filePath, file) {
                 return '<script>' + file.contents.toString('utf8') + '</script>';
             }
         }))
-        .pipe(minifyHTML())
+        //.pipe(minifyHTML())
+        .pipe(gulp.dest(PATH.BUILD));
+});
+
+gulp.task('inject-styles', ['styles'], function() {
+    return gulp.src(PATH.BUILD + 'index.html')
+        .pipe(inject(gulp.src(PATH.BUILD + 'styles/site.css'), {
+            starttag: '<!-- inject:head:css -->',
+            transform: function(filePath, file) {
+                return '<style>' + file.contents.toString('utf8') + '</style>';
+            }
+        }))
+        //.pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD));
 });
 
@@ -206,9 +215,11 @@ gulp.task('webserver', function() {
 gulp.task('build', function() {
     runSequence(
         'clean',
-        ['copy', 'images', 'styles'],
-        'concat',
-        'inject',
+        'html',
+        'inject-scripts',
+        'inject-styles',
+        ['copy', 'images'],
+        //'concat',
         'size',
         'webserver'
     );
