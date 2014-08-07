@@ -11,6 +11,11 @@
 
 <p>Search by Project Title: <input type="text" data-ng-model="filter.projectTitle" placeholder="Project Title"></p>
 
+<form name="projectListViewForm">
+    <input type="radio" data-ng-model="view" value="thumbnail"> Thumbnail<br>
+    <input type="radio" data-ng-model="view" value="detail"> Detail<br>
+</form>
+
 <div class="projects">
     <span data-ng-repeat="project in projects">
         <a href="#/projects/{{ projects.length - $index - 1 }}">
