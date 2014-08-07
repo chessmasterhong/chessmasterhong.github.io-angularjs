@@ -6,7 +6,7 @@ requirejs.config({
         angular: '../vendor/angular/angular.min',
         angulartics: '../vendor/angulartics/dist/angulartics.min',
         angularticsGA: '../vendor/angulartics/dist/angulartics-ga.min',
-        domReady: '../vendor/requirejs-domready/domReady.min',
+        //domReady: '../vendor/requirejs-domready/domReady.min',
         ngAnimate: '../vendor/angular-animate/angular-animate.min',
         ngDialog: '../vendor/ngDialog/js/ngDialog.min',
         uiRouter: '../vendor/angular-ui-router/release/angular-ui-router.min'
@@ -24,12 +24,14 @@ requirejs.config({
 define([
     'require',
     'angular',
-    'domReady!',
+    //'domReady!',
     'app',
     'config/routes',
     'config/config'
-], function(require, angular, document) {
+], function(require, angular) {
     'use strict';
 
-    angular.bootstrap(document, ['app']);
+    angular.element(document).ready(function() {
+        angular.bootstrap(document, ['app']);
+    });
 });
