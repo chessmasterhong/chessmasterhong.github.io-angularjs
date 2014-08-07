@@ -159,11 +159,11 @@ gulp.task('inject-styles', ['styles'], function() {
 
 gulp.task('clean', function() {
     rimraf.sync(PATH.BUILD + 'index.html', function() {});
-    rimraf.sync(PATH.BUILD + 'fonts/', function() {});
+    rimraf.sync(PATH.BUILD + 'font/', function() {});
     rimraf.sync(PATH.BUILD + 'media/', function() {});
     rimraf.sync(PATH.BUILD + 'partials/', function() {});
     rimraf.sync(PATH.BUILD + 'scripts/', function() {});
-    //rimraf.sync(PATH.BUILD + 'styles/', function() {});
+    rimraf.sync(PATH.BUILD + 'styles/', function() {});
 });
 
 gulp.task('post-build', function() {
@@ -182,7 +182,7 @@ gulp.task('size', function() {
             PATH.BUILD + 'media/**/*',
             PATH.BUILD + 'partial/**/*',
             PATH.BUILD + 'scripts/**/*',
-            //PATH.BUILD + 'styles/**/*',
+            PATH.BUILD + 'styles/**/*',
         ])
         .pipe(size({
             gzip: true,
