@@ -10,16 +10,44 @@
 <p>Here is where I showcase projects I have worked on, both past and present. This includes some of my side projects as well.</p>
 
 <p>Search by Project Title: <input type="text" data-ng-model="filter.projectTitle" placeholder="Project Title"></p>
-
-<form name="projectListViewForm">
+<p>
     <input type="radio" data-ng-model="view" value="thumbnail"> Thumbnail<br>
     <input type="radio" data-ng-model="view" value="detail"> Detail<br>
-</form>
+</p>
 
-<div class="projects">
+<div class="projects" data-ng-if="view === 'thumbnail'">
     <span data-ng-repeat="project in projects">
         <a href="#/projects/{{ projects.length - $index - 1 }}">
             <img class="img_container" data-ng-src="{{ project.thumbnail }}" alt="Thumbnail for {{ project.title }}.">
         </a>
     </span>
+</div>
+
+<div class="projects" data-ng-if="view === 'detail'">
+    <div data-ng-repeat="project in projects | filter: { title: filter.projectTitle }" data-ng-class-even="'views-row views-row-even'" data-ng-class-odd="'views-row views-row-odd'">
+        <a href="#/projects/{{ projects.length - $index - 1 }}">
+            <img class="img_container" data-ng-src="{{ project.thumbnail }}" alt="Thumbnail for {{ project.title }}.">
+        </a>
+        <div class="proj_text">
+            <div class="proj_title">
+                <h2><a href="#/projects/{{ projects.length - $index - 1 }}" data-ng-bind="project.title"></a></h2>
+            </div>
+            <div class="proj_desc">
+                <p data-ng-bind="project.excerpt"></p>
+                <p>
+                    <a href="#/projects/{{ projects.length - $index - 1 }}">
+                        <i class="icon-info-circled"></i> Read more
+                    </a>
+                    <span class="spacer" data-ng-show="project.urlDemo"></span>
+                    <a href="{{ project.urlDemo }}" target="_blank" data-ng-show="project.urlDemo">
+                        <i class="icon-cog-alt"></i> Live Demo
+                    </a>
+                    <span class="spacer" data-ng-show="(project.urlDemo && project.urlSource) || project.urlSource"></span>
+                    <a href="{{ project.urlSource }}" target="_blank" data-ng-show="project.urlSource">
+                        <i class="icon-code"></i> Source Code
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
