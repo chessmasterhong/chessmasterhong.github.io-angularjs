@@ -6,32 +6,30 @@ requirejs.config({
         angular: '../vendor/angular/angular.min',
         angulartics: '../vendor/angulartics/dist/angulartics.min',
         angularticsGA: '../vendor/angulartics/dist/angulartics-ga.min',
-        //domReady: '../vendor/requirejs-domready/domReady.min',
+        domReady: '../vendor/requirejs-domready/domReady.min',
         ngAnimate: '../vendor/angular-animate/angular-animate.min',
         ngDialog: '../vendor/ngDialog/js/ngDialog.min',
         uiRouter: '../vendor/angular-ui-router/release/angular-ui-router.min'
     },
     shim: {
         angular: { exports: 'angular' },
-        angulartics: { deps: ['angular'], exports: 'angular' },
-        angularticsGA: { deps: ['angular', 'angulartics'], exports: 'angular' },
-        ngAnimate: { deps: ['angular'], exports: 'angular' },
-        ngDialog: { deps: ['angular'], exports: 'angular' },
-        uiRouter: { deps: ['angular'], exports: 'angular' }
+        angulartics: { deps: ['angular'] },
+        angularticsGA: { deps: ['angular', 'angulartics'] },
+        ngAnimate: { deps: ['angular'] },
+        ngDialog: { deps: ['angular'] },
+        uiRouter: { deps: ['angular'] }
     }
 });
 
 define([
     'require',
     'angular',
-    //'domReady!',
+    'domReady!',
     'app',
     'config/routes',
     'config/config'
-], function(require, angular) {
+], function(require, angular, document) {
     'use strict';
 
-    angular.element(document).ready(function() {
-        angular.bootstrap(document, ['app']);
-    });
+    angular.bootstrap(document, ['app']);
 });
