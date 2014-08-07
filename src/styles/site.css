@@ -177,7 +177,7 @@ nav li:last-child {
 nav li a {
     color: #444444;
     display: block;
-    padding-left: 20px;
+    padding-left: 15px;
 }
 
 nav li a:hover,
@@ -260,7 +260,7 @@ footer small {
     }
 
     nav li a {
-        padding-left: 4px;
+        padding-left: 5px;
     }
 
     section {
@@ -291,6 +291,14 @@ footer small {
         position: static;
     }
 
+    nav li {
+        text-align: center;
+    }
+
+    nav li a {
+        padding-left: 0px;
+    }
+
     pre, pre > code {
         word-wrap: normal;
     }
@@ -299,6 +307,22 @@ footer small {
 @media print, screen and (max-width: 480px) {
     body {
         padding: 15px;
+    }
+
+    nav ul {
+        width: 360px;
+    }
+
+    nav li {
+        width: 71px;
+    }
+
+    nav li:last-child {
+        width: 72px;
+    }
+
+    nav i {
+        display: none;
     }
 }
 
@@ -311,9 +335,5 @@ footer small {
 
     nav ul {
         display: none;
-    }
-
-    nav li {
-        text-align: center;
     }
 }
