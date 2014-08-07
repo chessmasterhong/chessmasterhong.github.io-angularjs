@@ -5,13 +5,10 @@ define([
 
     return app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
         $stateProvider
-            // ---------- Home ---------- //
             .state('home', {
                 abstract: true,
                 templateUrl: 'partials/views/home.html',
-                data: {
-                    pageTitle: 'Home'
-                }
+                data: { pageTitle: 'Home' }
             })
             .state('home.altLinkA', {
                 url: ''
@@ -26,9 +23,7 @@ define([
                 abstract: true,
                 url: '/projects',
                 template: '<div data-ui-view></div>',
-                data: {
-                    pageTitle: 'Projects',
-                }
+                data: { pageTitle: 'Projects' }
             })
             .state('projects.list', {
                 url: '',
@@ -43,37 +38,27 @@ define([
             .state('resources', {
                 url: '/resources',
                 templateUrl: 'partials/views/resources.html',
-                data: {
-                    pageTitle: 'Resources'
-                }
+                data: { pageTitle: 'Resources' }
             })
             .state('about', {
                 url: '/about',
                 templateUrl: 'partials/views/about.html',
-                data: {
-                    pageTitle: 'About'
-                }
+                data: { pageTitle: 'About' }
             })
             .state('contact', {
                 url: '/contact',
                 templateUrl: 'partials/views/contact.html',
-                data: {
-                    pageTitle: 'Contact'
-                }
+                data: { pageTitle: 'Contact' }
             })
             .state('credits', {
                 url: '/credits',
                 templateUrl: 'partials/views/credits.html',
-                data: {
-                    pageTitle: 'Credits'
-                }
+                data: { pageTitle: 'Credits' }
             })
             .state('404', {
                 url: '/404',
                 templateUrl: 'partials/views/404.html',
-                data: {
-                    pageTitle: 'Page Not Found'
-                }
+                data: { pageTitle: 'Page Not Found' }
             });
 
         $urlRouterProvider.otherwise('/404');
