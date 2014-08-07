@@ -1,10 +1,3 @@
-<style>
-    /* NOTE: temp styles for testing; remove on build */
-    .projects .img_container {
-        width: 179px;
-    }
-</style>
-
 <h1>Projects</h1>
 
 <p>Here is where I showcase projects I have worked on, both past and present. This includes some of my side projects as well.</p>
@@ -16,9 +9,9 @@
 </p>
 
 <div class="projects" data-ng-if="view === 'thumbnail'">
-    <span data-ng-repeat="project in projects">
+    <span data-ng-repeat="project in projects" data-ng-class="'views-row'">
         <a href="#/projects/{{ projects.length - $index - 1 }}">
-            <img class="img_container" data-ng-src="{{ project.thumbnail }}" alt="Thumbnail for {{ project.title }}.">
+            <img class="img-container img-view-thumbnail" data-ng-src="{{ project.thumbnail }}" alt="Thumbnail for {{ project.title }}.">
         </a>
     </span>
 </div>
@@ -26,13 +19,13 @@
 <div class="projects" data-ng-if="view === 'detail'">
     <div data-ng-repeat="project in projects | filter: { title: filter.projectTitle }" data-ng-class-even="'views-row views-row-even'" data-ng-class-odd="'views-row views-row-odd'">
         <a href="#/projects/{{ projects.length - $index - 1 }}">
-            <img class="img_container" data-ng-src="{{ project.thumbnail }}" alt="Thumbnail for {{ project.title }}.">
+            <img class="img-container img-view-detail" data-ng-src="{{ project.thumbnail }}" alt="Thumbnail for {{ project.title }}.">
         </a>
-        <div class="proj_text">
-            <div class="proj_title">
+        <div class="proj-text">
+            <div class="proj-title">
                 <h2><a href="#/projects/{{ projects.length - $index - 1 }}" data-ng-bind="project.title"></a></h2>
             </div>
-            <div class="proj_desc">
+            <div class="proj-desc">
                 <p data-ng-bind="project.excerpt"></p>
                 <p>
                     <a href="#/projects/{{ projects.length - $index - 1 }}">
