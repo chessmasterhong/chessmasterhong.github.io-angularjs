@@ -1,2 +1,19 @@
-<p>{{ projects[projectIndex].title }}</p>
+<h2>{{ projects[projectIndex].title }}</h2>
+
 <p><img data-ng-src="{{ projects[projectIndex].thumbnail }}"></p>
+
+<p data-ng-bind="projects[projectIndex].excerpt"></p>
+
+<p>
+    <a href="#/projects/{{ projects.length - $index - 1 }}">
+        <i class="icon-info-circled"></i> Read more
+    </a>
+    <span class="spacer" data-ng-show="projects[projectIndex].urlDemo"></span>
+    <a href="{{ projects[projectIndex].urlDemo }}" target="_blank" data-ng-show="projects[projectIndex].urlDemo">
+        <i class="icon-cog-alt"></i> Live Demo
+    </a>
+    <span class="spacer" data-ng-show="(projects[projectIndex].urlDemo && projects[projectIndex].urlSource) || projects[projectIndex].urlSource"></span>
+    <a href="{{ projects[projectIndex].urlSource }}" target="_blank" data-ng-show="projects[projectIndex].urlSource">
+        <i class="icon-code"></i> Source Code
+    </a>
+</p>
