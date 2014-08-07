@@ -13,7 +13,7 @@ define([
 
         $scope.openDialog = function() {
             ngDialog.open({
-                template: CONFIG.PATH.TMPL + 'dialogBox.html',
+                template: CONFIG.PATH.TMPL + 'dialogBox-projectDetail.html',
                 scope: $scope
             });
         };
