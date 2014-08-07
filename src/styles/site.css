@@ -168,7 +168,6 @@ nav li {
     border-bottom: 1px solid #dddddd;
     height: 24px;
     line-height: 24px;
-    text-align: center;
 }
 
 nav li:last-child {
@@ -178,6 +177,7 @@ nav li:last-child {
 nav li a {
     color: #444444;
     display: block;
+    padding-left: 20px;
 }
 
 nav li a:hover,
@@ -251,6 +251,7 @@ footer small {
         border-bottom: none;
         border-right: 1px solid #dddddd;
         float: left;
+        text-align: center;
         width: 71px;
     }
 
