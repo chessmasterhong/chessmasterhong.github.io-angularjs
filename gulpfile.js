@@ -101,25 +101,12 @@ gulp.task('images', function() {
 gulp.task('html', function() {
     gulp.src(PATH.SOURCE + 'index.html')
         .pipe(prochtml('index.html'))
+        .pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD));
 
-    gulp.src([
-            PATH.SOURCE + 'partials/**/*.html',
-            '!' + PATH.SOURCE + 'partials/views/projectList.html',
-            '!' + PATH.SOURCE + 'partials/views/projectDetail.html',
-        ])
+    gulp.src(PATH.SOURCE + 'partials/**/*.html')
         .pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD + 'partials/'));
-
-    gulp.src(PATH.SOURCE + 'partials/views/projectList.html')
-        .pipe(prochtml('projectList.html'))
-        .pipe(minifyHTML())
-        .pipe(gulp.dest(PATH.BUILD + 'partials/views/'));
-
-    gulp.src(PATH.SOURCE + 'partials/views/projectDetail.html')
-        .pipe(prochtml('projectDetail.html'))
-        .pipe(minifyHTML())
-        .pipe(gulp.dest(PATH.BUILD + 'partials/views/'));
 });
 
 gulp.task('copy', function() {
