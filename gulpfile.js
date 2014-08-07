@@ -100,6 +100,7 @@ gulp.task('images', function() {
 
 gulp.task('html', function() {
     gulp.src(PATH.SOURCE + 'index.html')
+        .pipe(prochtml('index.html'))
         .pipe(gulp.dest(PATH.BUILD));
 
     gulp.src([
@@ -174,7 +175,7 @@ gulp.task('clean', function() {
     rimraf.sync(PATH.BUILD + 'fonts/', function() {});
     rimraf.sync(PATH.BUILD + 'media/', function() {});
     rimraf.sync(PATH.BUILD + 'partials/', function() {});
-    //rimraf.sync(PATH.BUILD + 'scripts/', function() {});
+    rimraf.sync(PATH.BUILD + 'scripts/', function() {});
     //rimraf.sync(PATH.BUILD + 'styles/', function() {});
 });
 
@@ -193,7 +194,7 @@ gulp.task('size', function() {
             PATH.BUILD + 'fonts/**/*',
             PATH.BUILD + 'media/**/*',
             PATH.BUILD + 'partial/**/*',
-            //PATH.BUILD + 'scripts/**/*',
+            PATH.BUILD + 'scripts/**/*',
             //PATH.BUILD + 'styles/**/*',
         ])
         .pipe(size({
@@ -224,9 +225,9 @@ gulp.task('build', function() {
         'clean',
         ['html', 'copy', 'images'],
         'concat',
-        'inject-scripts',
-        'inject-styles',
-        'post-build',
+        //'inject-scripts',
+        //'inject-styles',
+        //'post-build',
         'size',
         'webserver'
     );
