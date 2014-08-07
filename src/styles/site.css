@@ -241,7 +241,7 @@ footer small {
         position: absolute;
         right: 50px;
         top: 67px;
-        width: 360px;
+        width: 460px;
         border-radius: 5px 5px 0 0;
         -moz-border-radius: 5px 5px 0 0;
         -webkit-border-radius: 5px 5px 0 0;
@@ -251,13 +251,16 @@ footer small {
         border-bottom: none;
         border-right: 1px solid #dddddd;
         float: left;
-        text-align: center;
-        width: 71px;
+        width: 91px;
     }
 
     nav li:last-child {
         border-right: none;
-        width: 72px;
+        width: 92px;
+    }
+
+    nav li a {
+        padding-left: 4px;
     }
 
     section {
@@ -308,5 +311,9 @@ footer small {
 
     nav ul {
         display: none;
+    }
+
+    nav li {
+        text-align: center;
     }
 }
