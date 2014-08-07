@@ -223,7 +223,7 @@ gulp.task('webserver', function() {
 gulp.task('build', function() {
     runSequence(
         'clean',
-        ['html', 'copy', 'images'],
+        ['html', 'requirejs', 'styles', 'copy', 'images'],
         'concat',
         //'inject-scripts',
         //'inject-styles',
