@@ -52,6 +52,13 @@
 
 .pager .pager-item {
     display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    width: 100px;
+}
+
+.pager .pager-item a {
+    margin: 0 5px;
 }
 
 .pager .pager-item img {
