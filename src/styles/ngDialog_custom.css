@@ -67,8 +67,14 @@
     float: left;
 }
 
+.ngdialog.ngdialog-theme-default .image img {
+    box-shadow: 2px 2px 4px 2px #999999;
+    -moz-box-shadow: 2px 2px 4px 2px #999999;
+    -webkit-box-shadow: 2px 2px 4px 2px #999999;
+}
+
 .ngdialog.ngdialog-theme-default .text {
-    margin-left: 250px;
+    margin-left: 260px;
 }
 
 .ngdialog.ngdialog-theme-default.ngdialog-closing .ngdialog-content {
@@ -161,8 +167,8 @@
 }
 
 .ngdialog.ngdialog-theme-default .ngdialog-button.ngdialog-button-primary {
-background: #3288e6;
-color: #fff;
+    background: #3288e6;
+    color: #fff;
 }
 
 .ngdialog.ngdialog-theme-default .ngdialog-button.ngdialog-button-secondary {

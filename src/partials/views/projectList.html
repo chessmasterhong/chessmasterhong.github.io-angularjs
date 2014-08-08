@@ -2,16 +2,15 @@
 
 <p>Here is where I showcase projects I have worked on, both past and present. This includes some of my side projects as well.</p>
 
-<p>Search by Project Title: <input type="text" data-ng-model="filter.projectTitle" placeholder="Project Title"></p>
+<p>Search by Project Title: <input type="text" class="search" data-ng-model="filter.projectTitle" placeholder="Project Title"></p>
 <p>
-    <input type="radio" data-ng-model="view" value="thumbnail" title="Switch to Thumbnail View"><i class="icon-th"></i><br>
-    <input type="radio" data-ng-model="view" value="detail" title="Switch to Detail View"><i class="icon-th-list"></i><br>
+    <input type="radio" data-ng-model="view" value="thumbnail"><i class="icon-th"></i> Thumbnail View<br>
+    <input type="radio" data-ng-model="view" value="detail"><i class="icon-th-list"></i> Detail View
 </p>
 
 <div class="projects" data-ng-if="view === 'thumbnail'">
-    <span data-ng-repeat="project in projects" data-ng-class="'views-row'">
-        <!--<a href="#/projects/{{ projects.length - $index - 1 }}">-->
-        <a href="javascript:void(0)" data-ng-click="openDialog(projects.length - $index - 1)">
+    <span data-ng-repeat="project in projects | filter: { title: filter.projectTitle }" data-ng-class="'views-row'">
+        <a href="javascript:void(0)" data-ng-click="openDialog(projects.length - $index - 1)" title="{{ project.title }}">
             <img class="img-container img-view-thumbnail" data-ng-src="{{ project.thumbnail }}" alt="Thumbnail for {{ project.title }}.">
         </a>
     </span>
