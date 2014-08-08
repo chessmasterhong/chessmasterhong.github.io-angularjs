@@ -28,18 +28,18 @@
     width: 170px;
 }
 
+.projects .img-view-thumbnail:hover {
+    border: 2px solid #222222;
+    margin: 2px;
+}
+
 .projects .img-view-detail {
     height: 240px;
     width: 240px;
 }
 
-.projects .views-row-even .proj-text {
-    margin-left: 260px;
-}
-
-.projects .views-row-odd .proj-text {
-    margin-right: 260px;
-}
+.projects .views-row-even .proj-text { margin-left: 260px; }
+.projects .views-row-odd .proj-text { margin-right: 260px; }
 
 .projects .views-row .proj-text .proj-desc {
     font-size: 14px;
