@@ -1,3 +1,9 @@
+/**
+ *  Angular Animate Slideshow - Custom Theme
+ *  Author: Kevin Chan (http://chessmasterhong.github.io)
+ *  Inspired by bxSlider (http://bxslider.com)
+ */
+
 .slider-container {
     padding: 0 0 600px;
     position: relative;
@@ -29,16 +35,16 @@
 }
 
 .slide .caption {
-    background: #dddddd;
+    background: #d0d0d0;
     font-size: small;
     padding: 5px 15px;
 }
 
 .arrow {
+    font-size: 32px;
     position: absolute;
     text-align: center;
     top: 204px;
-    font-size: 32px;
 }
 
 .arrow_left { left: 5px; }
@@ -52,13 +58,19 @@
 }
 
 .pager .pager-item {
+    box-shadow: 2px 2px 4px 2px #999999;
+    -moz-box-shadow: 2px 2px 4px 2px #999999;
+    -webkit-box-shadow: 2px 2px 4px 2px #999999;
     display: inline-block;
+    height: 100px;
+    margin: 4px;
     overflow: hidden;
     width: 100px;
 }
 
-.pager .pager-item a {
-    margin: 0 5px;
+.pager .pager-item:hover {
+    border: 2px solid #222222;
+    margin: 2px;
 }
 
 .pager .pager-item img {
