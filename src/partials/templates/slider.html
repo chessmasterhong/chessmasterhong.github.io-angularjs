@@ -18,10 +18,8 @@
 
     <div class="pager">
         <ul>
-            <li class="pager-item" data-ng-repeat="slide in slides">
-                <a href="">
-                    <img data-ng-src="{{ slide.image }}">
-                </a>
+            <li class="pager-item" data-ng-repeat="slide in slides" data-ng-click="set($index)">
+                <img data-ng-src="{{ slide.image }}">
             </li>
         </ul>
     </div>

@@ -35,6 +35,12 @@ define([
                     timer = $timeout(sliderTimer, 5000);
                 };
 
+                scope.set = function(slideIndex) {
+                    scope.currentSlideIndex = slideIndex;
+                    $timeout.cancel(timer);
+                    timer = $timeout(sliderTimer, 5000);
+                }
+
                 scope.$watch('currentSlideIndex', function() {
                     scope.slides.forEach(function(slide) {
                         slide.visible = false;
