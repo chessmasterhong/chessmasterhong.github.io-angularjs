@@ -1,3 +1,8 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+
 /* Scaffolding */
 
 body {
@@ -134,7 +139,7 @@ th {
 }
 
 
-/* Header / Sidebar Top */
+/* Header */
 
 header {
     border-right: 1px solid #dddddd;
@@ -211,7 +216,7 @@ footer small {
     margin: 10px 0;
 }
 
-#extlinks {
+footer .extlinks {
     font-size: x-large;
 }
 
