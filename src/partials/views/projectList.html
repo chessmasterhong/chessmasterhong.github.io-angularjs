@@ -4,8 +4,8 @@
 
 <p>Search by Project Title: <input type="text" data-ng-model="filter.projectTitle" placeholder="Project Title"></p>
 <p>
-    <input type="radio" data-ng-model="view" value="thumbnail"> Thumbnail<br>
-    <input type="radio" data-ng-model="view" value="detail"> Detail<br>
+    <input type="radio" data-ng-model="view" value="thumbnail" title="Switch to Thumbnail View"><i class="icon-th"></i><br>
+    <input type="radio" data-ng-model="view" value="detail" title="Switch to Detail View"><i class="icon-th-list"></i><br>
 </p>
 
 <div class="projects" data-ng-if="view === 'thumbnail'">
