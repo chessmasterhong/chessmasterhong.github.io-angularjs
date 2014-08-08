@@ -50,6 +50,14 @@
     top: 480px;
 }
 
+.pager .pager-item {
+    display: inline-block;
+}
+
+.pager .pager-item img {
+    height: 100px;
+}
+
 .slide.ng-hide-add, .slide.ng-hide-remove {
     display: block !important;
     -webkit-transition: 0.5s linear all;
