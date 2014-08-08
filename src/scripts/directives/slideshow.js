@@ -12,33 +12,30 @@ define([
                 slides: '='
             },
             link: function(scope) {
-                var timer;
+                var timer,
+                    delay = 5000;
 
                 var sliderTimer = function() {
                     timer = $timeout(function() {
                         scope.next();
-                    }, 5000);
+                    }, delay);
                 };
                 sliderTimer();
 
                 scope.currentSlideIndex = 0;
 
                 scope.next = function() {
-                    scope.currentSlideIndex = (scope.currentSlideIndex + 1) % scope.slides.length;
-                    $timeout.cancel(timer);
-                    timer = $timeout(sliderTimer, 5000);
+                    scope.set((scope.currentSlideIndex + 1) % scope.slides.length);
                 };
 
                 scope.prev = function() {
-                    scope.currentSlideIndex = scope.currentSlideIndex > 0 ? (scope.currentSlideIndex - 1) % scope.slides.length : scope.slides.length - 1;
-                    $timeout.cancel(timer);
-                    timer = $timeout(sliderTimer, 5000);
+                    scope.set(scope.currentSlideIndex > 0 ? (scope.currentSlideIndex - 1) % scope.slides.length : scope.slides.length - 1);
                 };
 
                 scope.set = function(slideIndex) {
                     scope.currentSlideIndex = slideIndex;
                     $timeout.cancel(timer);
-                    timer = $timeout(sliderTimer, 5000);
+                    timer = $timeout(sliderTimer, delay);
                 }
 
                 scope.$watch('currentSlideIndex', function() {
