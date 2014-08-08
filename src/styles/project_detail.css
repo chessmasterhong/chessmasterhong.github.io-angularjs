@@ -45,15 +45,15 @@
 .arrow_right { right: 5px; }
 
 .pager {
-    left: 0;
     position: absolute;
+    text-align: center;
     top: 480px;
+    width: 100%;
 }
 
 .pager .pager-item {
     display: inline-block;
     overflow: hidden;
-    text-align: center;
     width: 100px;
 }
 
