@@ -63,6 +63,14 @@
     padding-top: 160px;
 }
 
+.ngdialog.ngdialog-theme-default .image {
+    float: left;
+}
+
+.ngdialog.ngdialog-theme-default .text {
+    margin-left: 250px;
+}
+
 .ngdialog.ngdialog-theme-default.ngdialog-closing .ngdialog-content {
     -webkit-animation: ngdialog-flyout .5s;
     animation: ngdialog-flyout .5s;
@@ -76,9 +84,10 @@
     color: #444;
     margin: 0 auto;
     max-width: 100%;
+    min-height: 322px;
     padding: 1em;
     position: relative;
-    width: 650px;
+    width: 700px;
 }
 
 .ngdialog.ngdialog-theme-default .ngdialog-close {
