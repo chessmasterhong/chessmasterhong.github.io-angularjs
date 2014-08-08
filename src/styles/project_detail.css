@@ -1,5 +1,5 @@
-.slider {
-    padding: 0 0 500px;
+.slider-container {
+    padding: 0 0 600px;
     position: relative;
 }
 
@@ -43,6 +43,12 @@
 
 .arrow_left { left: 5px; }
 .arrow_right { right: 5px; }
+
+.pager {
+    left: 0;
+    position: absolute;
+    top: 480px;
+}
 
 .slide.ng-hide-add, .slide.ng-hide-remove {
     display: block !important;
