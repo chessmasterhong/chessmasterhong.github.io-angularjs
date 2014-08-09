@@ -138,6 +138,10 @@ th {
     color: #444444;
 }
 
+img {
+    max-width: 100%;
+}
+
 
 /* Header */
 

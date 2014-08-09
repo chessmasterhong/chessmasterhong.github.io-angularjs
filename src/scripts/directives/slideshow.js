@@ -36,7 +36,7 @@ define([
                     scope.currentSlideIndex = slideIndex;
                     $timeout.cancel(timer);
                     timer = $timeout(sliderTimer, delay);
-                }
+                };
 
                 scope.$watch('currentSlideIndex', function() {
                     scope.slides.forEach(function(slide) {
