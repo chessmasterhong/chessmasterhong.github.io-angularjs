@@ -84,7 +84,6 @@ gulp.task('styles', function() {
     return gulp.src([
             PATH.SOURCE + 'styles/**/*.css',
             PATH.SOURCE + 'vendor/ngDialog/css/ngDialog.min.css',
-            PATH.SOURCE + 'vendor/ngDialog/css/ngDialog-theme-default.min.css',
             PATH.SOURCE + 'fonts/**/*.css'
         ])
         .pipe(concat('site.min.css'))
@@ -190,7 +189,7 @@ gulp.task('size', function() {
         }));
 });
 
-gulp.task('webserver-dev', function() {
+gulp.task('server-dev', function() {
     gulp.src(PATH.SOURCE)
         .pipe(webserver({
             host: SERVER.HOST,
@@ -199,7 +198,7 @@ gulp.task('webserver-dev', function() {
         }));
 });
 
-gulp.task('webserver', function() {
+gulp.task('server', function() {
     gulp.src(PATH.BUILD)
         .pipe(webserver({
             host: SERVER.HOST,
@@ -216,6 +215,6 @@ gulp.task('build', function() {
         //'inject-styles',
         //'post-build',
         'size',
-        'webserver'
+        'server'
     );
 });
