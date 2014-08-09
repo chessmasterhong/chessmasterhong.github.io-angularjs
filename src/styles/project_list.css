@@ -23,9 +23,9 @@
 }
 
 .projects .img-view-thumbnail {
-    height: 170px;
+    height: 20%;
     margin: 4px;
-    width: 170px;
+    width: 20%;
 }
 
 .projects .img-view-thumbnail:hover {

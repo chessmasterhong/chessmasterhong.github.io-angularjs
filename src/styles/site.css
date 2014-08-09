@@ -202,6 +202,10 @@ nav li a.active:hover {
     background: #e5e5e5;
 }
 
+nav .nav-label:before {
+    content: " ";
+}
+
 
 /* Footer / Sidebar */
 
@@ -298,14 +302,21 @@ footer .extlinks {
     nav ul {
         margin-bottom: -1px;
         position: static;
+        width: 410px;
     }
 
     nav li {
         text-align: center;
+        width: 81px;
+    }
+
+    nav li:last-child {
+        width: 82px;
     }
 
     nav li a {
-        padding-left: 0px;
+        margin-left: -4px;
+        padding-left: 0;
     }
 
     pre, pre > code {
@@ -318,11 +329,15 @@ footer .extlinks {
         padding: 15px;
     }
 
+    header h1 {
+        text-align: center;
+    }
+
     nav ul {
         font-size: 12px;
         height: 35px;
-        width: 300px;
         margin: 0 auto -1px;
+        width: 300px;
     }
 
     nav li {
@@ -333,6 +348,10 @@ footer .extlinks {
 
     nav li:last-child {
         width: 60px;
+    }
+
+    nav li a {
+        margin-left: 0;
     }
 
     nav i {
