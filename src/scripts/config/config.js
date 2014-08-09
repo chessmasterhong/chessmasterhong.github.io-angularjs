@@ -2,8 +2,10 @@
 
 var CONFIG = {
     PATH: {
-        IMG: 'media/images/',
-        IMG_THUMB: 'media/images/thumbnails/',
+        IMG: {
+            PROJ: 'media/images/projects/',
+            PROJ_THUMB: 'media/images/projects/thumbnails/',
+        },
         TMPL: 'partials/templates/',
         POST: {
             PROJ: 'partials/projects/',
