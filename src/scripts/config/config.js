@@ -2,10 +2,7 @@
 
 var CONFIG = {
     PATH: {
-        IMG: {
-            PROJ: 'media/images/projects/',
-            PROJ_THUMB: 'media/images/projects/thumbnails/',
-        },
+        IMG: '//drive.google.com/uc?export=download&id=',
         TMPL: 'partials/templates/',
         POST: {
             PROJ: 'partials/projects/',
