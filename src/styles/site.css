@@ -221,7 +221,7 @@ footer small {
 }
 
 footer .extlinks {
-    font-size: x-large;
+    font-size: 26px;
 }
 
 
@@ -245,7 +245,7 @@ footer .extlinks {
     }
 
     nav ul {
-        border-bottom: none;
+        border-bottom: 1px solid #dddddd;
         height: 24px;
         position: absolute;
         right: 50px;
@@ -319,19 +319,28 @@ footer .extlinks {
     }
 
     nav ul {
-        width: 360px;
+        font-size: 12px;
+        height: 35px;
+        width: 300px;
+        margin: 0 auto -1px;
     }
 
     nav li {
-        width: 71px;
+        height: 35px;
+        line-height: 16px;
+        width: 59px;
     }
 
     nav li:last-child {
-        width: 72px;
+        width: 60px;
     }
 
     nav i {
-        display: none;
+        font-size: 18px;
+    }
+
+    nav .nav-label {
+        display: block;
     }
 }
 
