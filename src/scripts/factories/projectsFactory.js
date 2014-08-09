@@ -6,6 +6,21 @@ define([
     factories.factory('projectsFactory', function() {
         var projects = [
             {
+                title: 'Impact Atmospheric System Plugin',
+                thumbnail: CONFIG.PATH.IMG_THUMB + 'ia.thumb.jpg',
+                urlDetails: CONFIG.PATH.POST.PROJ + 'impact_atmospheric_system_plugin.html',
+                urlDemo: 'http://chessmasterhong.bitbucket.org/projects/impact-atmosphere/',
+                urlSource: 'https://github.com/chessmasterhong/impact-atmosphere',
+                excerpt: '',
+                slides: [
+                    { image: CONFIG.PATH.IMG + 'ia0.jpg', caption: '' },
+                    { image: CONFIG.PATH.IMG + 'ia1.jpg', caption: '' },
+                    { image: CONFIG.PATH.IMG + 'ia2.jpg', caption: '' },
+                    { image: CONFIG.PATH.IMG + 'ia3.jpg', caption: '' },
+                    { image: CONFIG.PATH.IMG + 'ia4.jpg', caption: '' }
+                ]
+            },
+            {
                 title: 'Fire Emblem: Chronicles of the Abyss',
                 thumbnail: CONFIG.PATH.IMG_THUMB + 'fe.thumb.jpg',
                 urlDetails: CONFIG.PATH.POST.PROJ + 'fire_emblem_chronicles_of_the_abyss.html',
