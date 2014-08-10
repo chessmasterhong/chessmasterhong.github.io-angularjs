@@ -160,6 +160,7 @@ nav ul li a {
 
 nav ul li a:hover,
 nav ul li a:active {
+    background-color: #ffffff;
     color: #444444;
     font-weight: bold;
     text-decoration: none;
@@ -332,21 +333,23 @@ img {
     }
 
     header {
+        border-bottom: 1px solid #dddddd;
         border-right: none;
-        margin: -20px 0 -10px 0;
+        margin: -20px 0 0 0;
         padding: 0;
+        height: 41px;
     }
 
     nav ul {
         border-bottom: 1px solid #dddddd;
+        -moz-border-radius: 5px 5px 0 0;
+        -webkit-border-radius: 5px 5px 0 0;
+        border-radius: 5px 5px 0 0;
         height: 24px;
         position: absolute;
         right: 40px;
-        top: 67px;
+        top: 57px;
         width: 460px;
-        border-radius: 5px 5px 0 0;
-        -moz-border-radius: 5px 5px 0 0;
-        -webkit-border-radius: 5px 5px 0 0;
     }
 
     nav ul li {
@@ -366,14 +369,13 @@ img {
     }
 
     .content-body {
-        border-bottom: 1px solid #dddddd;
-        border-top: 1px solid #dddddd;
         padding: 0 0 30px;
     }
 
     footer {
-        margin: 20px auto 0;
-        max-width: 400px;
+        border-top: 1px solid #dddddd;
+        margin: 0 auto;
+        padding: 20px 0;
         text-align: center;
     }
 }
@@ -381,6 +383,10 @@ img {
 @media only screen and (max-width: 768px) {
     body {
         word-wrap: break-word;
+    }
+
+    header {
+        height: auto;
     }
 
     nav ul {
@@ -448,7 +454,7 @@ img {
 
     footer {
         margin-top: 10px;
-        padding: 0;
+        padding: 10px 0;
     }
 }
 
