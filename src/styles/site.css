@@ -89,7 +89,9 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-/* Scaffolding */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
 
 body {
     color: #444444;
@@ -112,50 +114,9 @@ body {
     clear: both;
 }
 
-
-/* Typography */
-
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-    color: #4f738d;
-}
-
-h1 a:hover, h2 a:hover, h3 a:hover {
-    text-decoration: none;
-}
-
-a {
-    color: #4f738d;
-    text-decoration: none;
-}
-
-a:hover,
-a:active {
-    color: #2f538d;
-    text-decoration: underline;
-}
-
-p, ul, ol {
-    margin: 0 0 20px;
-}
-
-strong {
-    font-weight: 700;
-}
-
-section {
-    float: right;
-    min-height: 400px;
-    overflow: hidden;
-    padding-bottom: 50px;
-    width: 760px;
-}
-
-img {
-    max-width: 100%;
-}
-
-
-/* Header */
+/*
+ * Header
+ */
 
 header {
     background-color: #ffffff;
@@ -167,14 +128,14 @@ header {
     width: 200px;
 }
 
-
-/* Navbar */
+/*
+ * Navigation
+ */
 
 nav ul {
-    background: #ffffff;
-    border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    border-radius: 5px;
     border: 1px solid #dddddd;
     font-size: 0.8em;
     list-style: none;
@@ -214,27 +175,71 @@ nav .nav-label:before {
     content: " ";
 }
 
-/* Section */
+/*
+ * Content body
+ */
 
 .content-body {
+    float: right;
     margin: 20px -40px 0 0;
+    min-height: 400px;
+    overflow: hidden;
+    padding-bottom: 50px;
+    width: 760px;
 }
 
-/* Footer */
+/*
+ * Footer
+ */
 
 footer {
     bottom: 50px;
     float: left;
     font-size: 0.9em;
     line-height: 1.1;
+    padding-left: 50px;
     position: fixed;
     text-align: center;
-    padding-left: 50px;
     width: 200px;
 }
 
 footer .extlinks {
     font-size: 1.8em;
+}
+
+/*
+ * Others
+ */
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: #4f738d;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover {
+    text-decoration: none;
+}
+
+a {
+    color: #4f738d;
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    color: #2f538d;
+    text-decoration: underline;
+}
+
+p, ul, ol {
+    margin: 0 0 20px;
+}
+
+strong {
+    font-weight: 700;
+}
+
+img {
+    max-width: 100%;
 }
 
 /* ==========================================================================
@@ -399,10 +404,6 @@ footer .extlinks {
 
 
 /* ========================================================================== */
-
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-    display: none !important;
-}
 
 
 /* Responsive Adjustments */
