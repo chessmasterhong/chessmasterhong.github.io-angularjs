@@ -5,14 +5,8 @@
  */
 
 /* ==========================================================================
-   Base styles: opinionated defaults
+   Base styles: HTML5 Boilerplate opinionated defaults
    ========================================================================== */
-
-html {
-    color: #222;
-    font-size: 1em;
-    line-height: 1.4;
-}
 
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
@@ -28,19 +22,6 @@ html {
 ::selection {
     background: #b3d4fc;
     text-shadow: none;
-}
-
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
 }
 
 /*
@@ -86,7 +67,9 @@ textarea {
 }
 
 /* ==========================================================================
-   Author's custom styles
+   Site's custom styles
+   By: Kevin Chan (http://chessmasterhong.github.io)
+   Heavily modified from Steve Smith's Minimal Theme (https://github.com/orderedlist/minimal)
    ========================================================================== */
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -94,9 +77,11 @@ textarea {
 }
 
 body {
-    color: #444444;
+    color: #222;
     font-weight: 300;
     font: 16px Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    line-height: 1.2;
 }
 
 .wrapper {
@@ -119,8 +104,8 @@ body {
  */
 
 header {
-    background-color: #ffffff;
-    border-right: 1px solid #dddddd;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
     float: left;
     min-height: 100%;
     padding: 20px 20px 0 40px;
@@ -136,14 +121,14 @@ nav ul {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    border: 1px solid #dddddd;
+    border: 1px solid #ddd;
     font-size: 0.8em;
     list-style: none;
     padding: 0;
 }
 
 nav ul li {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #ddd;
     height: 24px;
     line-height: 24px;
 }
@@ -153,15 +138,15 @@ nav ul li:last-child {
 }
 
 nav ul li a {
-    color: #444444;
+    color: #444;
     display: block;
     padding-left: 15px;
 }
 
 nav ul li a:hover,
 nav ul li a:active {
-    background-color: #ffffff;
-    color: #444444;
+    background-color: #fff;
+    color: #444;
     font-weight: bold;
     text-decoration: none;
 }
@@ -193,7 +178,7 @@ nav .nav-label:before {
  */
 
 footer {
-    bottom: 50px;
+    bottom: 70px;
     float: left;
     font-size: 0.9em;
     line-height: 1.1;
@@ -211,11 +196,15 @@ footer .extlinks {
  * Others
  */
 
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+h1 a,
+h2 a,
+h3 a {
     color: #4f738d;
 }
 
-h1 a:hover, h2 a:hover, h3 a:hover {
+h1 a:hover,
+h2 a:hover,
+h3 a:hover {
     text-decoration: none;
 }
 
@@ -230,16 +219,21 @@ a:active {
     text-decoration: underline;
 }
 
-p, ul, ol {
-    margin: 0 0 20px;
-}
-
 strong {
     font-weight: 700;
 }
 
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
 img {
-    max-width: 100%;
+    max-width: 100%; /* Prevents wide images from breaking site layout */
 }
 
 /* ==========================================================================
@@ -326,22 +320,24 @@ img {
         width: auto;
     }
 
-    header, .content-body, footer {
+    header,
+    footer,
+    .content-body {
         float: none;
         position: static;
         width: 100%;
     }
 
     header {
-        border-bottom: 1px solid #dddddd;
+        border-bottom: 1px solid #ddd;
         border-right: none;
         margin: -20px 0 0 0;
         padding: 0;
-        height: 41px;
+        height: 54px;
     }
 
     nav ul {
-        border-bottom: 1px solid #dddddd;
+        border-bottom: 1px solid #ddd;
         -moz-border-radius: 5px 5px 0 0;
         -webkit-border-radius: 5px 5px 0 0;
         border-radius: 5px 5px 0 0;
@@ -354,7 +350,7 @@ img {
 
     nav ul li {
         border-bottom: none;
-        border-right: 1px solid #dddddd;
+        border-right: 1px solid #ddd;
         float: left;
         width: 91px;
     }
@@ -373,7 +369,7 @@ img {
     }
 
     footer {
-        border-top: 1px solid #dddddd;
+        border-top: 1px solid #ddd;
         margin: 0 auto;
         padding: 20px 0;
         text-align: center;
@@ -409,7 +405,12 @@ img {
         padding-left: 0;
     }
 
-    pre, pre > code {
+    footer .extlinks {
+        font-size: 1.7em;
+    }
+
+    pre,
+    pre > code {
         word-wrap: normal;
     }
 }
@@ -452,9 +453,8 @@ img {
         display: block;
     }
 
-    footer {
-        margin-top: 10px;
-        padding: 10px 0;
+    footer .extlinks {
+        font-size: 1.6em;
     }
 }
 
@@ -483,11 +483,11 @@ img {
         text-decoration: underline;
     }
 
-    a[href]:after {
+    .content-body a[href]:after {
         content: " (" attr(href) ")";
     }
 
-    abbr[title]:after {
+    .content-body abbr[title]:after {
         content: " (" attr(title) ")";
     }
 
