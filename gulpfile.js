@@ -209,7 +209,8 @@ gulp.task('server', function() {
 gulp.task('build', function() {
     runSequence(
         'clean',
-        ['html', 'requirejs', 'styles', 'copy', 'images'],
+        ['requirejs', 'styles'],
+        ['html', 'copy'],
         'concat',
         //'inject-scripts',
         //'inject-styles',
