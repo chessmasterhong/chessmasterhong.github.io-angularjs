@@ -95,7 +95,6 @@ body {
     color: #444444;
     font-weight: 300;
     font: 16px Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    padding: 0 50px;
 }
 
 .wrapper {
@@ -159,10 +158,11 @@ img {
 /* Header */
 
 header {
+    background-color: #ffffff;
     border-right: 1px solid #dddddd;
     float: left;
     min-height: 100%;
-    padding-right: 30px;
+    padding: 20px 20px 0 50px;
     position: fixed;
     width: 200px;
 }
@@ -176,7 +176,7 @@ nav ul {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border: 1px solid #dddddd;
-    font-size: 13px;
+    font-size: 0.8em;
     list-style: none;
     padding: 0;
 }
@@ -214,26 +214,27 @@ nav .nav-label:before {
     content: " ";
 }
 
+/* Section */
 
-/* Footer / Sidebar */
+.content-body {
+    margin: 20px -40px 0 0;
+}
+
+/* Footer */
 
 footer {
     bottom: 50px;
     float: left;
-    font-size: 14px;
+    font-size: 0.9em;
+    line-height: 1.1;
     position: fixed;
     text-align: center;
+    padding-left: 50px;
     width: 200px;
 }
 
-footer small {
-    display: block;
-    font-size: 12px;
-    margin: 10px 0;
-}
-
 footer .extlinks {
-    font-size: 26px;
+    font-size: 1.8em;
 }
 
 /* ==========================================================================
