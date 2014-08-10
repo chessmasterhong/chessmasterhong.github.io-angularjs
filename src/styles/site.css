@@ -123,7 +123,7 @@ header {
     border-right: 1px solid #dddddd;
     float: left;
     min-height: 100%;
-    padding: 20px 20px 0 50px;
+    padding: 20px 20px 0 40px;
     position: fixed;
     width: 200px;
 }
@@ -181,11 +181,10 @@ nav .nav-label:before {
 
 .content-body {
     float: right;
-    margin: 20px -40px 0 0;
+    padding: 20px 40px 50px 0;
     min-height: 400px;
     overflow: hidden;
-    padding-bottom: 50px;
-    width: 760px;
+    width: 690px;
 }
 
 /*
@@ -316,33 +315,33 @@ img {
 }
 
 /* ==========================================================================
-   Media Queries for Responsive Design
+   Media Queries for Responsive Design.
+   Style adjustments for viewports that meet the condition
    ========================================================================== */
 
-@media only screen and (max-width: 1140px) {
-    /* Style adjustments for viewports that meet the condition */
-
-    div.wrapper {
-        margin: 0;
+@media only screen and (max-width: 1024px) {
+    .wrapper {
+        padding: 40px;
         width: auto;
     }
 
-    header, section, footer {
+    header, .content-body, footer {
         float: none;
         position: static;
         width: 100%;
     }
 
     header {
-        border-right: 0;
-        padding-right: 320px;
+        border-right: none;
+        margin: -20px 0 -10px 0;
+        padding: 0;
     }
 
     nav ul {
         border-bottom: 1px solid #dddddd;
         height: 24px;
         position: absolute;
-        right: 50px;
+        right: 40px;
         top: 67px;
         width: 460px;
         border-radius: 5px 5px 0 0;
@@ -366,23 +365,20 @@ img {
         padding-left: 5px;
     }
 
-    section {
+    .content-body {
         border-bottom: 1px solid #dddddd;
         border-top: 1px solid #dddddd;
-        margin: 0 0 20px;
-        padding: 20px 0;
+        padding: 0 0 30px;
     }
 
     footer {
-        margin: 0 auto;
+        margin: 20px auto 0;
         max-width: 400px;
         text-align: center;
     }
 }
 
 @media only screen and (max-width: 768px) {
-    /* Style adjustments for viewports that meet the condition */
-
     body {
         word-wrap: break-word;
     }
@@ -417,8 +413,6 @@ img {
 }
 
 @media only screen and (max-width: 480px) {
-    /* Style adjustments for viewports that meet the condition */
-
     body {
         padding: 15px;
     }
