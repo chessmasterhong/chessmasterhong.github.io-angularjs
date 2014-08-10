@@ -383,23 +383,19 @@ img {
         word-wrap: break-word;
     }
 
-    header {
-        padding: 0;
-    }
-
     nav ul {
         margin-bottom: -1px;
         position: static;
-        width: 410px;
+        width: 400px;
     }
 
     nav ul li {
         text-align: center;
-        width: 81px;
+        width: 79px;
     }
 
     nav ul li:last-child {
-        width: 82px;
+        width: 80px;
     }
 
     nav ul li a {
@@ -413,8 +409,8 @@ img {
 }
 
 @media only screen and (max-width: 480px) {
-    body {
-        padding: 15px;
+    .wrapper {
+        padding: 10px;
     }
 
     header h1 {
@@ -448,6 +444,11 @@ img {
 
     nav .nav-label {
         display: block;
+    }
+
+    footer {
+        margin-top: 10px;
+        padding: 0;
     }
 }
 
