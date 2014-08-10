@@ -150,7 +150,7 @@ a:active {
     text-decoration: underline;
 }
 
-p, ul, ol, table, pre, dl {
+p, ul, ol {
     margin: 0 0 20px;
 }
 
@@ -172,56 +172,6 @@ hr {
     border: 0;
     height: 1px;
     margin: 0 0 20px;
-}
-
-blockquote {
-    border-left: 1px solid #dddddd;
-    margin: 0;
-    padding: 0 0 0 20px;
-    font-style: italic;
-}
-
-code, pre {
-    background: #f8f8f8;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border: 1px solid #dddddd;
-    color: #444444;
-    font-family: Menlo, Consolas, "Courier New", Courier, "Liberation Mono", monospace;
-    font-size: 13px;
-    padding: 2px 4px;
-}
-
-pre {
-    overflow-x: auto;
-    padding: 8px 15px;
-}
-
-pre > code {
-    background: transparent;
-    border: none;
-    padding: 0;
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td {
-    border-bottom: 1px solid #dddddd;
-    padding: 5px 10px;
-    text-align: left;
-}
-
-dt {
-    color: #444444;
-    font-weight: 700;
-}
-
-th {
-    color: #444444;
 }
 
 img {
