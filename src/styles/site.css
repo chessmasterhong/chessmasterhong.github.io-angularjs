@@ -95,8 +95,7 @@ body {
     color: #444444;
     font-weight: 300;
     font: 16px Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin: 0;
-    padding: 50px;
+    padding: 0 50px;
 }
 
 .wrapper {
@@ -117,25 +116,11 @@ body {
 
 /* Typography */
 
-h1, h2, h3, h4, h5, h6 {
-    color: #444444;
-    margin: 0 0 20px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    line-height: 1;
-}
-
-h1 { font-size: 30px; }
-h2 { font-size: 26px; }
-h3 { font-size: 20px; }
-h4 { font-size: 18px; }
-
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     color: #4f738d;
 }
 
-h1 a:hover {
+h1 a:hover, h2 a:hover, h3 a:hover {
     text-decoration: none;
 }
 
@@ -155,7 +140,6 @@ p, ul, ol {
 }
 
 strong {
-    color: #444444;
     font-weight: 700;
 }
 
@@ -165,13 +149,6 @@ section {
     overflow: hidden;
     padding-bottom: 50px;
     width: 760px;
-}
-
-hr {
-    background: #dddddd;
-    border: 0;
-    height: 1px;
-    margin: 0 0 20px;
 }
 
 img {
@@ -184,15 +161,10 @@ img {
 header {
     border-right: 1px solid #dddddd;
     float: left;
-    margin-top: -50px;
     min-height: 100%;
     padding-right: 30px;
     position: fixed;
     width: 200px;
-}
-
-header h1 {
-    margin: 50px 0 12px;
 }
 
 
