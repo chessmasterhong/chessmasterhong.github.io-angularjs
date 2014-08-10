@@ -142,32 +142,32 @@ nav ul {
     padding: 0;
 }
 
-nav li {
+nav ul li {
     border-bottom: 1px solid #dddddd;
     height: 24px;
     line-height: 24px;
 }
 
-nav li:last-child {
+nav ul li:last-child {
     border-bottom: none;
 }
 
-nav li a {
+nav ul li a {
     color: #444444;
     display: block;
     padding-left: 15px;
 }
 
-nav li a:hover,
-nav li a:active {
+nav ul li a:hover,
+nav ul li a:active {
     color: #444444;
     font-weight: bold;
     text-decoration: none;
 }
 
-nav li a:active,
-nav li a.active,
-nav li a.active:hover {
+nav ul li a:active,
+nav ul li a.active,
+nav ul li a.active:hover {
     background: #e5e5e5;
 }
 
@@ -316,13 +316,145 @@ img {
 }
 
 /* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
+   Media Queries for Responsive Design
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
+@media only screen and (max-width: 1140px) {
     /* Style adjustments for viewports that meet the condition */
+
+    div.wrapper {
+        margin: 0;
+        width: auto;
+    }
+
+    header, section, footer {
+        float: none;
+        position: static;
+        width: 100%;
+    }
+
+    header {
+        border-right: 0;
+        padding-right: 320px;
+    }
+
+    nav ul {
+        border-bottom: 1px solid #dddddd;
+        height: 24px;
+        position: absolute;
+        right: 50px;
+        top: 67px;
+        width: 460px;
+        border-radius: 5px 5px 0 0;
+        -moz-border-radius: 5px 5px 0 0;
+        -webkit-border-radius: 5px 5px 0 0;
+    }
+
+    nav ul li {
+        border-bottom: none;
+        border-right: 1px solid #dddddd;
+        float: left;
+        width: 91px;
+    }
+
+    nav ul li:last-child {
+        border-right: none;
+        width: 92px;
+    }
+
+    nav ul li a {
+        padding-left: 5px;
+    }
+
+    section {
+        border-bottom: 1px solid #dddddd;
+        border-top: 1px solid #dddddd;
+        margin: 0 0 20px;
+        padding: 20px 0;
+    }
+
+    footer {
+        margin: 0 auto;
+        max-width: 400px;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    /* Style adjustments for viewports that meet the condition */
+
+    body {
+        word-wrap: break-word;
+    }
+
+    header {
+        padding: 0;
+    }
+
+    nav ul {
+        margin-bottom: -1px;
+        position: static;
+        width: 410px;
+    }
+
+    nav ul li {
+        text-align: center;
+        width: 81px;
+    }
+
+    nav ul li:last-child {
+        width: 82px;
+    }
+
+    nav ul li a {
+        margin-left: -4px;
+        padding-left: 0;
+    }
+
+    pre, pre > code {
+        word-wrap: normal;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    /* Style adjustments for viewports that meet the condition */
+
+    body {
+        padding: 15px;
+    }
+
+    header h1 {
+        text-align: center;
+    }
+
+    nav ul {
+        font-size: 12px;
+        height: 35px;
+        margin: 0 auto -1px;
+        width: 300px;
+    }
+
+    nav ul li {
+        height: 35px;
+        line-height: 16px;
+        width: 59px;
+    }
+
+    nav ul li:last-child {
+        width: 60px;
+    }
+
+    nav ul li a {
+        margin-left: 0;
+    }
+
+    nav i {
+        font-size: 18px;
+    }
+
+    nav .nav-label {
+        display: block;
+    }
 }
 
 @media print,
@@ -399,156 +531,3 @@ img {
         page-break-after: avoid;
     }
 }
-
-
-
-
-/* ========================================================================== */
-
-
-/* Responsive Adjustments */
-/*
-@media print, screen and (max-width: 1120px), screen and (max-height: 380px) {
-    div.wrapper {
-        margin: 0;
-        width: auto;
-    }
-
-    header, section, footer {
-        float: none;
-        position: static;
-        width: 100%;
-    }
-
-    header {
-        border-right: 0;
-        padding-right: 320px;
-    }
-
-    nav ul {
-        border-bottom: 1px solid #dddddd;
-        height: 24px;
-        position: absolute;
-        right: 50px;
-        top: 67px;
-        width: 460px;
-        border-radius: 5px 5px 0 0;
-        -moz-border-radius: 5px 5px 0 0;
-        -webkit-border-radius: 5px 5px 0 0;
-    }
-
-    nav li {
-        border-bottom: none;
-        border-right: 1px solid #dddddd;
-        float: left;
-        width: 91px;
-    }
-
-    nav li:last-child {
-        border-right: none;
-        width: 92px;
-    }
-
-    nav li a {
-        padding-left: 5px;
-    }
-
-    section {
-        border-bottom: 1px solid #dddddd;
-        border-top: 1px solid #dddddd;
-        margin: 0 0 20px;
-        padding: 20px 0;
-    }
-
-    footer {
-        margin: 0 auto;
-        max-width: 400px;
-        text-align: center;
-    }
-}
-
-@media print, screen and (max-width: 720px) {
-    body {
-        word-wrap: break-word;
-    }
-
-    header {
-        padding: 0;
-    }
-
-    nav ul {
-        margin-bottom: -1px;
-        position: static;
-        width: 410px;
-    }
-
-    nav li {
-        text-align: center;
-        width: 81px;
-    }
-
-    nav li:last-child {
-        width: 82px;
-    }
-
-    nav li a {
-        margin-left: -4px;
-        padding-left: 0;
-    }
-
-    pre, pre > code {
-        word-wrap: normal;
-    }
-}
-
-@media print, screen and (max-width: 480px) {
-    body {
-        padding: 15px;
-    }
-
-    header h1 {
-        text-align: center;
-    }
-
-    nav ul {
-        font-size: 12px;
-        height: 35px;
-        margin: 0 auto -1px;
-        width: 300px;
-    }
-
-    nav li {
-        height: 35px;
-        line-height: 16px;
-        width: 59px;
-    }
-
-    nav li:last-child {
-        width: 60px;
-    }
-
-    nav li a {
-        margin-left: 0;
-    }
-
-    nav i {
-        font-size: 18px;
-    }
-
-    nav .nav-label {
-        display: block;
-    }
-}
-
-@media print {
-    body {
-        color: #444444;
-        font-size: 12pt;
-        padding: 0.4in;
-    }
-
-    nav ul {
-        display: none;
-    }
-}
-*/
