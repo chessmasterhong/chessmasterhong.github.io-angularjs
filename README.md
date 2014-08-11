@@ -15,6 +15,6 @@ The **website's theme** is licensed under the [Creative Commons Attribution-Shar
 
 The **source code** is licensed under the [MIT License](LICENSE.txt). The full listing of attributions and their respective licenses can be viewed [here](/src/tasks/license.js).
 
-However, the **content of the website** (posts, images, projects, and page content) are copyright to [Kevin Chan](http://github.com/chessmasterhong/chessmasterhong.github.io). You may not reuse anything therein without my permission.
+However, the **content of the website** (posts, images, projects, and page content) are copyright to [Kevin Chan](http://github.com/chessmasterhong). You may not reuse anything therein without my permission.
 
 Copyright (c) 2014 Kevin Chan. Rights reserved as indicated above.
