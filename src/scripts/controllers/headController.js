@@ -8,6 +8,7 @@ define([
 
         $scope.$on('$stateChangeSuccess', function(event, toState) {
             $scope.pageTitle = toState.data.pageTitle;
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
         });
     }]);
 });
