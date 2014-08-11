@@ -15,7 +15,6 @@
   "dependencies": {
     "angular": "~1.2.21",
     "angular-animate": "~1.2.21",
-    "angular-mocks": "~1.2.21",
     "angular-ui-router": "~0.2.10",
     "angulartics": "~0.15.20",
     "ngDialog": "~0.2.9",
