@@ -1,19 +1,10 @@
 node_modules
 bower_components
+media
 
-/src/fonts
-/src/media
 /src/vendor
-/src/test
 
-/font
-/media
-/partials
-/scripts
-/styles
-/vendor
-
-/index.html
+*.log
 
 /server*
 
