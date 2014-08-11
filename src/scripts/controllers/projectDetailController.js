@@ -10,12 +10,5 @@ define([
         } else {
             $state.go('404');
         }
-
-        $scope.openDialog = function() {
-            ngDialog.open({
-                template: CONFIG.PATH.TMPL + 'dialogBox-projectDetail.html',
-                scope: $scope
-            });
-        };
     }]);
 });
