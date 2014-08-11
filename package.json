@@ -13,6 +13,10 @@
   },
   "bugs": "https://github.com/chessmasterhong/chessmasterhong.github.io/issues",
   "private": true,
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.4.x"
+  },
   "devDependencies": {
     "gulp": "^3.8.7",
     "gulp-concat": "^2.3.4",
@@ -28,5 +32,10 @@
     "requirejs": "^2.1.14",
     "rimraf": "^2.2.8",
     "run-sequence": "^0.3.6"
+  },
+  "scripts": {
+    "build": "node node_modules/gulp/bin/gulp.js build",
+    "push": "git push origin master",
+    "server-dev": "node node_modules/gulp/bin/gulp.js server"
   }
 }
