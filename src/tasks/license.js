@@ -1,4 +1,4 @@
-/**
+/*!
  *  chessmasterhong.github.io
  *  Copyright (c) 2014, Kevin Chan
  *  http://chessmasterhong.github.io

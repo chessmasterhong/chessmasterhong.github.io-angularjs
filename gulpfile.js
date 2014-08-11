@@ -82,12 +82,13 @@ gulp.task('requirejs', ['lint'], function() {
 
 gulp.task('styles', function() {
     return gulp.src([
-            PATH.SOURCE + 'styles/**/*.css',
+            PATH.SOURCE + 'vendor/normalize-css/normalize.css',
             PATH.SOURCE + 'vendor/ngDialog/css/ngDialog.min.css',
-            PATH.SOURCE + 'fonts/**/*.css'
+            PATH.SOURCE + 'fonts/**/*.css',
+            PATH.SOURCE + 'styles/**/*.css'
         ])
         .pipe(concat('site.min.css'))
-        .pipe(minifyCSS())
+        .pipe(minifyCSS({ keepSpecialComments: 0 }))
         .pipe(gulp.dest(PATH.BUILD + 'styles/'));
 });
 

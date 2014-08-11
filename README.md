@@ -9,7 +9,7 @@ The full listing of attributions and technologies used can be viewed [here](http
 
 ## License
 
-You my feel free to re-use any part of the structure, design, and layout of this website. If you do use them, a link back to [http://chessmasterhong.github.io](http://chessmasterhong.github.io) and/or [https://github.com/chessmasterhong/chessmasterhong.github.io](https://github.com/chessmasterhong/chessmasterhong.github.io) would be appreciated, but not required.
+You my feel free to re-use any part of the structure, design, and layout of this website. If you do use them, a link back to [https://github.com/chessmasterhong/chessmasterhong.github.io](https://github.com/chessmasterhong/chessmasterhong.github.io) and/or [http://chessmasterhong.github.io](http://chessmasterhong.github.io) would be appreciated, but not required.
 
 The **website's theme** is licensed under the [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/). The full listing of attributions and their respective licenses can be viewed [here](/src/tasks/license.css).
 
