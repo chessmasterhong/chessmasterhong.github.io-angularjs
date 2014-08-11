@@ -12,7 +12,6 @@ var SERVER = {
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     imagemin = require('gulp-imagemin'),
-    inject = require('gulp-inject'),
     insert = require('gulp-insert'),
     jshint = require('gulp-jshint'),
     minifyCSS = require('gulp-minify-css'),
@@ -137,28 +136,6 @@ gulp.task('concat-header-styles', function() {
         .pipe(gulp.dest(PATH.BUILD + 'styles/'));
 });
 
-gulp.task('inject-scripts', ['requirejs'], function() {
-    return gulp.src(PATH.BUILD + 'index.html')
-        .pipe(inject(gulp.src(PATH.BUILD + 'scripts/site.min.js'), {
-            starttag: '<!-- inject:head:js -->',
-            transform: function(filePath, file) {
-                return '<script>' + file.contents.toString('utf8') + '</script>';
-            }
-        }))
-        .pipe(gulp.dest(PATH.BUILD));
-});
-
-gulp.task('inject-styles', ['styles'], function() {
-    return gulp.src(PATH.BUILD + 'index.html')
-        .pipe(inject(gulp.src(PATH.BUILD + 'styles/site.min.css'), {
-            starttag: '<!-- inject:head:css -->',
-            transform: function(filePath, file) {
-                return '<style>' + file.contents.toString('utf8') + '</style>';
-            }
-        }))
-        .pipe(gulp.dest(PATH.BUILD));
-});
-
 gulp.task('clean', function() {
     rimraf.sync(PATH.BUILD + 'index.html', function() {});
     rimraf.sync(PATH.BUILD + 'font/', function() {});
@@ -231,7 +208,6 @@ gulp.task('build', function() {
         ['styles', 'requirejs', 'html', 'copy'],
         'concat-header-styles',
         'concat-header-scripts',
-        //['inject-styles', 'inject-scripts'],
         ['post-build-styles', 'post-build-scripts'],
         'size', 'server'
     );
