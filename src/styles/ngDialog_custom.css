@@ -159,10 +159,24 @@
     outline: none;
 }
 
-@media (max-width: 568px) {
+@media (max-width: 600px) {
+    .ngdialog.ngdialog-theme-default .image {
+        float: none;
+    }
+
+    .ngdialog.ngdialog-theme-default .text {
+        margin-left: 0;
+    }
+
     .ngdialog.ngdialog-theme-default .ngdialog-button:focus {
         -webkit-animation: none;
         animation: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .ngdialog.ngdialog-theme-default .text {
+        word-wrap: break-word;
     }
 }
 

@@ -145,7 +145,6 @@ nav ul li a {
 
 nav ul li a:hover,
 nav ul li a:active {
-    background-color: #fff;
     color: #444;
     font-weight: bold;
     text-decoration: none;
@@ -371,7 +370,7 @@ img {
     footer {
         border-top: 1px solid #ddd;
         margin: 0 auto;
-        padding: 20px 0;
+        padding: 0;
         text-align: center;
     }
 }
@@ -386,6 +385,7 @@ img {
     }
 
     nav ul {
+        font-size: 0.79em;
         margin-bottom: -1px;
         position: static;
         width: 400px;
@@ -401,7 +401,6 @@ img {
     }
 
     nav ul li a {
-        margin-left: -4px;
         padding-left: 0;
     }
 
