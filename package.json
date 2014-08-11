@@ -37,6 +37,7 @@
   "scripts": {
     "build": "node node_modules/gulp/bin/gulp.js build",
     "push": "git push origin master",
-    "server-dev": "node node_modules/gulp/bin/gulp.js server"
+    "server": "node node_modules/gulp/bin/gulp.js server",
+    "server-dev": "node node_modules/gulp/bin/gulp.js server-dev"
   }
 }
