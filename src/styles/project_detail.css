@@ -5,7 +5,7 @@
  */
 
 .slider-container {
-    padding: 0 0 600px;
+    padding: 0 0 480px;
     position: relative;
 }
 
@@ -58,9 +58,9 @@
 .slider-container .slider .arrow_right { right: 5px; }
 
 .slider-container .pager {
-    position: absolute;
+    position: relative;
     text-align: center;
-    top: 480px;
+    top: 490px;
     width: 100%;
 }
 
@@ -82,4 +82,14 @@
 
 .slider-container .pager .pager-item img {
     height: 100px;
+}
+
+@media only screen and (max-width: 685px) {
+    .slider-container {
+        padding-bottom: 90%;
+    }
+
+    .slider-container .pager {
+        display: none;
+    }
 }
