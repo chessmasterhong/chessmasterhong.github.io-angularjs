@@ -13,6 +13,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     imagemin = require('gulp-imagemin'),
     inject = require('gulp-inject'),
+    insert = require('gulp-insert'),
     jshint = require('gulp-jshint'),
     minifyCSS = require('gulp-minify-css'),
     minifyHTML = require('gulp-minify-html'),
@@ -117,16 +118,18 @@ gulp.task('copy', function() {
         .pipe(gulp.dest(PATH.BUILD + 'font/'));
 });
 
-gulp.task('concat', function() {
-    gulp.src([
-            PATH.SOURCE + 'tasks/licence.js',
+gulp.task('concat-header-scripts', function() {
+    return gulp.src([
+            PATH.SOURCE + 'tasks/license.js',
             PATH.BUILD + 'scripts/site.min.js'
         ])
         .pipe(concat('site.min.js'))
         .pipe(gulp.dest(PATH.BUILD + 'scripts/'));
+});
 
-    gulp.src([
-            PATH.SOURCE + 'tasks/licence.css',
+gulp.task('concat-header-styles', function() {
+    return gulp.src([
+            PATH.SOURCE + 'tasks/license.css',
             PATH.BUILD + 'styles/site.min.css'
         ])
         .pipe(concat('site.min.css'))
@@ -164,13 +167,29 @@ gulp.task('clean', function() {
     rimraf.sync(PATH.BUILD + 'styles/', function() {});
 });
 
-gulp.task('post-build', function() {
-    gulp.src(PATH.BUILD + 'index.html')
-        .pipe(minifyHTML())
-        .pipe(gulp.dest(PATH.BUILD));
+gulp.task('post-build-scripts', function() {
+    var date = new Date();
 
-    rimraf.sync(PATH.BUILD + 'scripts/', function() {});
-    rimraf.sync(PATH.BUILD + 'styles/', function() {});
+    return gulp.src(PATH.BUILD + 'scripts/site.min.js')
+        .pipe(insert.prepend('// scripts.min.js build: ' + date + '\n'))
+        .pipe(gulp.dest(PATH.BUILD + 'scripts/'));
+});
+
+gulp.task('post-build-styles', function() {
+    var date = new Date();
+
+    return gulp.src(PATH.BUILD + 'styles/site.min.css')
+        .pipe(insert.prepend('/* site.min.js build: ' + date + '*/\n'))
+        .pipe(gulp.dest(PATH.BUILD + 'styles/'));
+});
+
+gulp.task('post-build', function() {
+    //gulp.src(PATH.BUILD + 'index.html')
+    //    .pipe(minifyHTML())
+    //    .pipe(gulp.dest(PATH.BUILD));
+
+    //rimraf.sync(PATH.BUILD + 'scripts/', function() {});
+    //rimraf.sync(PATH.BUILD + 'styles/', function() {});
 });
 
 gulp.task('size', function() {
@@ -208,13 +227,11 @@ gulp.task('server', function() {
 gulp.task('build', function() {
     runSequence(
         'clean',
-        ['requirejs', 'styles'],
-        ['html', 'copy'],
-        'concat',
-        //'inject-scripts',
-        //'inject-styles',
-        //'post-build',
-        'size',
-        'server'
+        ['styles', 'requirejs', 'html', 'copy'],
+        'concat-header-styles',
+        'concat-header-scripts',
+        //['inject-styles', 'inject-scripts'],
+        ['post-build-styles', 'post-build-scripts'],
+        'size', 'server'
     );
 });
