@@ -89,6 +89,10 @@
         padding-bottom: 90%;
     }
 
+    .slider-container .slider .arrow {
+        top: 35%;
+    }
+
     .slider-container .pager {
         display: none;
     }
