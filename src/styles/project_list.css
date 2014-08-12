@@ -1,5 +1,3 @@
-/* Scaffolding */
-
 .projects .views-row {
     clear: both;
     padding: 20px 0;
@@ -43,12 +41,7 @@
 .spacer { margin: 0 2px; }
 .spacer:before { content: '|'; }
 
-
-/* Responsive Adjustments */
-
-/* @media print, screen and (max-width: 960px) {} */
-
-@media print, screen and (max-width: 720px) {
+@media print, screen and (max-width: 640px) {
     .projects .views-row-even .img-container,
     .projects .views-row-odd .img-container {
         float: left;
@@ -65,7 +58,3 @@
         padding-top: 10px;
     }
 }
-
-/* @media print, screen and (max-width: 480px) {} */
-
-/* @media print {} */
