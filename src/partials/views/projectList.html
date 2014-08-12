@@ -2,6 +2,8 @@
 
 <p>Here is where I showcase projects I have worked on, both past and present. This includes some of my side projects as well.</p>
 
+<h2>Showcase</h2>
+
 <div class="projects">
     <div data-ng-repeat="project in projects | filter: { showcase: true }" data-ng-class-even="'views-row views-row-even'" data-ng-class-odd="'views-row views-row-odd'">
         <a href="#/projects/{{ projects.length - $index - 1 }}">
@@ -29,4 +31,14 @@
             </div>
         </div>
     </div>
+</div>
+
+<h2>Other works</h2>
+
+<div class="projects">
+    <span data-ng-repeat="project in projects  | filter: { showcase: false }" data-ng-class="'views-row'">
+        <a href="javascript:void(0)" data-ng-click="openDialog(projects.length - $index - 1)" title="{{ project.title }}">
+            <img class="img-container img-view-thumbnail" data-ng-src="{{ project.thumbnail }}" alt="Thumbnail for {{ project.title }}.">
+        </a>
+    </span>
 </div>

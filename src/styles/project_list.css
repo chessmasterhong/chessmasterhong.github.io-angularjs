@@ -25,6 +25,18 @@
     width: 200px;
 }
 
+.projects .img-view-thumbnail {
+    height: 21.25%;
+    margin: 4px;
+    width: 21.25%;
+}
+
+.projects .img-view-thumbnail:hover {
+    border: 2px solid #222222;
+    margin: 2px;
+}
+
+
 .projects .views-row-even .proj-text { margin-left: 220px; }
 .projects .views-row-odd .proj-text { margin-right: 220px; }
 
