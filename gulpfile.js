@@ -113,7 +113,8 @@ gulp.task('copy', function() {
             PATH.SOURCE + 'fonts/fontello/font/*.eot',
             PATH.SOURCE + 'fonts/fontello/font/*.svg',
             PATH.SOURCE + 'fonts/fontello/font/*.ttf',
-            PATH.SOURCE + 'fonts/fontello/font/*.woff'
+            PATH.SOURCE + 'fonts/fontello/font/*.woff',
+            PATH.SOURCE + 'fonts/lato/font/*.woff'
         ])
         .pipe(gulp.dest(PATH.BUILD + 'font/'));
 });
