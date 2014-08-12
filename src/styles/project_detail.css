@@ -64,6 +64,10 @@
     width: 100%;
 }
 
+.slider-container .pager ul {
+    padding: 0;
+}
+
 .slider-container .pager .pager-item {
     box-shadow: 2px 2px 4px 2px #999999;
     -moz-box-shadow: 2px 2px 4px 2px #999999;
