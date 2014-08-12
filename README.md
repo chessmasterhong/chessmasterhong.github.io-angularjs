@@ -17,7 +17,7 @@ The **website's theme** (visual appearance and layout, excluding fonts and icon 
 
 ## Font License
 
-The fonts and font icons are licensed under the [SIL Open Font License 1.1](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL). The license for the fonts can be viewed [here](/src/fonts/lato/OFL.txt). The licenses for the icon fonts can be viewed [here](/src/fonts/fontello/LICENSE.txt).
+The **fonts and font icons** are licensed under the [SIL Open Font License 1.1](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL). The license for the fonts can be viewed [here](/src/fonts/lato/OFL.txt). The licenses for the icon fonts can be viewed [here](/src/fonts/fontello/LICENSE.txt).
 
 ## Code License
 
