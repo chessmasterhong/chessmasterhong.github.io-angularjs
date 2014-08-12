@@ -6,17 +6,17 @@
 
 <div class="projects">
     <div data-ng-repeat="project in projects | filter: { showcase: true }" data-ng-class-even="'views-row views-row-even'" data-ng-class-odd="'views-row views-row-odd'">
-        <a href="#/projects/{{ projects.length - $index - 1 }}">
+        <a href="#/projects/{{ project.projectIndex }}">
             <img class="img-container img-view-detail" data-ng-src="{{ project.thumbnail }}" alt="Thumbnail for {{ project.title }}.">
         </a>
         <div class="proj-text">
             <div class="proj-title">
-                <h2><a href="#/projects/{{ projects.length - $index - 1 }}" data-ng-bind="project.title"></a></h2>
+                <h2><a href="#/projects/{{ project.projectIndex }}" data-ng-bind="project.title"></a></h2>
             </div>
             <div class="proj-desc">
                 <p data-ng-bind="project.excerpt"></p>
                 <p>
-                    <a href="#/projects/{{ projects.length - $index - 1 }}">
+                    <a href="#/projects/{{ project.projectIndex }}">
                         <i class="icon-info-circled"></i> Read more
                     </a>
                     <span class="spacer" data-ng-show="project.urlDemo"></span>
@@ -37,7 +37,7 @@
 
 <div class="projects">
     <span data-ng-repeat="project in projects  | filter: { showcase: false }" data-ng-class="'views-row'">
-        <a href="javascript:void(0)" data-ng-click="openDialog(projects.length - $index - 1)" title="{{ project.title }}">
+        <a href="#/projects/{{ project.projectIndex }}" title="{{ project.title }}">
             <img class="img-container img-view-thumbnail" data-ng-src="{{ project.thumbnail }}" alt="Thumbnail for {{ project.title }}.">
         </a>
     </span>
