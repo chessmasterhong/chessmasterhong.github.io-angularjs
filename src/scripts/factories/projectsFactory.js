@@ -7,6 +7,7 @@ define([
         var projects = [
             {
                 title: 'Impact Atmospheric System Plugin',
+                showcase: false,
                 thumbnail: CONFIG.PATH.IMG + '0BzK_sWmObWZgdGhDT20yRmVWbzQ',
                 urlDetails: CONFIG.PATH.POST.PROJ + 'impact_atmospheric_system_plugin.html',
                 urlDemo: 'http://chessmasterhong.bitbucket.org/projects/impact-atmosphere/',
@@ -22,6 +23,7 @@ define([
             },
             {
                 title: 'Fire Emblem: Chronicles of the Abyss',
+                showcase: true,
                 thumbnail: CONFIG.PATH.IMG + '0BzK_sWmObWZgd1hLaDg2MHNJVVk',
                 urlDetails: CONFIG.PATH.POST.PROJ + 'fire_emblem_chronicles_of_the_abyss.html',
                 urlDemo: '',
@@ -34,6 +36,7 @@ define([
             },
             {
                 title: 'Super Mario World: Koopa Krisis',
+                showcase: true,
                 thumbnail: CONFIG.PATH.IMG + '0BzK_sWmObWZgNWJFNnYtTk1pMjA',
                 urlDetails: CONFIG.PATH.POST.PROJ + 'super_mario_world_koopa_krisis.html',
                 urlDemo: 'http://drksephy.bitbucket.org',
@@ -45,6 +48,7 @@ define([
             },
             {
                 title: 'MathFlash',
+                showcase: true,
                 thumbnail: CONFIG.PATH.IMG + '0BzK_sWmObWZgR0Q1TFdPdnBqWHc',
                 urlDetails: CONFIG.PATH.POST.PROJ + 'mathflash.html',
                 urlDemo: '',
@@ -56,6 +60,7 @@ define([
             },
             {
                 title: 'ImpactJS Enemy Editor',
+                showcase: false,
                 thumbnail: CONFIG.PATH.IMG + '0BzK_sWmObWZgQ1YyVHhrYU93dkk',
                 urlDetails: CONFIG.PATH.POST.PROJ + 'impactjs_enemy_editor.html',
                 urlDemo: '',
@@ -69,6 +74,7 @@ define([
             },
             {
                 title: 'ParallelText',
+                showcase: false,
                 thumbnail: CONFIG.PATH.IMG + '0BzK_sWmObWZgLWs3a2pabG9yWms',
                 urlDetails: CONFIG.PATH.POST.PROJ + 'paralleltext.html',
                 urlDemo: 'http://parallel-text.herokuapp.com',
@@ -82,6 +88,7 @@ define([
             },
             {
                 title: 'DocShare',
+                showcase: false,
                 thumbnail: CONFIG.PATH.IMG + '0BzK_sWmObWZgTTJHZGl2Y3F3Rjg',
                 urlDetails: CONFIG.PATH.POST.PROJ + 'docshare.html',
                 urlDemo: '',
