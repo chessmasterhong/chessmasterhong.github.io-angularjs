@@ -34,6 +34,6 @@ define([
     if(window.location.hostname === 'chessmasterhong.github.io') {
         angular.bootstrap(document, ['app']);
     } else {
-        window.location.replace('http://chessmasterhong.github.io');
+        window.location.replace('//chessmasterhong.github.io');
     }
 });

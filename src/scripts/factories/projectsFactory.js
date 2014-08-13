@@ -10,8 +10,8 @@ define([
                 showcase: false,
                 thumbnail: CONFIG.PATH.IMG + '0BzK_sWmObWZgdGhDT20yRmVWbzQ',
                 urlDetails: CONFIG.PATH.POST.PROJ + 'impact_atmospheric_system_plugin.html',
-                urlDemo: 'http://chessmasterhong.bitbucket.org/projects/impact-atmosphere/',
-                urlSource: 'https://github.com/chessmasterhong/impact-atmosphere',
+                urlDemo: '//chessmasterhong.bitbucket.org/projects/impact-atmosphere/',
+                urlSource: '//github.com/chessmasterhong/impact-atmosphere',
                 excerpt: 'A plugin for the Impact game engine that simulates an atmospheric weather system, day/night cycles and seasonal cycles based on configurable real-world date, time, and geographical coordinates.',
                 slides: [
                     { image: CONFIG.PATH.IMG + '0BzK_sWmObWZgSXZqNzJUemt1V3M', caption: 'It\'s a rainy day.' },
@@ -27,7 +27,7 @@ define([
                 thumbnail: CONFIG.PATH.IMG + '0BzK_sWmObWZgd1hLaDg2MHNJVVk',
                 urlDetails: CONFIG.PATH.POST.PROJ + 'fire_emblem_chronicles_of_the_abyss.html',
                 urlDemo: '',
-                urlSource: 'https://github.com/chessmasterhong/WaterEmblem',
+                urlSource: '//github.com/chessmasterhong/WaterEmblem',
                 excerpt: 'A web-based remake of Fire Emblem: Blazing Sword, a turn-based strategy role playing game for the Game Boy Advance, but with a different main character and plot twist. Developed in JavaScript utilizing the HTML5 canvas using the ImpactJS game engine. The main goals of this project are to recreate a game that we enjoyed playing, to create a fully completed, quality game, and to give back to the ImpactJS community by open-sourcing the code so as to assist other developers on how to create similar features in their own game. Furthermore, we wanted to see what ImpactJS was truly capable of and to push the limits of the game engine beyond what we had initially thought was possible.',
                 slides: [
                     { image: CONFIG.PATH.IMG + '0BzK_sWmObWZgak81MzBFN0dlWVU', caption: 'Player unit preparing to attack an enemy unit.' },
@@ -39,8 +39,8 @@ define([
                 showcase: true,
                 thumbnail: CONFIG.PATH.IMG + '0BzK_sWmObWZgNWJFNnYtTk1pMjA',
                 urlDetails: CONFIG.PATH.POST.PROJ + 'super_mario_world_koopa_krisis.html',
-                urlDemo: 'http://drksephy.bitbucket.org',
-                urlSource: 'https://bitbucket.org/DrkSephy/smw-koopa-krisis',
+                urlDemo: '//drksephy.bitbucket.org',
+                urlSource: '//bitbucket.org/DrkSephy/smw-koopa-krisis',
                 excerpt: 'A remake of the original Super Mario World platformer for the Super Nintendo Entertainment System. Built using JavaScript on top of the ImpactJS game engine. The goals for this project were to create a web browser version of one of the Nintendo\'s most popular games, to understand how to use ImpactJS, and to learn JavaScript.',
                 slides: [
                     { image: CONFIG.PATH.IMG + '0BzK_sWmObWZgZEZJdHhzYW5rQTg', caption: 'Title screen.' }
@@ -64,7 +64,7 @@ define([
                 thumbnail: CONFIG.PATH.IMG + '0BzK_sWmObWZgQ1YyVHhrYU93dkk',
                 urlDetails: CONFIG.PATH.POST.PROJ + 'impactjs_enemy_editor.html',
                 urlDemo: '',
-                urlSource: 'https://bitbucket.org/chessmasterhong/smw-koopa-krisis_enemy-editor',
+                urlSource: '//bitbucket.org/chessmasterhong/smw-koopa-krisis_enemy-editor',
                 excerpt: 'Originally started out as a specialized tool designed for the Super Mario World: Koopa Krisis to assist us in quickly creating enemies before later realizing that it can be further extended to ImpactJS games in general. The aim is to provide a generic tool for ImpactJS developers to easily view and edit enemy files (either in bulk or as an individual file), quickly create new enemies, and to provide consistent code layout throughout files. This tool was heavily built on PHP, while utilizing some HTML5, CSS3, and JavaScript.',
                 slides: [
                     { image: CONFIG.PATH.IMG + '0BzK_sWmObWZgRjQ5aUxxTXlHR0E', caption: 'View all enemies\' data in a project through an organized table. Efficiently batch edit multiple enemy data.' },
@@ -77,7 +77,7 @@ define([
                 showcase: false,
                 thumbnail: CONFIG.PATH.IMG + '0BzK_sWmObWZgLWs3a2pabG9yWms',
                 urlDetails: CONFIG.PATH.POST.PROJ + 'paralleltext.html',
-                urlDemo: 'http://parallel-text.herokuapp.com',
+                urlDemo: '//parallel-text.herokuapp.com',
                 urlSource: '',
                 excerpt: 'A web application built using Python on top of the Django web framework. This application enables users to read a text in two different languages in parallel. This allows users to compare a translation with an original version of a text. The idea of parallel editions of a text has a long history in publishing. Our goal was to create a web-based tool to easily create parallel texts. In essence, our project was an extension and generalization of this project previously attempted by one of our project members.',
                 slides: [
