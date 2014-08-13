@@ -379,9 +379,13 @@ img {
 
     footer {
         border-top: 1px solid #ddd;
-        margin: -20px auto 10px;
+        margin: 0 auto;
         padding: 0;
         text-align: center;
+    }
+
+    footer .extlinks {
+        padding-top: 10px;
     }
 }
 
