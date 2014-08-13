@@ -2,9 +2,9 @@
 
 This is the source code for my [website](http://chessmasterhong.github.io).
 
-This website was created with [AngularJS](http://angularjs.org). The motivation was to experiment with new web technologies and to further improve my knowledge of AngularJS.
+This website was built using [AngularJS](http://angularjs.org). The motivation was to experiment with new web technologies and to further improve my knowledge of AngularJS.
 
-The full listing of attributions and technologies used can be viewed [here](http://chessmasterhong.github.io/#/credits).
+The full listing of attributions and technologies used in the creation of this website can be viewed [here](http://chessmasterhong.github.io/#/credits).
 
 
 # License
