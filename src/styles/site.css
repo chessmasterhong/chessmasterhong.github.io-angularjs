@@ -189,6 +189,16 @@ footer {
 
 footer .extlinks {
     font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+footer .copyright {
+    font-size: 0.8em;
+}
+
+footer p {
+    line-height: 1.2em;
+    margin: 6px auto;
 }
 
 /*
