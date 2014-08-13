@@ -31,5 +31,9 @@ define([
 ], function(require, angular, document) {
     'use strict';
 
-    angular.bootstrap(document, ['app']);
+    if(window.location.hostname === "chessmasterhong.github.io") {
+        angular.bootstrap(document, ['app']);
+    } else {
+        window.location.replace("http://chessmasterhong.github.io");
+    }
 });
