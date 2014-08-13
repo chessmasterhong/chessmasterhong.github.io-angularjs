@@ -6,18 +6,9 @@ define([
     return app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('home', {
-                abstract: true,
+                url: '',
                 templateUrl: 'partials/views/home.html',
                 data: { pageTitle: 'Home' }
-            })
-            .state('home.altLinkA', {
-                url: ''
-            })
-            .state('home.altLinkB', {
-                url: '/'
-            })
-            .state('home.altLinkC', {
-                url: '/home'
             })
             .state('projects', {
                 abstract: true,
