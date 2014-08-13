@@ -36,9 +36,20 @@ define([
                 controller: 'projectDetailController'
             })
             .state('resources', {
+                abstract: true,
                 url: '/resources',
-                templateUrl: 'partials/views/resources.html',
+                template: '<div data-ui-view></div>',
                 data: { pageTitle: 'Resources' }
+            })
+            .state('resources.list', {
+                url: '',
+                templateUrl: 'partials/views/resourceList.html',
+                controller: 'resourceListController'
+            })
+            .state('resources.details', {
+                url: '/{resourceIndex:[0-9]{1,2}}',
+                templateUrl: 'partials/views/resourceDetail.html',
+                controller: 'resourceDetailController'
             })
             .state('about', {
                 url: '/about',
