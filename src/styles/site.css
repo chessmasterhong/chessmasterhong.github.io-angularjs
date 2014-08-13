@@ -205,6 +205,11 @@ footer p {
  * Others
  */
 
+h1 { font-size: 2em; }
+h2 { font-size: 1.75em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.25em; }
+
 h1 a,
 h2 a,
 h3 a {
