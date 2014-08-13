@@ -1,3 +1,4 @@
 define([
-    'factories/projectsFactory'
+    'factories/projectsFactory',
+    'factories/resourcesFactory'
 ], function() {});
