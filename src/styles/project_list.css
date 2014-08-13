@@ -46,7 +46,7 @@
     text-align: justify;
 }
 
-.projects .views-row .proj-text .proj-title h2 {
+.projects .views-row .proj-text .proj-title h3 {
     margin: 5px 0 10px;
 }
 
@@ -65,7 +65,7 @@
         margin: auto 0;
     }
 
-    .projects .views-row .proj-text .proj-title h2 {
+    .projects .views-row .proj-text .proj-title h3 {
         margin: 0;
         padding-top: 10px;
     }
