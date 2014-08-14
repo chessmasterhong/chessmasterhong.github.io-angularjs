@@ -7,9 +7,17 @@ define([
         return {
             restrict: 'A',
             link: function(scope, element, attributes) {
+                var noImg = 'media/images/no-img.jpg';
+
+                element.bind('error', function() {
+                    if(attributes.src !== noImg) {
+                        attributes.$set('src', noImg);
+                    }
+                });
+
                 attributes.$observe('ngSrc', function(value) {
                     if(!value) {
-                        attributes.$set('src', 'media/images/no-img.jpg');
+                        attributes.$set('src', noImg);
                     }
                 });
             }
