@@ -11,6 +11,7 @@ var SERVER = {
 
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
+    del = require('del'),
     imagemin = require('gulp-imagemin'),
     insert = require('gulp-insert'),
     jshint = require('gulp-jshint'),
@@ -18,7 +19,6 @@ var gulp = require('gulp'),
     minifyHTML = require('gulp-minify-html'),
     prochtml = require('gulp-processhtml'),
     requirejs = require('requirejs'),
-    rimraf = require('rimraf'),
     runSequence = require('run-sequence'),
     size = require('gulp-size'),
     stylish = require('jshint-stylish'),
@@ -137,13 +137,15 @@ gulp.task('concat-header-styles', function() {
         .pipe(gulp.dest(PATH.BUILD + 'styles/'));
 });
 
-gulp.task('clean', function() {
-    rimraf.sync(PATH.BUILD + 'index.html', function() {});
-    rimraf.sync(PATH.BUILD + 'font/', function() {});
-    rimraf.sync(PATH.BUILD + 'media/', function() {});
-    rimraf.sync(PATH.BUILD + 'partials/', function() {});
-    rimraf.sync(PATH.BUILD + 'scripts/', function() {});
-    rimraf.sync(PATH.BUILD + 'styles/', function() {});
+gulp.task('clean', function(done) {
+    del([
+        PATH.BUILD + 'index.html',
+        PATH.BUILD + 'font/',
+        PATH.BUILD + 'media/',
+        PATH.BUILD + 'partials/',
+        PATH.BUILD + 'scripts/',
+        PATH.BUILD + 'styles/',
+    ], done);
 });
 
 gulp.task('post-build-scripts', function() {
