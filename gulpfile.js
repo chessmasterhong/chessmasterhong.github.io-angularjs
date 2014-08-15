@@ -61,7 +61,7 @@ gulp.task('lint', function() {
         .pipe(jshint.reporter(stylish));
 });
 
-gulp.task('requirejs', ['lint'], function() {
+gulp.task('optimize-scripts', ['lint'], function() {
     requirejs.optimize({
         baseUrl: PATH.SOURCE + 'scripts/',
         out: PATH.BUILD + 'scripts/site.min.js',
@@ -79,7 +79,7 @@ gulp.task('requirejs', ['lint'], function() {
     });
 });
 
-gulp.task('styles', function() {
+gulp.task('optimize-styles', function() {
     return gulp.src([
             PATH.SOURCE + 'vendor/normalize-css/normalize.css',
             PATH.SOURCE + 'vendor/ngDialog/css/ngDialog.min.css',
@@ -91,13 +91,13 @@ gulp.task('styles', function() {
         .pipe(gulp.dest(PATH.BUILD + 'styles/'));
 });
 
-gulp.task('images', function() {
+gulp.task('optimize-images', function() {
     return gulp.src(PATH.SOURCE + 'media/images/**/*')
         .pipe(imagemin())
         .pipe(gulp.dest(PATH.BUILD + 'media/images/'));
 });
 
-gulp.task('html', function() {
+gulp.task('optimize-html', function() {
     gulp.src(PATH.SOURCE + 'index.html')
         .pipe(prochtml('index.html'))
         .pipe(minifyHTML())
@@ -208,7 +208,7 @@ gulp.task('server', function() {
 gulp.task('build', function() {
     runSequence(
         'clean',
-        ['styles', 'requirejs', 'html', 'copy'],
+        ['optimize-styles', 'optimize-scripts', 'optimize-html', 'copy'],
         'concat-header-styles',
         'concat-header-scripts',
         ['post-build-styles', 'post-build-scripts'],
