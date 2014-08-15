@@ -58,10 +58,11 @@ gulp.task('lint', function() {
                 'define': true
             }
         }))
-        .pipe(jshint.reporter(stylish));
+        .pipe(jshint.reporter(stylish))
+        .pipe(jshint.reporter('fail'));
 });
 
-gulp.task('optimize-scripts', ['lint'], function() {
+gulp.task('optimize-scripts', function() {
     requirejs.optimize({
         baseUrl: PATH.SOURCE + 'scripts/',
         out: PATH.BUILD + 'scripts/site.min.js',
@@ -164,15 +165,6 @@ gulp.task('post-build-styles', function() {
         .pipe(gulp.dest(PATH.BUILD + 'styles/'));
 });
 
-gulp.task('post-build', function() {
-    //gulp.src(PATH.BUILD + 'index.html')
-    //    .pipe(minifyHTML())
-    //    .pipe(gulp.dest(PATH.BUILD));
-
-    //rimraf.sync(PATH.BUILD + 'scripts/', function() {});
-    //rimraf.sync(PATH.BUILD + 'styles/', function() {});
-});
-
 gulp.task('size', function() {
     return gulp.src([
             PATH.BUILD + 'index.html',
@@ -207,11 +199,11 @@ gulp.task('server', function() {
 
 gulp.task('build', function() {
     runSequence(
-        'clean',
+        ['clean', 'lint'],
         ['optimize-styles', 'optimize-scripts', 'optimize-html', 'copy'],
         'concat-header-styles',
         'concat-header-scripts',
         ['post-build-styles', 'post-build-scripts'],
-        'size', 'server'
+        ['size', 'server']
     );
 });
