@@ -17,6 +17,7 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     minifyCSS = require('gulp-minify-css'),
     minifyHTML = require('gulp-minify-html'),
+    minifyJSON = require('gulp-jsonminify'),
     prochtml = require('gulp-processhtml'),
     requirejs = require('requirejs'),
     runSequence = require('run-sequence'),
@@ -92,12 +93,6 @@ gulp.task('optimize-styles', function() {
         .pipe(gulp.dest(PATH.BUILD + 'styles/'));
 });
 
-gulp.task('optimize-images', function() {
-    return gulp.src(PATH.SOURCE + 'media/images/**/*')
-        .pipe(imagemin())
-        .pipe(gulp.dest(PATH.BUILD + 'media/images/'));
-});
-
 gulp.task('optimize-html', function() {
     gulp.src(PATH.SOURCE + 'index.html')
         .pipe(prochtml('index.html'))
@@ -107,6 +102,18 @@ gulp.task('optimize-html', function() {
     gulp.src(PATH.SOURCE + 'partials/**/*.html')
         .pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD + 'partials/'));
+});
+
+gulp.task('optimize-json', function() {
+    return gulp.src(PATH.SOURCE + 'data/**/*.json')
+        .pipe(minifyJSON())
+        .pipe(gulp.dest(PATH.BUILD + 'data/'));
+});
+
+gulp.task('optimize-images', function() {
+    return gulp.src(PATH.SOURCE + 'media/images/**/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest(PATH.BUILD + 'media/images/'));
 });
 
 gulp.task('copy', function() {
@@ -200,7 +207,7 @@ gulp.task('server', function() {
 gulp.task('build', function() {
     runSequence(
         ['clean', 'lint'],
-        ['optimize-styles', 'optimize-scripts', 'optimize-html', 'copy'],
+        ['optimize-styles', 'optimize-scripts', 'optimize-html', 'optimize-json', 'copy'],
         'concat-header-styles',
         'concat-header-scripts',
         ['post-build-styles', 'post-build-scripts'],
