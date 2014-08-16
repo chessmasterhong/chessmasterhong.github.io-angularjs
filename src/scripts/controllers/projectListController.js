@@ -13,6 +13,12 @@ define([
                 var projectCount = $scope.projects.length;
                 for(var p = 0; p < projectCount; p++) {
                     $scope.projects[p].projectIndex = projectCount - p - 1;
+
+                    if(window.location.hostname !== 'chessmasterhong.github.io') {
+                        for(var p = 0; p < projectCount; p++) {
+                            $scope.projects[p].thumbnail = '';
+                        }
+                    }
                 }
             });
     }]);
