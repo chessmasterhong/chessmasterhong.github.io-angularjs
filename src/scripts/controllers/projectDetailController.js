@@ -4,11 +4,25 @@ define([
     'use strict';
 
     controllers.controller('projectDetailController', ['$scope', '$state', 'projectsFactory', function($scope, $state, projectsFactory) {
-        var project = projectsFactory.getProjects(projectsFactory.getProjectCount() - parseInt($state.params.projectIndex) - 1);
-        if(project !== null) {
-            $scope.project = project;
-        } else {
-            $state.go('404');
-        }
+         $scope.projects = [];
+         $scope.project = {};
+         $scope.project.slides = [{}];
+
+         projectsFactory.getProjects()
+            .success(function(response) {
+                $scope.projects = response;
+
+                var project = $scope.projects[$scope.projects.length - parseInt($state.params.projectIndex) - 1];
+
+                if(project) {
+                    $scope.project = project;
+
+                    //if(window.location.hostname !== 'chessmasterhong.github.io') {
+                    //    $scope.project.slides = [];
+                    //}
+                } else {
+                    $state.go('404');
+                }
+            });
     }]);
 });
