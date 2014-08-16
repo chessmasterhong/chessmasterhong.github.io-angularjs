@@ -19,6 +19,7 @@ var gulp = require('gulp'),
     minifyHTML = require('gulp-minify-html'),
     minifyJSON = require('gulp-jsonminify'),
     prochtml = require('gulp-processhtml'),
+    replace = require('gulp-replace'),
     requirejs = require('requirejs'),
     runSequence = require('run-sequence'),
     size = require('gulp-size'),
@@ -107,6 +108,7 @@ gulp.task('optimize-html', function() {
 gulp.task('optimize-json', function() {
     return gulp.src(PATH.SOURCE + 'data/**/*.json')
         .pipe(minifyJSON())
+        .pipe(replace('\)]}\',', '\)]}\',\n'))
         .pipe(gulp.dest(PATH.BUILD + 'data/'));
 });
 
