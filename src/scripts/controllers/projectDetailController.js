@@ -17,9 +17,9 @@ define([
                 if(project) {
                     $scope.project = project;
 
-                    //if(window.location.hostname !== 'chessmasterhong.github.io') {
-                    //    $scope.project.slides = [];
-                    //}
+                    if(window.location.hostname !== 'chessmasterhong.github.io') {
+                        $scope.project.slides = [];
+                    }
                 } else {
                     $state.go('404');
                 }

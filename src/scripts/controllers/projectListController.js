@@ -16,10 +16,6 @@ define([
 
                     if(window.location.hostname !== 'chessmasterhong.github.io') {
                         $scope.projects[p].thumbnail = '';
-
-                        for(var s = 0; s < $scope.projects[p].slides.length; s++) {
-                            $scope.projects[p].slides[s] = '';
-                        }
                     }
                 }
             });
