@@ -23,7 +23,15 @@ The **fonts and font icons** are licensed under the [SIL Open Font License 1.1](
 
 The **source code** is licensed under the [MIT License](LICENSE.txt). The full listing of attributions and their respective licenses can be viewed [here](/src/tasks/license.js).
 
-However, the **content of the website** (posts, images, projects, and page content) are copyright to [Kevin Chan](http://github.com/chessmasterhong). You may not reuse any materials therein without my permission.
+However, the **content of the website** (specifically the directories and materials listed below) are copyright to [Kevin Chan](http://github.com/chessmasterhong). You may not reuse any materials therein without my permission.
+
+* `/data/`
+* `/partials/projects/`
+* `/partials/views/`
+* `/src/data/`
+* `/src/partials/projects/`
+* `/src/partials/views/`
+* all images
 
 
 Copyright (c) 2014 Kevin Chan. Rights reserved as indicated above.
