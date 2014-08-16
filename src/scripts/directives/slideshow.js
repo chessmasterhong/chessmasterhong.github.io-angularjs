@@ -17,7 +17,9 @@ define([
 
                 var sliderTimer = function() {
                     timer = $timeout(function() {
-                        scope.next();
+                        if(scope.slides.length > 0) {
+                            scope.next();
+                        }
                     }, delay);
                 };
                 sliderTimer();
