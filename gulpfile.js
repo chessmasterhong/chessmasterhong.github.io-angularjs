@@ -13,7 +13,6 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     del = require('del'),
     imagemin = require('gulp-imagemin'),
-    insert = require('gulp-insert'),
     jshint = require('gulp-jshint'),
     minifyCSS = require('gulp-minify-css'),
     minifyHTML = require('gulp-minify-html'),
@@ -162,7 +161,7 @@ gulp.task('post-build-scripts', function() {
     var date = new Date();
 
     return gulp.src(PATH.BUILD + 'scripts/site.min.js')
-        .pipe(insert.prepend('// scripts.min.js build: ' + date + '\n'))
+        .pipe(replace('\/\*!', '// scripts.min.js build: ' + date + '\n/*!'))
         .pipe(gulp.dest(PATH.BUILD + 'scripts/'));
 });
 
@@ -170,7 +169,7 @@ gulp.task('post-build-styles', function() {
     var date = new Date();
 
     return gulp.src(PATH.BUILD + 'styles/site.min.css')
-        .pipe(insert.prepend('/* site.min.js build: ' + date + '*/\n'))
+        .pipe(replace('\/\*!', '/* site.min.js build: ' + date + ' */\n/*!'))
         .pipe(gulp.dest(PATH.BUILD + 'styles/'));
 });
 
