@@ -3,7 +3,7 @@ define([
 ], function(factories) {
     'use strict';
 
-    factories.factory('projectsFactory', ['$http' ,function($http) {
+    factories.factory('projectsFactory', ['$http', function($http) {
         return {
             getProjects: function() {
                 return $http({
