@@ -1,9 +1,8 @@
 /*!
- *  chessmasterhong.github.io
- *  Copyright (c) 2014, Kevin Chan
  *  http://chessmasterhong.github.io
+ *  Copyright (c) 2014 Kevin Chan
  *  License: MIT
- *  See: https://github.com/chessmasterhong/chessmasterhong.github.io for details
+ *  See: http://github.com/chessmasterhong/chessmasterhong.github.io for details
  *
  *  @license AngularJS v1.2.21
  *  (c) 2010-2014 Google, Inc. http://angularjs.org
