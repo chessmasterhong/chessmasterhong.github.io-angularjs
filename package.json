@@ -24,8 +24,8 @@
   "bugs": "https://github.com/chessmasterhong/chessmasterhong.github.io/issues",
   "private": true,
   "engines": {
-    "node": "0.10.x",
-    "npm": "1.4.x"
+    "node": ">=0.10.x",
+    "npm": ">=1.4.x"
   },
   "devDependencies": {
     "del": "^0.1.2",
