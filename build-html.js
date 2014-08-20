@@ -46,12 +46,13 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
             fs.readFile(path.join(__dirname, 'src', 'data', 'projects.json'), charset, function(err, dataJSON) {
                 var json = JSON.parse(dataJSON.replace(/\)]}',\n/, ''));
 
-                console.log(json);
+                json.forEach(function(project) {
+                    var view = dataView.replace(/<div\s+class="projects">(\n.*)*(?=\n\n<h2>Other\sworks)/gi, '');
 
-
-
-
-                var view = dataView.replace(/<div\s+class="projects">(\n.*)*(?=\n\n<h2>Other\sworks)/gi, '');
+                    if(project.showcase === true) {
+                        console.log(project)
+                    }
+                });
 
                 var dest = path.join(__dirname, 'projects', 'index.html');
 
