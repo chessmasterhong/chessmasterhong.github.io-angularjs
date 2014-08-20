@@ -12,7 +12,9 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
     if(!err) {
         var index = dataIndex.replace(/(ng-cloak|data-ng-cloak)\s*/g, '')
                              .replace(/<!--\s*build:remove\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/g, '')
-                             .replace(/<!--\s*build:css\s+styles\/site\.min\.css\s*-->(\n.*?)*<!--\s*\/build\s*-->/g, '<link rel=stylesheet href=../styles/site.min.css>');
+                             .replace(/<!--\s*build:css\s+styles\/site\.min\.css\s*-->(\n.*?)*<!--\s*\/build\s*-->/g, '<link rel=stylesheet href="../styles/site.min.css">')
+                             .replace(/<!--\s*build:js\s+scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/g, '');
+
         fs.readFile(path.join(__dirname, 'src', 'partials', 'views', 'about.html'), charset, function(err, dataView) {
             var dest = path.join(__dirname, 'about', 'index.html');
 
