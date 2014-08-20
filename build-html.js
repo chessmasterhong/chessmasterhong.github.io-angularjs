@@ -10,10 +10,10 @@ var charset = 'utf8';
 
 //fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, dataIndex) {
 //    if(!err) {
-//        var index = dataIndex.replace(/(ng-cloak|data-ng-cloak)\s*/g, '')
+//        var index = dataIndex.replace(/(ng-cloak|data-ng-cloak)\s*/gi, '')
 //                             .replace(/<!--\s*build:remove\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/g, '')
-//                             .replace(/<!--\s*build:css\s+styles\/site\.min\.css\s*-->(\n.*?)*<!--\s*\/build\s*-->/g, '<link rel=stylesheet href="../styles/site.min.css">')
-//                             .replace(/<!--\s*build:js\s+scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/g, '');
+//                             .replace(/<!--\s*build:css\s+styles\/site\.min\.css\s*-->(\n.*?)*<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../styles/site.min.css">')
+//                             .replace(/<!--\s*build:js\s+scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '');
 //
 //        var pages = ['about', 'contact', 'credits'];
 //
@@ -26,7 +26,7 @@ var charset = 'utf8';
 //                        fs.mkdir(page);
 //                    }
 //
-//                    fs.writeFile(dest, index.replace(/\sdata-ui-view(>)(?=<\/section>)/g, '$1' + dataView), charset);
+//                    fs.writeFile(dest, index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1' + dataView), charset);
 //                });
 //            });
 //        });
@@ -43,19 +43,28 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
                              .replace(/<!--\s*build:js\s+scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '');
 
         fs.readFile(path.join(__dirname, 'src', 'partials', 'views', 'projectList.html'), charset, function(err, dataView) {
-            var view = dataView.replace(/<div\s+class="projects">(\n.*)*(?=\n\n<h2>Other\sworks)/gi, '');
+            fs.readFile(path.join(__dirname, 'src', 'data', 'projects.json'), charset, function(err, dataJSON) {
+                var json = JSON.parse(dataJSON.replace(/\)]}',\n/, ''));
 
-            var dest = path.join(__dirname, 'projects', 'index.html');
+                console.log(json);
 
-            fs.exists(dest, function(exists) {
-                if(!exists) {
-                    fs.mkdir('projects');
-                }
 
-                fs.writeFile(dest, index.replace(/\sdata-ui-view(>)(?=<\/section>)/g, '$1' + view), charset, function(err) {
-                    if(!err) {
 
+
+                var view = dataView.replace(/<div\s+class="projects">(\n.*)*(?=\n\n<h2>Other\sworks)/gi, '');
+
+                var dest = path.join(__dirname, 'projects', 'index.html');
+
+                fs.exists(dest, function(exists) {
+                    if(!exists) {
+                        fs.mkdir('projects');
                     }
+
+                    fs.writeFile(dest, index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1' + view), charset, function(err) {
+                        if(!err) {
+
+                        }
+                    });
                 });
             });
         });
