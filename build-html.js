@@ -10,7 +10,13 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), 'utf8', function(err, dat
     if(!err) {
         var index = dataIndex.replace(/(ng-cloak|data-ng-cloak)\s*/gi, '');
         fs.readFile(path.join(__dirname, 'src', 'partials', 'views', 'about.html'), 'utf8', function(err, dataView) {
-            fs.writeFile(path.join(__dirname, 'about.html'), index.replace(/\sdata-ui-view(>)(?=<\/section>)/g, '$1' + dataView), 'utf8');
+            fs.exists(path.join(__dirname, 'about', 'index.html'), function(exists) {
+                if(!exists) {
+                    fs.mkdir('about');
+                }
+
+                fs.writeFile(path.join(__dirname, 'about', 'index.html'), index.replace(/\sdata-ui-view(>)(?=<\/section>)/g, '$1' + dataView), 'utf8');
+            });
         });
     } else {
         console.log(err);
