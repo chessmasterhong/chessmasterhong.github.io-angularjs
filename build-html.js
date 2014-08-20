@@ -43,14 +43,15 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
                              .replace(/<!--\s*build:js\s+scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '');
 
         fs.readFile(path.join(__dirname, 'src', 'partials', 'views', 'projectList.html'), charset, function(err, dataView) {
+            var projTemplate = dataView.match(/<div\s+class="projects">(\n.*)*(?=<h2>Other\sworks)/gi);
+            var view = dataView.replace(/<div\s+class="projects">(\n.*)*(?=<h2>Other\sworks)/gi, '');
+
             fs.readFile(path.join(__dirname, 'src', 'data', 'projects.json'), charset, function(err, dataJSON) {
                 var json = JSON.parse(dataJSON.replace(/\)]}',\n/, ''));
 
                 json.forEach(function(project) {
-                    var view = dataView.replace(/<div\s+class="projects">(\n.*)*(?=\n\n<h2>Other\sworks)/gi, '');
-
                     if(project.showcase === true) {
-                        console.log(project)
+                        view = view.replace(/(<h2>Showcase<\/h2>)/gi, '$1' + projTemplate)
                     }
                 });
 
