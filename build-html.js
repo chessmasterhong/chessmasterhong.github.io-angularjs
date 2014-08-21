@@ -43,15 +43,15 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
                              .replace(/<!--\s*build:js\s+scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '');
 
         fs.readFile(path.join(__dirname, 'src', 'partials', 'views', 'projectList.html'), charset, function(err, dataView) {
-            var projTemplate = dataView.match(/(<div\s+data-ng-repeat="project\s+in\s+projects)(.*\n)*(?=<\/div>(\n.*)*<h2>Other\sworks)/gi);
+            var projTemplate = dataView.match(/(<div\s+data-ng-repeat="project\s+in\s+projects)(.*\n)*(?=<\/div>(\n.*)*<h2>Other\sworks)/gi)[0];
             var view = dataView.replace(/(<div\s+data-ng-repeat="project\s+in\s+projects)(.*\n)*(?=<\/div>(\n.*)*<h2>Other\sworks)/gi, '');
 
             fs.readFile(path.join(__dirname, 'src', 'data', 'projects.json'), charset, function(err, dataJSON) {
                 var json = JSON.parse(dataJSON.replace(/\)]}',\n/, ''));
 
-                json.forEach(function(project) {
+                json.forEach(function(project, index) {
                     if(project.showcase === true) {
-                        view = view.replace(/(<h2>Showcase<\/h2>\n*<div\s*class="projects">)/gi, '$1' + projTemplate);
+                        view = view.replace(/(<h2>Showcase<\/h2>\n*<div\s*class="projects">)/gi, '$1' + projTemplate.replace(/\{\{\s*project\.projectIndex\s*}}/g, json.length - index));
                     }
                 });
 
