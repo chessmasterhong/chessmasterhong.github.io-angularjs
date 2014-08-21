@@ -51,7 +51,10 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
 
                 json.forEach(function(project, index) {
                     if(project.showcase === true) {
-                        view = view.replace(/(<h2>Showcase<\/h2>\n*<div\s*class="projects">)/gi, '$1' + projTemplate.replace(/\{\{\s*project\.projectIndex\s*}}/g, index));
+                        var proj = projTemplate.replace(/\{\{\s*project\.projectIndex\s*}}/g, index)
+                                               .replace(/\{\{\s*project\.title\s*}}/g, project.title);
+
+                        view = view.replace(/(<h2>Showcase<\/h2>\n*<div\s*class="projects">)/gi, '$1' + proj);
                     }
                 });
 
