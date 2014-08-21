@@ -49,9 +49,11 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
             fs.readFile(path.join(__dirname, 'src', 'data', 'projects.json'), charset, function(err, dataJSON) {
                 var json = JSON.parse(dataJSON.replace(/\)]}',\n/, '')).reverse();
 
+                var row = 0;
                 json.forEach(function(project, index) {
                     if(project.showcase === true) {
-                        var proj = projTemplate.replace(/\{\{\s*project\.projectIndex\s*}}/g, index)
+                        var proj = projTemplate.replace(/data-ng-class-even="'views-row\s+views-row-even'"\s+data-ng-class-odd="'views-row\s+views-row-odd'"/gi, 'class="views-row views-row-' + (row++ % 2 ? 'even' : 'odd') + '"')
+                                               .replace(/\{\{\s*project\.projectIndex\s*}}/g, index)
                                                .replace(/\{\{\s*project\.title\s*}}/g, project.title)
                                                .replace(/\{\{\s*project\.thumbnail\s*}}/g, project.thumbnail)
                                                .replace(/\{\{\s*project\.urlDemo\s*}}/g, project.urlDemo)
