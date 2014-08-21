@@ -65,8 +65,8 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
                                             .replace(/\s*data-ng-bind="project\.title"(>)/g, '$1' + project.title)
                                             .replace(/\s*data-ng-bind="project\.excerpt"(>)/g, '$1' + project.excerpt)
                                             .replace(/data-ng-(?=src)/g, '')
-                                            .replace(/<span\s+class="spacer"\s+data-ng-show="project.urlDemo"><\/span>((\n.*?)*)<\/a>/gi, project.urlDemo ? '<span class="spacer"></span>$1' : '')
-                                            .replace(/<span\s+class="spacer"\s+data-ng-show="\(project\.urlDemo\s*\&\&\s*project\.urlSource\)\s*\|\|\s*project\.urlSource"><\/span>((\n.*?)*)<\/a>/gi, project.urlSource ? '<span class="spacer"></span>$1' : '')
+                                            .replace(/<span\s+class="spacer"\s+data-ng-show="project.urlDemo"><\/span>((\n.*?)*)<\/a>/gi, project.urlDemo ? '<span class="spacer"></span>$1</a>' : '')
+                                            .replace(/<span\s+class="spacer"\s+data-ng-show="\(project\.urlDemo\s*\&\&\s*project\.urlSource\)\s*\|\|\s*project\.urlSource"><\/span>((\n.*?)*)<\/a>/gi, project.urlSource ? '<span class="spacer"></span>$1</a>' : '')
                             );
                     } else {
                         view = view.replace(/(<h2>Other works<\/h2>\n*<div\s*class="projects">)/gi, '$1' +
