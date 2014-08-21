@@ -68,7 +68,7 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
                         //    );
                     } else {
                         view = view.replace(/(<h2>Other works<\/h2>\n*<div\s*class="projects">)/gi, '$1' +
-                            showcaseTemplate.replace(/data-ng-class-even="'views-row'"/gi, 'class="views-row"'));
+                            otherworksTemplate.replace(/data-ng-class="'views-row'"/gi, 'class="views-row"'));
                     }
                 });
 
