@@ -47,11 +47,11 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
             var view = dataView.replace(/(<div\s+data-ng-repeat="project\s+in\s+projects)(.*\n)*(?=<\/div>(\n.*)*<h2>Other\sworks)/gi, '');
 
             fs.readFile(path.join(__dirname, 'src', 'data', 'projects.json'), charset, function(err, dataJSON) {
-                var json = JSON.parse(dataJSON.replace(/\)]}',\n/, ''));
+                var json = JSON.parse(dataJSON.replace(/\)]}',\n/, '')).reverse();
 
                 json.forEach(function(project, index) {
                     if(project.showcase === true) {
-                        view = view.replace(/(<h2>Showcase<\/h2>\n*<div\s*class="projects">)/gi, '$1' + projTemplate.replace(/\{\{\s*project\.projectIndex\s*}}/g, json.length - index));
+                        view = view.replace(/(<h2>Showcase<\/h2>\n*<div\s*class="projects">)/gi, '$1' + projTemplate.replace(/\{\{\s*project\.projectIndex\s*}}/g, index));
                     }
                 });
 
