@@ -68,7 +68,11 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
                         //    );
                     } else {
                         view = view.replace(/(<h2>Other works<\/h2>\n*<div\s*class="projects">)/gi, '$1' +
-                            otherworksTemplate.replace(/data-ng-class="'views-row'"/gi, 'class="views-row"'));
+                            otherworksTemplate.replace(/data-ng-class="'views-row'"/gi, 'class="views-row"')
+                                            .replace(/\{\{\s*project\.projectIndex\s*}}/g, index)
+                                            .replace(/\{\{\s*project\.title\s*}}/g, project.title)
+                                            .replace(/\{\{\s*project\.thumbnail\s*}}/g, project.thumbnail)
+                            );
                     }
                 });
 
