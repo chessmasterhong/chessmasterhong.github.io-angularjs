@@ -55,7 +55,8 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
                                                .replace(/\{\{\s*project\.title\s*}}/g, project.title)
                                                .replace(/\{\{\s*project\.thumbnail\s*}}/g, project.thumbnail)
                                                .replace(/\{\{\s*project\.urlDemo\s*}}/g, project.urlDemo)
-                                               .replace(/\{\{\s*project\.urlSource\s*}}/g, project.urlSource);
+                                               .replace(/\{\{\s*project\.urlSource\s*}}/g, project.urlSource)
+                                               .replace(/\s*data-ng-bind="project\.title"(>)/g, '$1' + project.title);
 
                         view = view.replace(/(<h2>Showcase<\/h2>\n*<div\s*class="projects">)/gi, '$1' + proj);
                     }
