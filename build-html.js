@@ -43,8 +43,11 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
                              .replace(/<!--\s*build:js\s+scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '');
 
         fs.readFile(path.join(__dirname, 'src', 'partials', 'views', 'projectList.html'), charset, function(err, dataView) {
-            var projTemplate = dataView.match(/(<div\s+data-ng-repeat="project\s+in\s+projects)(.*\n)*(?=<\/div>(\n.*)*<h2>Other\sworks)/gi)[0];
-            var view = dataView.replace(/(<div\s+data-ng-repeat="project\s+in\s+projects)(.*\n)*(?=<\/div>(\n.*)*<h2>Other\sworks)/gi, '');
+            var showcaseTemplate = dataView.match(/<div\s+data-ng-repeat="project\s+in\s+projects(.*\n)*(?=<\/div>(\n.*)*<h2>Other\sworks)/gi)[0],
+                otherworksTemplate = dataView.match(/<span\s+data-ng-repeat="project\s+in\s+projects(.*\n)*(?=<\/div>)/gi)[0];
+
+            var view = dataView.replace(/(<div\s+data-ng-repeat="project\s+in\s+projects)(.*\n)*(?=<\/div>(\n.*)*<h2>Other\sworks)/gi, '')
+                               .replace(/<span\s+data-ng-repeat="project\s+in\s+projects(.*\n)*(?=<\/div>)/gi, '');
 
             fs.readFile(path.join(__dirname, 'src', 'data', 'projects.json'), charset, function(err, dataJSON) {
                 var json = JSON.parse(dataJSON.replace(/\)]}',\n/, '')).reverse();
@@ -52,17 +55,20 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
                 var row = 0;
                 json.forEach(function(project, index) {
                     if(project.showcase === true) {
-                        var proj = projTemplate.replace(/data-ng-class-even="'views-row\s+views-row-even'"\s+data-ng-class-odd="'views-row\s+views-row-odd'"/gi, 'class="views-row views-row-' + (row++ % 2 ? 'even' : 'odd') + '"')
-                                               .replace(/\{\{\s*project\.projectIndex\s*}}/g, index)
-                                               .replace(/\{\{\s*project\.title\s*}}/g, project.title)
-                                               .replace(/\{\{\s*project\.thumbnail\s*}}/g, project.thumbnail)
-                                               .replace(/\{\{\s*project\.urlDemo\s*}}/g, project.urlDemo)
-                                               .replace(/\{\{\s*project\.urlSource\s*}}/g, project.urlSource)
-                                               .replace(/\s*data-ng-bind="project\.title"(>)/g, '$1' + project.title)
-                                               .replace(/\s*data-ng-bind="project\.excerpt"(>)/g, '$1' + project.excerpt)
-                                               .replace(/data-ng-(?=src)/g, '');
-
-                        view = view.replace(/(<h2>Showcase<\/h2>\n*<div\s*class="projects">)/gi, '$1' + proj);
+                        //view = view.replace(/(<h2>Showcase<\/h2>\n*<div\s*class="projects">)/gi, '$1' +
+                        //    showcaseTemplate.replace(/data-ng-class-even="'views-row\s+views-row-even'"\s+data-ng-class-odd="'views-row\s+views-row-odd'"/gi, 'class="views-row views-row-' + (row++ % 2 ? 'even' : 'odd') + '"')
+                        //                    .replace(/\{\{\s*project\.projectIndex\s*}}/g, index)
+                        //                    .replace(/\{\{\s*project\.title\s*}}/g, project.title)
+                        //                    .replace(/\{\{\s*project\.thumbnail\s*}}/g, project.thumbnail)
+                        //                    .replace(/\{\{\s*project\.urlDemo\s*}}/g, project.urlDemo)
+                        //                    .replace(/\{\{\s*project\.urlSource\s*}}/g, project.urlSource)
+                        //                    .replace(/\s*data-ng-bind="project\.title"(>)/g, '$1' + project.title)
+                        //                    .replace(/\s*data-ng-bind="project\.excerpt"(>)/g, '$1' + project.excerpt)
+                        //                    .replace(/data-ng-(?=src)/g, '')
+                        //    );
+                    } else {
+                        view = view.replace(/(<h2>Other works<\/h2>\n*<div\s*class="projects">)/gi, '$1' +
+                            showcaseTemplate.replace(/data-ng-class-even="'views-row'"/gi, 'class="views-row"'));
                     }
                 });
 
