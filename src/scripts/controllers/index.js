@@ -3,5 +3,6 @@ define([
     'controllers/navController',
     'controllers/projectDetailController',
     'controllers/projectListController',
-    'controllers/resourceListController'
+    'controllers/resourceListController',
+    'controllers/siteController'
 ], function() {});
