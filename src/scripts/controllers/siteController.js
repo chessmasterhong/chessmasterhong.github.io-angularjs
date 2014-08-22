@@ -5,7 +5,7 @@ define([
 
     controllers.controller('siteController', [function() {
         var siteUrls = document.getElementsByTagName('a'),
-            paths = paths = ['projects', 'resources', 'about', 'contact', 'credits'];
+            paths = ['projects', 'resources', 'about', 'contact', 'credits'];
 
         for(var i = 0; i < siteUrls.length; i++) {
             var path = siteUrls[i].href.match(/.*:\/\/[a-z0-9\-.]+(:[0-9]+)?\/(.*)/)[2];
