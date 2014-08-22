@@ -7,7 +7,7 @@ define([
         $stateProvider
             .state('home', {
                 url: '',
-                templateUrl: 'partials/views/home.html',
+                templateUrl: '/home/home.partial.html',
                 data: { pageTitle: 'Home' }
             })
             .state('projects', {
@@ -18,12 +18,12 @@ define([
             })
             .state('projects.list', {
                 url: '',
-                templateUrl: 'partials/views/projectList.html',
+                templateUrl: '/projects/projectList.partial.html',
                 controller: 'projectListController'
             })
             .state('projects.details', {
                 url: '/{projectIndex:[0-9]{1,2}}',
-                templateUrl: 'partials/views/projectDetail.html',
+                templateUrl: '/projects/projectDetail.partial.html',
                 controller: 'projectDetailController'
             })
             .state('resources', {
@@ -34,32 +34,32 @@ define([
             })
             .state('resources.list', {
                 url: '',
-                templateUrl: 'partials/views/resourceList.html',
+                templateUrl: '/resources/resourceList.partial.html',
                 controller: 'resourceListController'
             })
             .state('resources.details', {
                 url: '/{resourceIndex:[0-9]{1,2}}',
-                templateUrl: 'partials/views/resourceDetail.html',
+                templateUrl: '/resources/resourceDetail.partial.html',
                 controller: 'resourceDetailController'
             })
             .state('about', {
                 url: '/about',
-                templateUrl: 'partials/views/about.html',
+                templateUrl: '/about/about.partial.html',
                 data: { pageTitle: 'About' }
             })
             .state('contact', {
                 url: '/contact',
-                templateUrl: 'partials/views/contact.html',
+                templateUrl: '/contact/contact.partial.html',
                 data: { pageTitle: 'Contact' }
             })
             .state('credits', {
                 url: '/credits',
-                templateUrl: 'partials/views/credits.html',
+                templateUrl: '/credits/credits.partial.html',
                 data: { pageTitle: 'Credits' }
             })
             .state('404', {
                 url: '/404',
-                templateUrl: 'partials/views/404.html',
+                templateUrl: '/404.partial.html',
                 data: { pageTitle: 'Page Not Found' }
             });
 
