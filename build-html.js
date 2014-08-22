@@ -98,3 +98,18 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
         console.log(err);
     }
 });
+
+fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, dataIndex) {
+    if(!err) {
+        var index = dataIndex.replace(/(ng-cloak|data-ng-cloak)\s*/gi, '')
+                             .replace(/<!--\s*build:remove\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '')
+                             .replace(/<!--\s*build:css\s+styles\/site\.min\.css\s*-->(\n.*?)*<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../styles/site.min.css">')
+                             .replace(/<!--\s*build:js\s+scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '');
+
+        fs.readFile(path.join(__dirname, 'src', 'partials', 'views', 'resourceList.html'), charset, function(err, dataView) {
+            // ...
+        });
+    } else {
+        console.log(err);
+    }
+});
