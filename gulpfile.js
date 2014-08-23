@@ -110,10 +110,10 @@ gulp.task('optimize-html', function() {
 });
 
 gulp.task('optimize-json', function() {
-    return gulp.src(PATH.SOURCE + 'data/**/*.json')
+    return gulp.src(PATH.SOURCE + '**/*.json')
         .pipe(minifyJSON())
         .pipe(replace(/^(\)]}',)(?=\[{".+":.+)/, '$1\n'))
-        .pipe(gulp.dest(PATH.BUILD + 'data/'));
+        .pipe(gulp.dest(PATH.BUILD));
 });
 
 gulp.task('optimize-images', function() {
@@ -136,7 +136,7 @@ gulp.task('copy', function() {
 gulp.task('concat-header-scripts', function() {
     return gulp.src([
             PATH.SOURCE + 'tasks/license.js',
-            PATH.BUILD + 'scripts/site.min.js'
+            PATH.BUILD + 'common/scripts/site.min.js'
         ])
         .pipe(concat('site.min.js'))
         .pipe(gulp.dest(PATH.BUILD + 'scripts/'));
@@ -145,7 +145,7 @@ gulp.task('concat-header-scripts', function() {
 gulp.task('concat-header-styles', function() {
     return gulp.src([
             PATH.SOURCE + 'tasks/license.css',
-            PATH.BUILD + 'styles/site.min.css'
+            PATH.BUILD + 'common/styles/site.min.css'
         ])
         .pipe(concat('site.min.css'))
         .pipe(gulp.dest(PATH.BUILD + 'styles/'));
@@ -165,17 +165,17 @@ gulp.task('clean', function(done) {
 gulp.task('post-build-scripts', function() {
     var date = new Date();
 
-    return gulp.src(PATH.BUILD + 'scripts/site.min.js')
+    return gulp.src(PATH.BUILD + 'common/scripts/site.min.js')
         .pipe(replace(/(\/\*!)/, '// scripts.min.js build: ' + date + '\n$1'))
-        .pipe(gulp.dest(PATH.BUILD + 'scripts/'));
+        .pipe(gulp.dest(PATH.BUILD + 'common/scripts/'));
 });
 
 gulp.task('post-build-styles', function() {
     var date = new Date();
 
-    return gulp.src(PATH.BUILD + 'styles/site.min.css')
+    return gulp.src(PATH.BUILD + 'common/styles/site.min.css')
         .pipe(replace(/(\/\*!)/, '/* site.min.js build: ' + date + ' */\n$1'))
-        .pipe(gulp.dest(PATH.BUILD + 'styles/'));
+        .pipe(gulp.dest(PATH.BUILD + 'common/styles/'));
 });
 
 gulp.task('size', function() {
