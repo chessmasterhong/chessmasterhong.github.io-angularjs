@@ -10,25 +10,9 @@ var fs = require('fs'),
 
 var charset = 'utf8';
 
-fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain) {
-    if(!err) {
-        var index = dataMain.replace(/(data-)?ng-cloak\s*/gi, '');
+var pathMain = path.join(__dirname, 'index.html');
 
-        fs.readFile(path.join(__dirname, 'home', 'home.partial.html'), charset, function(err, dataView) {
-            var dest = path.join(__dirname, 'index.html');
-            fs.writeFile(
-                dest,
-                index.replace(/\s+data-ui-view(>)(?=<\/section>)/gi, '$1' + dataView)
-                     .replace(/data-ng-class="{\s*active:\s*isActive\('home'\)\s+}"/g, 'class="active"')
-                     .replace(/\s+(data-)?ng-.*?=".*?"/gi, ''),
-                charset);
-        });
-    } else {
-        console.log(err);
-    }
-});
-
-fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain) {
+fs.readFile(pathMain, charset, function(err, dataMain) {
     if(!err) {
         var index = dataMain.replace(/(data-)?ng-cloak\s*/gi, '')
                             .replace(/(href=")(?=common\/styles\/site\.min\.css")/gi, '$1../')
@@ -38,9 +22,8 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
 
         pages.forEach(function(page) {
             fs.readFile(path.join(__dirname, page, page + '.partial.html'), charset, function(err, dataView) {
-                var dest = path.join(__dirname, page, 'index.html');
                 fs.writeFile(
-                    dest,
+                    path.join(__dirname, page, 'index.html'),
                     index.replace(/\s+data-ui-view(>)(?=<\/section>)/gi, '$1' + dataView)
                          .replace(new RegExp('data-ng-class="{\\s*active:\\s*isActive\\(\'' + page + '\'\\)\\s+}"', 'g'), 'class="active"')
                          .replace(/\s+(data-)?ng-.*?=".*?"/gi, ''),
@@ -52,7 +35,7 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
     }
 });
 
-fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain) {
+fs.readFile(pathMain, charset, function(err, dataMain) {
     if(!err) {
         var index = dataMain.replace(/(data-)?ng-cloak\s*/gi, '')
                             .replace(/(href=")(?=common\/styles\/site\.min\.css")/gi, '$1../')
@@ -110,9 +93,8 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
                     }
                 });
 
-                var dest = path.join(__dirname, 'projects', 'index.html');
                 fs.writeFile(
-                    dest,
+                    path.join(__dirname, 'projects', 'index.html'),
                     index.replace(/\s+data-ui-view(>)(?=<\/section>)/gi, '$1' + view)
                          .replace(/\s+(data-)?ng-.*?=".*?"/gi, ''),
                     charset
@@ -124,7 +106,7 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
     }
 });
 
-fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain) {
+fs.readFile(pathMain, charset, function(err, dataMain) {
     if(!err) {
         var index = dataMain.replace(/(data-)?ng-cloak\s*/gi, '')
                             .replace(/(href=")(?=common\/styles\/site\.min\.css")/gi, '$1../')
@@ -132,13 +114,29 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
                             .replace(/data-ng-class="{\s*active:\s*isActive\('resources'\)\s+}"/g, 'class="active"');
 
         fs.readFile(path.join(__dirname, 'resources', 'resourceList.partial.html'), charset, function(err, dataView) {
-            var dest = path.join(__dirname, 'resources', 'index.html');
             fs.writeFile(
-                dest,
+                path.join(__dirname, 'resources', 'index.html'),
                 index.replace(/\s+data-ui-view(>)(?=<\/section>)/gi, '$1' + dataView)
                      .replace(/\s+(data-)?ng-.*?=".*?"/gi, ''),
                 charset
             );
+        });
+    } else {
+        console.log(err);
+    }
+});
+
+fs.readFile(pathMain, charset, function(err, dataMain) {
+    if(!err) {
+        var index = dataMain.replace(/(data-)?ng-cloak\s*/gi, '');
+
+        fs.readFile(path.join(__dirname, 'home', 'home.partial.html'), charset, function(err, dataView) {
+            fs.writeFile(
+                pathMain,
+                index.replace(/\s+data-ui-view(>)(?=<\/section>)/gi, '$1' + dataView)
+                     .replace(/data-ng-class="{\s*active:\s*isActive\('home'\)\s+}"/g, 'class="active"')
+                     .replace(/\s+(data-)?ng-.*?=".*?"/gi, ''),
+                charset);
         });
     } else {
         console.log(err);
