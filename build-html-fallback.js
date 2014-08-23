@@ -10,17 +10,17 @@ var fs = require('fs'),
 
 var charset = 'utf8';
 
-fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, dataMain) {
+fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain) {
     if(!err) {
         var index = dataMain.replace(/(data-)?ng-cloak\s*/gi, '')
-                            .replace(/<!--\s*build:remove\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/g, '')
-                            .replace(/<!--\s*build:css\s+common\/styles\/site\.min\.css\s*-->(\n.*?)*<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../common/styles/site.min.css">')
-                            .replace(/<!--\s*build:js\s+common\/scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '')
+                            .replace(/<!--\s*build:remove\s*-->(.*?)<!--\s*\/build\s*-->\s*/g, '')
+                            .replace(/<!--\s*build:css\s+common\/styles\/site\.min\.css\s*-->(.*?)<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../common/styles/site.min.css">')
+                            .replace(/<!--\s*build:js\s+common\/scripts\/site\.min\.js\s*-->(.*?)<!--\s*\/build\s*-->\s*/gi, '')
 
         var pages = ['about', 'contact', 'credits'];
 
         pages.forEach(function(page) {
-            fs.readFile(path.join(__dirname, 'src', page, page + '.partial.html'), charset, function(err, dataView) {
+            fs.readFile(path.join(__dirname, page, page + '.partial.html'), charset, function(err, dataView) {
                 var dest = path.join(__dirname, page, 'index.html');
                 fs.writeFile(
                     dest,
@@ -35,29 +35,29 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
     }
 });
 
-fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, dataMain) {
+fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain) {
     if(!err) {
         var index = dataMain.replace(/(data-)?ng-cloak\s*/gi, '')
-                            .replace(/<!--\s*build:remove\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '')
-                            .replace(/<!--\s*build:css\s+common\/styles\/site\.min\.css\s*-->(\n.*?)*<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../common/styles/site.min.css">')
-                            .replace(/<!--\s*build:js\s+common\/scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '')
+                            .replace(/<!--\s*build:remove\s*-->(.*?)<!--\s*\/build\s*-->\s*/gi, '')
+                            .replace(/<!--\s*build:css\s+common\/styles\/site\.min\.css\s*-->(.*?)<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../common/styles/site.min.css">')
+                            .replace(/<!--\s*build:js\s+common\/scripts\/site\.min\.js\s*-->(.*?)<!--\s*\/build\s*-->\s*/gi, '')
                             .replace(/data-ng-class="{\s*active:\s*isActive\('projects'\)\s+}"/g, 'class="active"');
 
-        fs.readFile(path.join(__dirname, 'src', 'projects', 'projectList.partial.html'), charset, function(err, dataView) {
-            var showcaseTemplate = dataView.match(/<div\s+data-ng-repeat="project\s+in\s+projects(.*\n)*(?=<\/div>(\n.*)*<h2>Other\sworks)/gi)[0],
-                otherworksTemplate = dataView.match(/<span\s+data-ng-repeat="project\s+in\s+projects(.*\n)*(?=<\/div>)/gi)[0];
+        fs.readFile(path.join(__dirname, 'projects', 'projectList.partial.html'), charset, function(err, dataView) {
+            var showcaseTemplate = dataView.match(/<div\s+data-ng-repeat="project\s+in\s+projects(.*)(?=<\/div>(.*)<h2>Other\sworks)/gi)[0],
+                otherworksTemplate = dataView.match(/<span\s+data-ng-repeat="project\s+in\s+projects(.*)(?=<\/div>)/gi)[0];
 
-            var view = dataView.replace(/(<div\s+data-ng-repeat="project\s+in\s+projects)(.*\n)*(?=<\/div>(\n.*)*<h2>Other\sworks)/gi, '')
-                               .replace(/<span\s+data-ng-repeat="project\s+in\s+projects(.*\n)*(?=<\/div>)/gi, '');
+            var view = dataView.replace(/(<div\s+data-ng-repeat="project\s+in\s+projects)(.*)(?=<\/div>(.*)<h2>Other\sworks)/gi, '')
+                               .replace(/<span\s+data-ng-repeat="project\s+in\s+projects(.*)(?=<\/div>)/gi, '');
 
-            fs.readFile(path.join(__dirname, 'src', 'projects', 'projects.json'), charset, function(err, dataJSON) {
-                var json = JSON.parse(dataJSON.replace(/\)]}',\n/, '')).reverse();
+            fs.readFile(path.join(__dirname, 'projects', 'projects.json'), charset, function(err, dataJSON) {
+                var json = JSON.parse(dataJSON.replace(/\)]}',/, '')).reverse();
 
                 var row = 0;
                 json.forEach(function(project, projIndex) {
                     projIndex = projIndex.toString();
 
-                    fs.readFile(path.join(__dirname, 'src', 'projects', projIndex, projIndex + '.partial.html'), charset, function(err, dataView) {
+                    fs.readFile(path.join(__dirname, 'projects', projIndex, projIndex + '.partial.html'), charset, function(err, dataView) {
                         fs.writeFile(
                             path.join(__dirname, 'projects', projIndex, 'index.html'),
                             index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1<h1>Projects &raquo; ' + project.title + '</h1>' + dataView)
@@ -68,7 +68,7 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
                     });
 
                     if(project.showcase === true) {
-                        view = view.replace(/(<h2>Showcase<\/h2>\n*<div\s*class="projects">)/gi, '$1' +
+                        view = view.replace(/(<h2>Showcase<\/h2>*<div\s*class="projects">)/gi, '$1' +
                             showcaseTemplate.replace(/data-ng-class-even="'views-row\s+views-row-even'"\s+data-ng-class-odd="'views-row\s+views-row-odd'"/gi, 'class="views-row views-row-' + (row++ % 2 ? 'even' : 'odd') + '"')
                                             .replace(/\{\{\s*project\.projectIndex\s*}}/g, projIndex)
                                             .replace(/\{\{\s*project\.title\s*}}/g, project.title)
@@ -79,11 +79,11 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
                                             .replace(/\s*data-ng-bind="project\.title"(>)/g, '$1' + project.title)
                                             .replace(/\s*data-ng-bind="project\.excerpt"(>)/g, '$1' + project.excerpt)
                                             .replace(/data-ng-(?=src)/g, '')
-                                            .replace(/<span\s+class="spacer"\s+data-ng-show="project.urlDemo"><\/span>((\n.*?)*)<\/a>/gi, project.urlDemo ? '<span class="spacer"></span>$1</a>' : '')
-                                            .replace(/<span\s+class="spacer"\s+data-ng-show="\(project\.urlDemo\s*\&\&\s*project\.urlSource\)\s*\|\|\s*project\.urlSource"><\/span>((\n.*?)*)<\/a>/gi, project.urlSource ? '<span class="spacer"></span>$1</a>' : '')
+                                            .replace(/<span\s+class="spacer"\s+data-ng-show="project.urlDemo"><\/span>((.*?))<\/a>/gi, project.urlDemo ? '<span class="spacer"></span>$1</a>' : '')
+                                            .replace(/<span\s+class="spacer"\s+data-ng-show="\(project\.urlDemo\s*\&\&\s*project\.urlSource\)\s*\|\|\s*project\.urlSource"><\/span>((.*?))<\/a>/gi, project.urlSource ? '<span class="spacer"></span>$1</a>' : '')
                             );
                     } else {
-                        view = view.replace(/(<h2>Other works<\/h2>\n*<div\s*class="projects">)/gi, '$1' +
+                        view = view.replace(/(<h2>Other works<\/h2>*<div\s*class="projects">)/gi, '$1' +
                             otherworksTemplate.replace(/data-ng-class="'views-row'"/gi, 'class="views-row"')
                                               .replace(/\{\{\s*project\.projectIndex\s*}}/g, projIndex)
                                               .replace(/\{\{\s*project\.title\s*}}/g, project.title)
@@ -107,15 +107,15 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
     }
 });
 
-fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, dataMain) {
+fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain) {
     if(!err) {
         var index = dataMain.replace(/(data-)?ng-cloak\s*/gi, '')
-                            .replace(/<!--\s*build:remove\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '')
-                            .replace(/<!--\s*build:css\s+common\/styles\/site\.min\.css\s*-->(\n.*?)*<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../common/styles/site.min.css">')
-                            .replace(/<!--\s*build:js\s+common\/scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '')
+                            .replace(/<!--\s*build:remove\s*-->(.*?)<!--\s*\/build\s*-->\s*/gi, '')
+                            .replace(/<!--\s*build:css\s+common\/styles\/site\.min\.css\s*-->(.*?)<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../common/styles/site.min.css">')
+                            .replace(/<!--\s*build:js\s+common\/scripts\/site\.min\.js\s*-->(.*?)<!--\s*\/build\s*-->\s*/gi, '')
                             .replace(/data-ng-class="{\s*active:\s*isActive\('resources'\)\s+}"/g, 'class="active"');
 
-        fs.readFile(path.join(__dirname, 'src', 'resources', 'resourceList.partial.html'), charset, function(err, dataView) {
+        fs.readFile(path.join(__dirname, 'resources', 'resourceList.partial.html'), charset, function(err, dataView) {
             var dest = path.join(__dirname, 'resources', 'index.html');
             fs.writeFile(
                 dest,
