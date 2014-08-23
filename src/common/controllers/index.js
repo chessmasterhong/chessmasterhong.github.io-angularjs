@@ -1,8 +1,8 @@
 define([
     'controllers/headController',
     'controllers/navController',
-    'controllers/projectDetailController',
-    'controllers/projectListController',
-    'controllers/resourceListController',
+    'projects/projectDetailController',
+    'projects/projectListController',
+    'resources/resourceListController',
     'controllers/siteController'
 ], function() {});
