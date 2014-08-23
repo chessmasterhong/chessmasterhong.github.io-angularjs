@@ -52,7 +52,7 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
                     fs.readFile(path.join(__dirname, 'src', 'projects', projIndex.toString(), projIndex.toString() + '.partial.html'), charset, function(err, dataView) {
                         fs.writeFile(
                             path.join(__dirname, 'projects', projIndex.toString(), 'index.html'),
-                            index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1' + dataView)
+                            index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1<h1>Projects &raquo; ' + project.title + '</h1>' + dataView)
                                  .replace(/(?=\.\.\/common)/gi, '../'),
                             charset
                         );
