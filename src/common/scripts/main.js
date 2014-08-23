@@ -11,12 +11,12 @@ requirejs.config({
         ngDialog: './vendor/ngDialog/js/ngDialog.min',
         uiRouter: './vendor/angular-ui-router/release/angular-ui-router.min',
 
-        app: './common/app',
-        config: './common/config/config',
-        routes: './common/config/routes',
-        controllers: './common/controllers',
-        factories: './common/factories',
-        directives: './common/directives'
+        app: './common/scripts/app',
+        config: './common/scripts/config/config',
+        routes: './common/scripts/config/routes',
+        controllers: './common/scripts/controllers',
+        factories: './common/scripts/factories',
+        directives: './common/scripts/directives'
     },
     shim: {
         angular: { exports: 'angular' },
