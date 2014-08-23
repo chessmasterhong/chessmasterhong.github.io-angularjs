@@ -12,6 +12,24 @@ var charset = 'utf8';
 
 fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain) {
     if(!err) {
+        var index = dataMain.replace(/(data-)?ng-cloak\s*/gi, '');
+
+        fs.readFile(path.join(__dirname, 'home', 'home.partial.html'), charset, function(err, dataView) {
+            var dest = path.join(__dirname, 'index.html');
+            fs.writeFile(
+                dest,
+                index.replace(/\s+data-ui-view(>)(?=<\/section>)/gi, '$1' + dataView)
+                     .replace(/data-ng-class="{\s*active:\s*isActive\('home'\)\s+}"/g, 'class="active"')
+                     .replace(/\s+(data-)?ng-.*?=".*?"/gi, ''),
+                charset);
+        });
+    } else {
+        console.log(err);
+    }
+});
+
+fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain) {
+    if(!err) {
         var index = dataMain.replace(/(data-)?ng-cloak\s*/gi, '')
                             .replace(/(href=")(?=common\/styles\/site\.min\.css")/gi, '$1../')
                             .replace(/(src=")(?=common\/scripts\/site\.min\.js")/gi, '$1../');
@@ -23,7 +41,7 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
                 var dest = path.join(__dirname, page, 'index.html');
                 fs.writeFile(
                     dest,
-                    index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1' + dataView)
+                    index.replace(/\s+data-ui-view(>)(?=<\/section>)/gi, '$1' + dataView)
                          .replace(new RegExp('data-ng-class="{\\s*active:\\s*isActive\\(\'' + page + '\'\\)\\s+}"', 'g'), 'class="active"')
                          .replace(/\s+(data-)?ng-.*?=".*?"/gi, ''),
                     charset);
@@ -58,7 +76,7 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
                     fs.readFile(path.join(__dirname, 'projects', projIndex, projIndex + '.partial.html'), charset, function(err, dataView) {
                         fs.writeFile(
                             path.join(__dirname, 'projects', projIndex, 'index.html'),
-                            index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1<h1>Projects &raquo; ' + project.title + '</h1>' + dataView)
+                            index.replace(/\s+data-ui-view(>)(?=<\/section>)/gi, '$1<h1>Projects &raquo; ' + project.title + '</h1>' + dataView)
                                  .replace(/(?=\.\.\/common)/gi, '../')
                                  .replace(/\s+(data-)?ng-.*?=".*?"/gi, ''),
                             charset
@@ -95,7 +113,7 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
                 var dest = path.join(__dirname, 'projects', 'index.html');
                 fs.writeFile(
                     dest,
-                    index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1' + view)
+                    index.replace(/\s+data-ui-view(>)(?=<\/section>)/gi, '$1' + view)
                          .replace(/\s+(data-)?ng-.*?=".*?"/gi, ''),
                     charset
                 );
@@ -117,7 +135,7 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
             var dest = path.join(__dirname, 'resources', 'index.html');
             fs.writeFile(
                 dest,
-                index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1' + dataView)
+                index.replace(/\s+data-ui-view(>)(?=<\/section>)/gi, '$1' + dataView)
                      .replace(/\s+(data-)?ng-.*?=".*?"/gi, ''),
                 charset
             );
