@@ -14,6 +14,7 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
     if(!err) {
         var index = dataMain.replace(/(data-)?ng-cloak\s*/gi, '')
                             .replace(/(href=")(?=common\/styles\/site\.min\.css")/gi, '$1../')
+                            .replace(/(src=")(?=common\/scripts\/site\.min\.js")/gi, '$1../');
 
         var pages = ['about', 'contact', 'credits'];
 
@@ -37,6 +38,7 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
     if(!err) {
         var index = dataMain.replace(/(data-)?ng-cloak\s*/gi, '')
                             .replace(/(href=")(?=common\/styles\/site\.min\.css")/gi, '$1../')
+                            .replace(/(src=")(?=common\/scripts\/site\.min\.js")/gi, '$1../')
                             .replace(/data-ng-class="{\s*active:\s*isActive\('projects'\)\s+}"/g, 'class="active"');
 
         fs.readFile(path.join(__dirname, 'projects', 'projectList.partial.html'), charset, function(err, dataView) {
@@ -107,6 +109,7 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
     if(!err) {
         var index = dataMain.replace(/(data-)?ng-cloak\s*/gi, '')
                             .replace(/(href=")(?=common\/styles\/site\.min\.css")/gi, '$1../')
+                            .replace(/(src=")(?=common\/scripts\/site\.min\.js")/gi, '$1../')
                             .replace(/data-ng-class="{\s*active:\s*isActive\('resources'\)\s+}"/g, 'class="active"');
 
         fs.readFile(path.join(__dirname, 'resources', 'resourceList.partial.html'), charset, function(err, dataView) {
