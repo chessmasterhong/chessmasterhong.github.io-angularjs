@@ -6,27 +6,27 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>http://chessmasterhong.github.io/#/projects</loc>
+        <loc>http://chessmasterhong.github.io/projects</loc>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>http://chessmasterhong.github.io/#/resources</loc>
+        <loc>http://chessmasterhong.github.io/resources</loc>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://chessmasterhong.github.io/#/about</loc>
+        <loc>http://chessmasterhong.github.io/about</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>http://chessmasterhong.github.io/#/contact</loc>
+        <loc>http://chessmasterhong.github.io/contact</loc>
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>http://chessmasterhong.github.io/#/credits</loc>
+        <loc>http://chessmasterhong.github.io/credits</loc>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
