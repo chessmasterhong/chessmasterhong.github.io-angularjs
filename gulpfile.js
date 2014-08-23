@@ -153,12 +153,18 @@ gulp.task('concat-header-styles', function() {
 
 gulp.task('clean', function(done) {
     del([
+        PATH.BUILD + '404*.html',
+        PATH.BUILD + 'about/',
+        PATH.BUILD + 'common/',
+        PATH.BUILD + 'contact/',
+        PATH.BUILD + 'credits/',
+        PATH.BUILD + 'home/',
         PATH.BUILD + 'index.html',
-        PATH.BUILD + 'font/',
         PATH.BUILD + 'media/',
         PATH.BUILD + 'partials/',
-        PATH.BUILD + 'scripts/',
-        PATH.BUILD + 'styles/',
+        PATH.BUILD + 'projects/',
+        PATH.BUILD + 'resources/',
+        PATH.BUILD + 'vendor/'
     ], done);
 });
 
