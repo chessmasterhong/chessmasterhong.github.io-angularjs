@@ -17,7 +17,7 @@ The **website's theme** (visual appearance and layout, excluding fonts and icon 
 
 ## Font License
 
-The **fonts and font icons** are licensed under the [SIL Open Font License 1.1](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL). The license for the fonts can be viewed [here](/src/fonts/lato/OFL.txt). The licenses for the icon fonts can be viewed [here](/src/fonts/fontello/LICENSE.txt).
+The **fonts and font icons** are licensed under the [SIL Open Font License 1.1](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL). The license for the fonts can be viewed [here](/src/common/fonts/lato/OFL.txt). The licenses for the icon fonts can be viewed [here](/src/common/fonts/fontello/LICENSE.txt).
 
 ## Code License
 
@@ -25,12 +25,40 @@ The **source code** is licensed under the [MIT License](LICENSE.txt). The full l
 
 However, the **content of the website** (specifically the directories and materials listed below) are copyright to [Kevin Chan](http://github.com/chessmasterhong). You may not reuse any materials therein without my permission.
 
-* `/data/`
-* `/partials/projects/`
-* `/partials/views/`
-* `/src/data/`
-* `/src/partials/projects/`
-* `/src/partials/views/`
+
+* `/src/about/about.partial.html`
+* `/src/contact/contact.partial.html`
+* `/src/credits/credits.partial.html`
+* `/src/home/home.partial.html`
+* `/src/projects/projects.partial.html`
+* `/src/projects/<project_id>/<project_id>.partial.html`
+* `/src/resources/resources.partial.html`
+* `/src/resources/<resource_id>/<resource_id>.partial.html`
+
+
+* `/about/about.partial.html`
+* `/contact/contact.partial.html`
+* `/credits/credits.partial.html`
+* `/home/home.partial.html`
+* `/projects/projects.partial.html`
+* `/projects/<project_id>/<project_id>.partial.html`
+* `/resources/resources.partial.html`
+* `/resources/<resource_id>/<resource_id>.partial.html`
+
+
+* `/about/index.html`
+* `/contact/index.html`
+* `/credits/index.html`
+* `/projects/index.html`
+* `/projects/<project_id>/index.html`
+* `/projects/index.html`
+* `/resources/<resource_id>/index.html`
+
+
+* `/src/projects/projects.json`
+* `/src/resources/resources.json`
+
+
 * all images
 
 
