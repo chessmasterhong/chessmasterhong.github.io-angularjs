@@ -10,12 +10,12 @@ var fs = require('fs'),
 
 var charset = 'utf8';
 
-fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, dataIndex) {
+fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, dataMain) {
     if(!err) {
-        var index = dataIndex.replace(/(ng-cloak|data-ng-cloak)\s*/gi, '')
-                             .replace(/<!--\s*build:remove\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/g, '')
-                             .replace(/<!--\s*build:css\s+common\/styles\/site\.min\.css\s*-->(\n.*?)*<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../common/styles/site.min.css">')
-                             .replace(/<!--\s*build:js\s+common\/scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '');
+        var index = dataMain.replace(/(ng-cloak|data-ng-cloak)\s*/gi, '')
+                            .replace(/<!--\s*build:remove\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/g, '')
+                            .replace(/<!--\s*build:css\s+common\/styles\/site\.min\.css\s*-->(\n.*?)*<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../common/styles/site.min.css">')
+                            .replace(/<!--\s*build:js\s+common\/scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '');
 
         var pages = ['about', 'contact', 'credits'];
 
@@ -30,12 +30,12 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
     }
 });
 
-fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, dataIndex) {
+fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, dataMain) {
     if(!err) {
-        var index = dataIndex.replace(/(ng-cloak|data-ng-cloak)\s*/gi, '')
-                             .replace(/<!--\s*build:remove\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '')
-                             .replace(/<!--\s*build:css\s+common\/styles\/site\.min\.css\s*-->(\n.*?)*<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../common/styles/site.min.css">')
-                             .replace(/<!--\s*build:js\s+common\/scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '');
+        var index = dataMain.replace(/(ng-cloak|data-ng-cloak)\s*/gi, '')
+                            .replace(/<!--\s*build:remove\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '')
+                            .replace(/<!--\s*build:css\s+common\/styles\/site\.min\.css\s*-->(\n.*?)*<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../common/styles/site.min.css">')
+                            .replace(/<!--\s*build:js\s+common\/scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '');
 
         fs.readFile(path.join(__dirname, 'src', 'projects', 'projectList.partial.html'), charset, function(err, dataView) {
             var showcaseTemplate = dataView.match(/<div\s+data-ng-repeat="project\s+in\s+projects(.*\n)*(?=<\/div>(\n.*)*<h2>Other\sworks)/gi)[0],
@@ -70,10 +70,10 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
                     } else {
                         view = view.replace(/(<h2>Other works<\/h2>\n*<div\s*class="projects">)/gi, '$1' +
                             otherworksTemplate.replace(/data-ng-class="'views-row'"/gi, 'class="views-row"')
-                                            .replace(/\{\{\s*project\.projectIndex\s*}}/g, projIndex)
-                                            .replace(/\{\{\s*project\.title\s*}}/g, project.title)
-                                            .replace(/\{\{\s*project\.thumbnail\s*}}/g, project.thumbnail)
-                                            .replace(/data-ng-(?=src)/g, '')
+                                              .replace(/\{\{\s*project\.projectIndex\s*}}/g, projIndex)
+                                              .replace(/\{\{\s*project\.title\s*}}/g, project.title)
+                                              .replace(/\{\{\s*project\.thumbnail\s*}}/g, project.thumbnail)
+                                              .replace(/data-ng-(?=src)/g, '')
                             );
                     }
                 });
@@ -87,12 +87,12 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
     }
 });
 
-fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, dataIndex) {
+fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, dataMain) {
     if(!err) {
-        var index = dataIndex.replace(/(ng-cloak|data-ng-cloak)\s*/gi, '')
-                             .replace(/<!--\s*build:remove\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '')
-                             .replace(/<!--\s*build:css\s+common\/styles\/site\.min\.css\s*-->(\n.*?)*<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../common/styles/site.min.css">')
-                             .replace(/<!--\s*build:js\s+common\/scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '');
+        var index = dataMain.replace(/(ng-cloak|data-ng-cloak)\s*/gi, '')
+                            .replace(/<!--\s*build:remove\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '')
+                            .replace(/<!--\s*build:css\s+common\/styles\/site\.min\.css\s*-->(\n.*?)*<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../common/styles/site.min.css">')
+                            .replace(/<!--\s*build:js\s+common\/scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '');
 
         fs.readFile(path.join(__dirname, 'src', 'resources', 'resourceList.partial.html'), charset, function(err, dataView) {
             var dest = path.join(__dirname, 'resources', 'index.html');
