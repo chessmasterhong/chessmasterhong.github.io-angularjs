@@ -86,6 +86,7 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
                                               .replace(/\{\{\s*project\.projectIndex\s*}}/g, projIndex)
                                               .replace(/\{\{\s*project\.title\s*}}/g, project.title)
                                               .replace(/\{\{\s*project\.thumbnail\s*}}/g, project.thumbnail)
+                                              .replace(/(href=")\/#(?=\/.*?")/gi, '$1')
                                               .replace(/data-ng-(?=src)/g, '')
                             );
                     }
