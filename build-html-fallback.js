@@ -12,7 +12,7 @@ var charset = 'utf8';
 
 fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, dataMain) {
     if(!err) {
-        var index = dataMain.replace(/(ng-cloak|data-ng-cloak)\s*/gi, '')
+        var index = dataMain.replace(/(data-)?ng-cloak\s*/gi, '')
                             .replace(/<!--\s*build:remove\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/g, '')
                             .replace(/<!--\s*build:css\s+common\/styles\/site\.min\.css\s*-->(\n.*?)*<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../common/styles/site.min.css">')
                             .replace(/<!--\s*build:js\s+common\/scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '')
@@ -26,7 +26,7 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
                     dest,
                     index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1' + dataView)
                          .replace(new RegExp('data-ng-class="{\\s*active:\\s*isActive\\(\'' + page + '\'\\)\\s+}"', 'g'), 'class="active"')
-                         .replace(/\s+(data-ng|ng)-.*?".*?"/gi, ''),
+                         .replace(/\s+(data-)?ng-.*?".*?"/gi, ''),
                     charset);
             });
         });
@@ -37,7 +37,7 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
 
 fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, dataMain) {
     if(!err) {
-        var index = dataMain.replace(/(ng-cloak|data-ng-cloak)\s*/gi, '')
+        var index = dataMain.replace(/(data-)?ng-cloak\s*/gi, '')
                             .replace(/<!--\s*build:remove\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '')
                             .replace(/<!--\s*build:css\s+common\/styles\/site\.min\.css\s*-->(\n.*?)*<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../common/styles/site.min.css">')
                             .replace(/<!--\s*build:js\s+common\/scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '')
@@ -62,7 +62,7 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
                             path.join(__dirname, 'projects', projIndex, 'index.html'),
                             index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1<h1>Projects &raquo; ' + project.title + '</h1>' + dataView)
                                  .replace(/(?=\.\.\/common)/gi, '../')
-                                 .replace(/\s+(data-ng|ng)-.*?".*?"/gi, ''),
+                                 .replace(/\s+(data-)?ng-.*?".*?"/gi, ''),
                             charset
                         );
                     });
@@ -97,7 +97,7 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
                 fs.writeFile(
                     dest,
                     index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1' + view)
-                         .replace(/\s+(data-ng|ng)-.*?".*?"/gi, ''),
+                         .replace(/\s+(data-)?ng-.*?".*?"/gi, ''),
                     charset
                 );
             });
@@ -109,7 +109,7 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
 
 fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, dataMain) {
     if(!err) {
-        var index = dataMain.replace(/(ng-cloak|data-ng-cloak)\s*/gi, '')
+        var index = dataMain.replace(/(data-)?ng-cloak\s*/gi, '')
                             .replace(/<!--\s*build:remove\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '')
                             .replace(/<!--\s*build:css\s+common\/styles\/site\.min\.css\s*-->(\n.*?)*<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../common/styles/site.min.css">')
                             .replace(/<!--\s*build:js\s+common\/scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '')
@@ -120,7 +120,7 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
             fs.writeFile(
                 dest,
                 index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1' + dataView)
-                     .replace(/\s+(data-ng|ng)-.*?".*?"/gi, ''),
+                     .replace(/\s+(data-)?ng-.*?".*?"/gi, ''),
                 charset
             );
         });
