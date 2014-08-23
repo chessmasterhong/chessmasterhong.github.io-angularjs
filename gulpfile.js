@@ -106,7 +106,7 @@ gulp.task('optimize-styles', function() {
 gulp.task('optimize-html', function() {
     gulp.src(PATH.SOURCE + 'index.html')
         .pipe(prochtml('index.html'))
-        .pipe(minifyHTML())
+        .pipe(minifyHTML({ quotes: true }))
         .pipe(gulp.dest(PATH.BUILD));
 
     gulp.src([
@@ -116,7 +116,7 @@ gulp.task('optimize-html', function() {
             '!' + PATH.SOURCE + 'common/**/*.html',
             '!' + PATH.SOURCE + 'vendor/**/*.html'
         ])
-        .pipe(minifyHTML())
+        .pipe(minifyHTML({ quotes: true }))
         .pipe(gulp.dest(PATH.BUILD));
 });
 
