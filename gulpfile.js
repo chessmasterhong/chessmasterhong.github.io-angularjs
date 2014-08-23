@@ -68,8 +68,8 @@ gulp.task('optimize-scripts', function() {
         baseUrl: PATH.SOURCE,
         out: PATH.BUILD + 'common/scripts/site.min.js',
         mainConfigFile: PATH.SOURCE + 'common/scripts/main.js',
-        include: ['./vendor/requirejs/require.min.js', './common/scripts/main'],
-        insertRequire: ['main'],
+        include: ['./vendor/requirejs/require.min.js', 'common/scripts/main'],
+        insertRequire: ['common/scripts/main'],
         wrap: true,
         optimize: 'uglify2',
         preserveLicenseComments: false
@@ -124,13 +124,13 @@ gulp.task('optimize-images', function() {
 
 gulp.task('copy', function() {
     gulp.src([
-            PATH.SOURCE + 'fonts/fontello/font/*.eot',
-            PATH.SOURCE + 'fonts/fontello/font/*.svg',
-            PATH.SOURCE + 'fonts/fontello/font/*.ttf',
-            PATH.SOURCE + 'fonts/fontello/font/*.woff',
-            PATH.SOURCE + 'fonts/lato/font/*.woff'
+            PATH.SOURCE + 'common/fonts/fontello/font/*.eot',
+            PATH.SOURCE + 'common/fonts/fontello/font/*.svg',
+            PATH.SOURCE + 'common/fonts/fontello/font/*.ttf',
+            PATH.SOURCE + 'common/fonts/fontello/font/*.woff',
+            PATH.SOURCE + 'common/fonts/lato/font/*.woff'
         ])
-        .pipe(gulp.dest(PATH.BUILD + 'font/'));
+        .pipe(gulp.dest(PATH.BUILD + 'common/font/'));
 });
 
 gulp.task('concat-header-scripts', function() {
