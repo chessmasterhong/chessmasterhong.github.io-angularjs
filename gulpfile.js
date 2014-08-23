@@ -26,7 +26,17 @@ var gulp = require('gulp'),
     webserver = require('gulp-webserver');
 
 gulp.task('lint', function() {
-    return gulp.src(PATH.SOURCE + 'scripts/**/*.js')
+    return gulp.src([
+            PATH.SOURCE + 'about/**/*.js',
+            PATH.SOURCE + 'common/**/*.js',
+            PATH.SOURCE + 'contact/**/*.js',
+            PATH.SOURCE + 'credits/**/*.js',
+            PATH.SOURCE + 'home/**/*.js',
+            PATH.SOURCE + 'media/**/*.js',
+            PATH.SOURCE + 'partials/**/*.js',
+            PATH.SOURCE + 'projects/**/*.js',
+            PATH.SOURCE + 'resources/**/*.js'
+        ])
         .pipe(jshint({
             'bitwise': true,
             'camelcase': true,
@@ -158,13 +168,13 @@ gulp.task('concat-header-styles', function() {
 
 gulp.task('clean', function(done) {
     del([
+        PATH.BUILD + 'index.html',
         PATH.BUILD + '404*.html',
         PATH.BUILD + 'about/',
         PATH.BUILD + 'common/',
         PATH.BUILD + 'contact/',
         PATH.BUILD + 'credits/',
         PATH.BUILD + 'home/',
-        PATH.BUILD + 'index.html',
         PATH.BUILD + 'media/',
         PATH.BUILD + 'partials/',
         PATH.BUILD + 'projects/',
@@ -192,11 +202,15 @@ gulp.task('post-build-styles', function() {
 gulp.task('size', function() {
     return gulp.src([
             PATH.BUILD + 'index.html',
-            PATH.BUILD + 'fonts/**/*',
+            PATH.BUILD + 'about/**/*',
+            PATH.BUILD + 'common/**/*',
+            PATH.BUILD + 'contact/**/*',
+            PATH.BUILD + 'credits/**/*',
+            PATH.BUILD + 'home/**/*',
             PATH.BUILD + 'media/**/*',
-            PATH.BUILD + 'partial/**/*',
-            PATH.BUILD + 'scripts/**/*',
-            PATH.BUILD + 'styles/**/*',
+            PATH.BUILD + 'partials/**/*',
+            PATH.BUILD + 'projects/**/*',
+            PATH.BUILD + 'resources/**/*'
         ])
         .pipe(size({
             gzip: true,
@@ -228,6 +242,6 @@ gulp.task('build', function() {
         'concat-header-styles',
         'concat-header-scripts',
         ['post-build-styles', 'post-build-scripts'],
-        ['size', 'server']
+        'size'
     );
 });
