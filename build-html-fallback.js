@@ -24,8 +24,8 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
                 fs.writeFile(
                     dest,
                     index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1' + dataView)
-                         .replace(new RegExp('data-ng-class="{\\s*active:\\s*isActive\\(\'' + page + '\'\\)\\s+}"', 'g'), 'class="active"'),
-                         //.replace(/\s+(data-)?ng-.*?"?.*?"?(?=>)/gi, ''),
+                         .replace(new RegExp('data-ng-class="{\\s*active:\\s*isActive\\(\'' + page + '\'\\)\\s+}"', 'g'), 'class="active"')
+                         .replace(/\s+(data-)?ng-.*?=".*?"/gi, ''),
                     charset);
             });
         });
@@ -59,8 +59,8 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
                         fs.writeFile(
                             path.join(__dirname, 'projects', projIndex, 'index.html'),
                             index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1<h1>Projects &raquo; ' + project.title + '</h1>' + dataView)
-                                 .replace(/(?=\.\.\/common)/gi, '../'),
-                                 //.replace(/\s+(data-)?ng-.*?"?.*?"?(?=>)/gi, ''),
+                                 .replace(/(?=\.\.\/common)/gi, '../')
+                                 .replace(/\s+(data-)?ng-.*?=".*?"/gi, ''),
                             charset
                         );
                     });
@@ -94,8 +94,8 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
                 var dest = path.join(__dirname, 'projects', 'index.html');
                 fs.writeFile(
                     dest,
-                    index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1' + view),
-                         //.replace(/\s+(data-)?ng-.*?"?.*?"?(?=>)/gi, ''),
+                    index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1' + view)
+                         .replace(/\s+(data-)?ng-.*?=".*?"/gi, ''),
                     charset
                 );
             });
@@ -116,8 +116,8 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
             var dest = path.join(__dirname, 'resources', 'index.html');
             fs.writeFile(
                 dest,
-                index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1' + dataView),
-                     //.replace(/\s+(data-)?ng-.*?"?.*?"?(?=>)/gi, ''),
+                index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1' + dataView)
+                     .replace(/\s+(data-)?ng-.*?=".*?"/gi, ''),
                 charset
             );
         });
