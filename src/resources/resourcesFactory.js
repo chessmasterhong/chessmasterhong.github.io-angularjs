@@ -8,7 +8,7 @@ define([
             getResources: function() {
                 return $http({
                         method: 'GET',
-                        url: 'data/resources.json',
+                        url: 'resources/resources.json',
                         json: true,
                         cache: true
                     });

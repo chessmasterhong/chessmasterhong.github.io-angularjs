@@ -8,7 +8,7 @@ define([
             getProjects: function() {
                 return $http({
                         method: 'GET',
-                        url: 'data/projects.json',
+                        url: 'projects/projects.json',
                         json: true,
                         cache: true
                     });
