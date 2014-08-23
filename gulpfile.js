@@ -65,10 +65,10 @@ gulp.task('lint', function() {
 
 gulp.task('optimize-scripts', function() {
     requirejs.optimize({
-        baseUrl: PATH.SOURCE + 'scripts/',
-        out: PATH.BUILD + 'scripts/site.min.js',
-        mainConfigFile: PATH.SOURCE + 'scripts/main.js',
-        include: ['../vendor/requirejs/require.min.js', 'main'],
+        baseUrl: PATH.SOURCE,
+        out: PATH.BUILD + 'common/scripts/site.min.js',
+        mainConfigFile: PATH.SOURCE + 'common/scripts/main.js',
+        include: ['./vendor/requirejs/require.min.js', './common/scripts/main'],
         insertRequire: ['main'],
         wrap: true,
         optimize: 'uglify2',
@@ -85,12 +85,12 @@ gulp.task('optimize-styles', function() {
     return gulp.src([
             PATH.SOURCE + 'vendor/normalize-css/normalize.css',
             PATH.SOURCE + 'vendor/ngDialog/css/ngDialog.min.css',
-            PATH.SOURCE + 'fonts/**/*.css',
-            PATH.SOURCE + 'styles/**/*.css'
+            PATH.SOURCE + 'common/fonts/**/*.css',
+            PATH.SOURCE + 'common/styles/**/*.css'
         ])
         .pipe(concat('site.min.css'))
         .pipe(minifyCSS({ keepSpecialComments: 0 }))
-        .pipe(gulp.dest(PATH.BUILD + 'styles/'));
+        .pipe(gulp.dest(PATH.BUILD + 'common/styles/'));
 });
 
 gulp.task('optimize-html', function() {
@@ -99,9 +99,14 @@ gulp.task('optimize-html', function() {
         .pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD));
 
-    gulp.src(PATH.SOURCE + 'partials/**/*.html')
+    gulp.src([
+            PATH.SOURCE + '**/*.html',
+            '!' + PATH.SOURCE + 'archives/**/*.html',
+            '!' + PATH.SOURCE + 'common/**/*.html',
+            '!' + PATH.SOURCE + 'index.html'
+        ])
         .pipe(minifyHTML())
-        .pipe(gulp.dest(PATH.BUILD + 'partials/'));
+        .pipe(gulp.dest(PATH.BUILD));
 });
 
 gulp.task('optimize-json', function() {
