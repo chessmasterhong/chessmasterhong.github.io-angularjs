@@ -14,7 +14,7 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
     if(!err) {
         var index = dataMain.replace(/(data-)?ng-cloak\s*/gi, '')
                             .replace(/<!--\s*build:remove\s*-->(.*?)<!--\s*\/build\s*-->\s*/g, '')
-                            .replace(/<!--\s*build:css\s+common\/styles\/site\.min\.css\s*-->(.*?)<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../common/styles/site.min.css">')
+                            .replace(/(href=)(?=common\/styles\/site\.min\.css)/gi, '$1../')
                             .replace(/<!--\s*build:js\s+common\/scripts\/site\.min\.js\s*-->(.*?)<!--\s*\/build\s*-->\s*/gi, '')
 
         var pages = ['about', 'contact', 'credits'];
@@ -39,7 +39,7 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
     if(!err) {
         var index = dataMain.replace(/(data-)?ng-cloak\s*/gi, '')
                             .replace(/<!--\s*build:remove\s*-->(.*?)<!--\s*\/build\s*-->\s*/gi, '')
-                            .replace(/<!--\s*build:css\s+common\/styles\/site\.min\.css\s*-->(.*?)<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../common/styles/site.min.css">')
+                            .replace(/(href=)(?=common\/styles\/site\.min\.css)/gi, '$1../')
                             .replace(/<!--\s*build:js\s+common\/scripts\/site\.min\.js\s*-->(.*?)<!--\s*\/build\s*-->\s*/gi, '')
                             .replace(/data-ng-class="{\s*active:\s*isActive\('projects'\)\s+}"/g, 'class="active"');
 
@@ -111,7 +111,7 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
     if(!err) {
         var index = dataMain.replace(/(data-)?ng-cloak\s*/gi, '')
                             .replace(/<!--\s*build:remove\s*-->(.*?)<!--\s*\/build\s*-->\s*/gi, '')
-                            .replace(/<!--\s*build:css\s+common\/styles\/site\.min\.css\s*-->(.*?)<!--\s*\/build\s*-->/gi, '<link rel=stylesheet href="../common/styles/site.min.css">')
+                            .replace(/(href=)(?=common\/styles\/site\.min\.css)/gi, '$1../')
                             .replace(/<!--\s*build:js\s+common\/scripts\/site\.min\.js\s*-->(.*?)<!--\s*\/build\s*-->\s*/gi, '')
                             .replace(/data-ng-class="{\s*active:\s*isActive\('resources'\)\s+}"/g, 'class="active"');
 
