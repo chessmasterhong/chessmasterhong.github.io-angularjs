@@ -133,10 +133,10 @@ fs.readFile(pathMain, charset, function(err, dataMain) {
         fs.readFile(path.join(__dirname, 'home', 'home.partial.html'), charset, function(err, dataView) {
             fs.writeFile(
                 pathMain,
-                index.replace(/\s+data-ui-view(>)(?=<\/section>)/gi, '$1' + dataView)
-                     .replace(/data-ng-class="{\s*active:\s*isActive\('home'\)\s+}"/g, 'class="active"')
-                     .replace(/\s+(data-)?ng-.*?=".*?"/gi, ''),
-                charset);
+                index.replace(/(\s+data-ui-view>)(?=<\/section>)/gi, '$1' + dataView),
+                     //.replace(/data-ng-class="{\s*active:\s*isActive\('home'\)\s+}"/g, 'class="active"');
+                charset
+            );
         });
     } else {
         console.log(err);
