@@ -101,16 +101,21 @@ gulp.task('optimize-html', function() {
 
     gulp.src([
             PATH.SOURCE + '**/*.html',
+            '!' + PATH.SOURCE + 'index.html',
             '!' + PATH.SOURCE + 'archives/**/*.html',
             '!' + PATH.SOURCE + 'common/**/*.html',
-            '!' + PATH.SOURCE + 'index.html'
+            '!' + PATH.SOURCE + 'vendor/**/*.html'
         ])
         .pipe(minifyHTML())
         .pipe(gulp.dest(PATH.BUILD));
 });
 
 gulp.task('optimize-json', function() {
-    return gulp.src(PATH.SOURCE + '**/*.json')
+    return gulp.src([
+            PATH.SOURCE + '**/*.json',
+            '!' + PATH.SOURCE + 'common/**/*.json',
+            '!' + PATH.SOURCE + 'vendor/**/*.json'
+        ])
         .pipe(minifyJSON())
         .pipe(replace(/^(\)]}',)(?=\[{".+":.+)/, '$1\n'))
         .pipe(gulp.dest(PATH.BUILD));
@@ -139,7 +144,7 @@ gulp.task('concat-header-scripts', function() {
             PATH.BUILD + 'common/scripts/site.min.js'
         ])
         .pipe(concat('site.min.js'))
-        .pipe(gulp.dest(PATH.BUILD + 'scripts/'));
+        .pipe(gulp.dest(PATH.BUILD + 'common/scripts/'));
 });
 
 gulp.task('concat-header-styles', function() {
@@ -148,7 +153,7 @@ gulp.task('concat-header-styles', function() {
             PATH.BUILD + 'common/styles/site.min.css'
         ])
         .pipe(concat('site.min.css'))
-        .pipe(gulp.dest(PATH.BUILD + 'styles/'));
+        .pipe(gulp.dest(PATH.BUILD + 'common/styles/'));
 });
 
 gulp.task('clean', function(done) {
