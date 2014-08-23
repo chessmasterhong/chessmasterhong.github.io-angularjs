@@ -42,11 +42,11 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
                             .replace(/data-ng-class="{\s*active:\s*isActive\('projects'\)\s+}"/g, 'class="active"');
 
         fs.readFile(path.join(__dirname, 'projects', 'projectList.partial.html'), charset, function(err, dataView) {
-            var showcaseTemplate = dataView.match(/<div\s+data-ng-repeat="project\s+in\s+projects(.*)(?=<\/div>(.*)<h2>Other\sworks)/gi)[0],
+            var showcaseTemplate = dataView.match(/<div\s+data-ng-repeat="project\s+in\s+projects(.*)(?=<\/div>.*<h2>Other\sworks)/gi)[0],
                 otherworksTemplate = dataView.match(/<span\s+data-ng-repeat="project\s+in\s+projects(.*)(?=<\/div>)/gi)[0];
 
-            var view = dataView.replace(/(<div\s+data-ng-repeat="project\s+in\s+projects)(.*)(?=<\/div>(.*)<h2>Other\sworks)/gi, '')
-                               .replace(/<span\s+data-ng-repeat="project\s+in\s+projects(.*)(?=<\/div>)/gi, '');
+            var view = dataView.replace(/(<div\s+data-ng-repeat="project\s+in\s+projects).*(?=<\/div>.*<h2>Other\sworks)/gi, '')
+                               .replace(/<span\s+data-ng-repeat="project\s+in\s+projects.*(?=<\/div>)/gi, '');
 
             fs.readFile(path.join(__dirname, 'projects', 'projects.json'), charset, function(err, dataJSON) {
                 var json = JSON.parse(dataJSON.replace(/\)]}',/, '')).reverse();
@@ -71,14 +71,14 @@ fs.readFile(path.join(__dirname, 'index.html'), charset, function(err, dataMain)
                                             .replace(/\{\{\s*project\.projectIndex\s*}}/g, projIndex)
                                             .replace(/\{\{\s*project\.title\s*}}/g, project.title)
                                             .replace(/\{\{\s*project\.thumbnail\s*}}/g, project.thumbnail)
-                                            .replace(/(href=")\/#(?=\/(.*?)")/gi, '$1')
+                                            .replace(/(href=")\/#(?=\/.*?")/gi, '$1')
                                             .replace(/\{\{\s*project\.urlDemo\s*}}/g, project.urlDemo)
                                             .replace(/\{\{\s*project\.urlSource\s*}}/g, project.urlSource)
                                             .replace(/\s*data-ng-bind="project\.title"(>)/g, '$1' + project.title)
                                             .replace(/\s*data-ng-bind="project\.excerpt"(>)/g, '$1' + project.excerpt)
                                             .replace(/data-ng-(?=src)/g, '')
-                                            .replace(/<span\s+class="spacer"\s+data-ng-show="project.urlDemo"><\/span>((.*?))<\/a>/gi, project.urlDemo ? '<span class="spacer"></span>$1</a>' : '')
-                                            .replace(/<span\s+class="spacer"\s+data-ng-show="\(project\.urlDemo\s*\&\&\s*project\.urlSource\)\s*\|\|\s*project\.urlSource"><\/span>((.*?))<\/a>/gi, project.urlSource ? '<span class="spacer"></span>$1</a>' : '')
+                                            .replace(/<span\s+class="spacer"\s+data-ng-show="project.urlDemo"><\/span>(.*?)<\/a>/gi, project.urlDemo ? '<span class="spacer"></span>$1</a>' : '')
+                                            .replace(/<span\s+class="spacer"\s+data-ng-show="\(project\.urlDemo\s*\&\&\s*project\.urlSource\)\s*\|\|\s*project\.urlSource"><\/span>(.*?)<\/a>/gi, project.urlSource ? '<span class="spacer"></span>$1</a>' : '')
                             );
                     } else {
                         view = view.replace(/(<h2>Other works<\/h2>*<div\s*class="projects">)/gi, '$1' +
