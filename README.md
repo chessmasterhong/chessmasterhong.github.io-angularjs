@@ -23,43 +23,7 @@ The **fonts and font icons** are licensed under the [SIL Open Font License 1.1](
 
 The **source code** is licensed under the [MIT License](LICENSE.txt). The full listing of attributions and their respective licenses can be viewed [here](/src/tasks/license.js).
 
-However, the **content of the website** (specifically the directories and materials listed below) are copyright to [Kevin Chan](http://github.com/chessmasterhong). You may not reuse any materials therein without my permission.
-
-
-* `/src/about/about.partial.html`
-* `/src/contact/contact.partial.html`
-* `/src/credits/credits.partial.html`
-* `/src/home/home.partial.html`
-* `/src/projects/projects.partial.html`
-* `/src/projects/<project_id>/<project_id>.partial.html`
-* `/src/resources/resources.partial.html`
-* `/src/resources/<resource_id>/<resource_id>.partial.html`
-
-
-* `/about/about.partial.html`
-* `/contact/contact.partial.html`
-* `/credits/credits.partial.html`
-* `/home/home.partial.html`
-* `/projects/projects.partial.html`
-* `/projects/<project_id>/<project_id>.partial.html`
-* `/resources/resources.partial.html`
-* `/resources/<resource_id>/<resource_id>.partial.html`
-
-
-* `/about/index.html`
-* `/contact/index.html`
-* `/credits/index.html`
-* `/projects/index.html`
-* `/projects/<project_id>/index.html`
-* `/projects/index.html`
-* `/resources/<resource_id>/index.html`
-
-
-* `/src/projects/projects.json`
-* `/src/resources/resources.json`
-
-
-* all images
+However, the **content of the website** (posts, images, projects, and other page content) are copyright to [Kevin Chan](http://github.com/chessmasterhong). You may not reuse any materials therein without my permission.
 
 
 Copyright (c) 2014 Kevin Chan. Rights reserved as indicated above.
