@@ -103,7 +103,15 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
                              .replace(/<!--\s*build:js\s+common\/scripts\/site\.min\.js\s*-->(\n.*?)*<!--\s*\/build\s*-->\n\s*/gi, '');
 
         fs.readFile(path.join(__dirname, 'src', 'resources', 'resourceList.partial.html'), charset, function(err, dataView) {
-            // ...
+            var dest = path.join(__dirname, 'resources', 'index.html');
+
+            fs.exists(dest, function(exists) {
+                if(!exists) {
+                    fs.mkdir('resources');
+                }
+
+                fs.writeFile(dest, index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1' + dataView), charset);
+            });
         });
     } else {
         console.log(err);
