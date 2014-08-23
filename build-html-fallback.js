@@ -22,9 +22,9 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
                 var dest = path.join(__dirname, page, 'index.html');
 
                 fs.exists(dest, function(exists) {
-                    if(!exists) {
-                        fs.mkdir(page);
-                    }
+                    //if(!exists) {
+                    //    fs.mkdir(page);
+                    //}
 
                     fs.writeFile(dest, index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1' + dataView), charset);
                 });
@@ -82,9 +82,9 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
                 var dest = path.join(__dirname, 'projects', 'index.html');
 
                 fs.exists(dest, function(exists) {
-                    if(!exists) {
-                        fs.mkdir('projects');
-                    }
+                    //if(!exists) {
+                    //    fs.mkdir('projects');
+                    //}
 
                     fs.writeFile(dest, index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1' + view), charset);
                 });
@@ -106,9 +106,9 @@ fs.readFile(path.join(__dirname, 'src', 'index.html'), charset, function(err, da
             var dest = path.join(__dirname, 'resources', 'index.html');
 
             fs.exists(dest, function(exists) {
-                if(!exists) {
-                    fs.mkdir('resources');
-                }
+                //if(!exists) {
+                //    fs.mkdir('resources');
+                //}
 
                 fs.writeFile(dest, index.replace(/\sdata-ui-view(>)(?=<\/section>)/gi, '$1' + dataView), charset);
             });

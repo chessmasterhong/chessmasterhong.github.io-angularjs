@@ -46,6 +46,7 @@
   },
   "scripts": {
     "build": "node node_modules/gulp/bin/gulp.js build",
+    "build-fallback": "node build-html-fallback.js",
     "push": "git push origin master",
     "server": "node node_modules/gulp/bin/gulp.js server",
     "server-dev": "node node_modules/gulp/bin/gulp.js server-dev"
