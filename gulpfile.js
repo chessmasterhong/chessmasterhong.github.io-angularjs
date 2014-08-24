@@ -21,6 +21,7 @@ var gulp = require('gulp'),
     replace = require('gulp-replace'),
     requirejs = require('requirejs'),
     runSequence = require('run-sequence'),
+    shell = require('gulp-shell'),
     size = require('gulp-size'),
     stylish = require('jshint-stylish'),
     webserver = require('gulp-webserver');
@@ -242,3 +243,6 @@ gulp.task('build', function() {
         'size'
     );
 });
+
+gulp.task('build-fallback', shell.task('node build-html-fallback.js'));
+
