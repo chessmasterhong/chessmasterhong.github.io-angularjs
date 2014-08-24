@@ -78,8 +78,8 @@ gulp.task('optimize-scripts', function() {
         baseUrl: PATH.SOURCE,
         out: PATH.BUILD + 'common/scripts/site.min.js',
         mainConfigFile: PATH.SOURCE + 'common/scripts/main.js',
-        include: ['./vendor/requirejs/require.min.js', 'common/scripts/main'],
-        insertRequire: ['common/scripts/main'],
+        include: ['./vendor/requirejs/require.min.js', './common/scripts/main', './tasks/analytics'],
+        insertRequire: ['./common/scripts/main'],
         wrap: true,
         optimize: 'uglify2',
         preserveLicenseComments: false
