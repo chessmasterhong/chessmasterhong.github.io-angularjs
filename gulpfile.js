@@ -233,14 +233,17 @@ gulp.task('server', function() {
         }));
 });
 
-gulp.task('build', function() {
+gulp.task('build-ng', function() {
     runSequence(
         ['clean', 'lint'],
         ['optimize-styles', 'optimize-scripts', 'optimize-html', 'optimize-json', 'copy'],
         'concat-header-styles',
         'concat-header-scripts',
         ['post-build-styles', 'post-build-scripts'],
-        'size'
+        'size',
+        function() {
+            return 0;
+        }
     );
 });
 
