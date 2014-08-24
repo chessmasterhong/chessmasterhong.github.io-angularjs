@@ -22,7 +22,7 @@ define([
                 controller: 'projectListController'
             })
             .state('projects.details', {
-                url: '/{projectIndex:[0-9]{1,2}}',
+                url: '/{projectIndex:[0-9]*}',
                 templateUrl: '/projects/projectDetail.partial.html',
                 controller: 'projectDetailController'
             })
@@ -38,7 +38,7 @@ define([
                 controller: 'resourceListController'
             })
             .state('resources.details', {
-                url: '/{resourceIndex:[0-9]{1,2}}',
+                url: '/{resourceIndex:[0-9]*}',
                 templateUrl: '/resources/resourceDetail.partial.html',
                 controller: 'resourceDetailController'
             })
