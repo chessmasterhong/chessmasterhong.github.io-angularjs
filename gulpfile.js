@@ -33,7 +33,6 @@ gulp.task('lint', function() {
             PATH.SOURCE + 'credits/**/*.js',
             PATH.SOURCE + 'home/**/*.js',
             PATH.SOURCE + 'media/**/*.js',
-            PATH.SOURCE + 'partials/**/*.js',
             PATH.SOURCE + 'projects/**/*.js',
             PATH.SOURCE + 'resources/**/*.js'
         ])
@@ -113,7 +112,7 @@ gulp.task('optimize-html', function() {
             PATH.SOURCE + '**/*.html',
             '!' + PATH.SOURCE + 'index.html',
             '!' + PATH.SOURCE + 'archives/**/*.html',
-            '!' + PATH.SOURCE + 'common/**/*.html',
+            '!' + PATH.SOURCE + 'common/fonts/**/*.html',
             '!' + PATH.SOURCE + 'vendor/**/*.html'
         ])
         .pipe(minifyHTML({ quotes: true }))
@@ -176,7 +175,6 @@ gulp.task('clean', function(done) {
         PATH.BUILD + 'credits/',
         PATH.BUILD + 'home/',
         PATH.BUILD + 'media/',
-        PATH.BUILD + 'partials/',
         PATH.BUILD + 'projects/',
         PATH.BUILD + 'resources/',
         PATH.BUILD + 'vendor/'
@@ -208,7 +206,6 @@ gulp.task('size', function() {
             PATH.BUILD + 'credits/**/*',
             PATH.BUILD + 'home/**/*',
             PATH.BUILD + 'media/**/*',
-            PATH.BUILD + 'partials/**/*',
             PATH.BUILD + 'projects/**/*',
             PATH.BUILD + 'resources/**/*'
         ])
