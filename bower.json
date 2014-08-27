@@ -13,11 +13,11 @@
   },
   "private": true,
   "dependencies": {
-    "angular": "~1.2.21",
-    "angular-animate": "~1.2.21",
+    "angular": "~1.2.23",
+    "angular-animate": "~1.2.23",
     "angular-ui-router": "~0.2.10",
-    "angulartics": "~0.15.20",
-    "ngDialog": "~0.2.9",
+    "angulartics": "~0.16.4",
+    "ngDialog": "~0.2.13",
     "normalize-css": "~3.0.1",
     "requirejs": "~2.1.14",
     "requirejs-domready": "~2.0.1"
