@@ -13,6 +13,7 @@ define([
                 var projectCount = $scope.projects.length;
                 for(var p = 0; p < projectCount; p++) {
                     $scope.projects[p].projectIndex = projectCount - p - 1;
+                    $scope.projects[p].thumbnail = $scope.projects[p].thumbnail.replace(/&amp;/i, '&');
                 }
             });
     }]);
