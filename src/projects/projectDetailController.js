@@ -16,6 +16,10 @@ define([
 
                 if(project) {
                     $scope.project = project;
+
+                    $scope.project.slides.forEach(function(slide) {
+                        slide.image = slide.image.replace(/&amp;/i, '&');
+                    });
                 } else {
                     $state.go('404');
                 }
