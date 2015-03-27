@@ -4,7 +4,7 @@ define([
     'use strict';
 
     controllers.controller('headController', ['$scope', function($scope) {
-        $scope.siteTitle = 'Kevin Chan';
+        $scope.siteTitle = '';
 
         $scope.$on('$stateChangeSuccess', function(event, toState) {
             $scope.pageTitle = toState.data.pageTitle;
